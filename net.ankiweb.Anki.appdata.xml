@@ -20,6 +20,7 @@
   </screenshots>
   <translation>qt</translation>
   <releases>
+    <release version="2.1.0beta37" date="2018-03-01"/>
     <release version="2.1.0beta36" date="2018-02-05"/>
   </releases>
   <content_rating type="oars-1.1">
