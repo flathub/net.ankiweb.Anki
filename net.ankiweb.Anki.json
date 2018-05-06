@@ -18,8 +18,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://apps.ankiweb.net/downloads/beta/anki-2.1.0beta37-source.tgz",
-          "sha256": "459e01d3bc132b0cb26d846e6d48b20eb416d55d7d19b569690b4f4961021860"
+          "url": "https://apps.ankiweb.net/downloads/beta/anki-2.1.0beta38-source.tgz",
+          "sha256": "a6d92f1ded1c501fd8b3f772426b03c715d933471a0b99a773eac2b49747679c"
         },
         {
           "type": "file",
