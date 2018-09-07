@@ -60,10 +60,10 @@
         }
       ],
       "cleanup": [
-        "/app/lib/pkgconfig",
-        "/app/lib/libportaudio.a",
-        "/app/lib/libportaudio.la",
-        "/app/include"
+        "/lib/pkgconfig",
+        "/lib/libportaudio.a",
+        "/lib/libportaudio.la",
+        "/include"
       ]
     },
     {
@@ -82,6 +82,9 @@
           "url": "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz",
           "sha256": "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
         }
+      ],
+      "cleanup": [
+        "/bin"
       ],
       "modules": [
         {
