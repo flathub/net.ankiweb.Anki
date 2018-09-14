@@ -18,8 +18,12 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://apps.ankiweb.net/downloads/beta/anki-2.1.0beta37-source.tgz",
-          "sha256": "459e01d3bc132b0cb26d846e6d48b20eb416d55d7d19b569690b4f4961021860"
+          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.4-source.tgz",
+          "sha256": "666886a36609ec605907da99a8373bc2d0a94704eefb14f60de0d6cf783bb701"
+        },
+        {
+          "type": "patch",
+          "path": "python3.5.patch"
         },
         {
           "type": "file",
@@ -32,24 +36,18 @@
       ],
       "buildsystem": "simple",
       "build-commands": [
-        "mkdir -p /app/local/bin",
+        "mkdir -p /app/bin",
         "mkdir -p /app/share/man/man1",
         "mkdir -p /app/share/{applications,icons,pixmaps}",
         "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
-        "sed -i -e 's:/usr/share:/app/share:' tools/runanki.system",
-        "sed -i -e '/xdg-mime/d' Makefile",
         "sed -i -e 's/cp -a/cp -dR/' Makefile",
         "make install PREFIX=/app",
-        "mv /app/local/bin /app/bin",
         "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
         "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
         "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
       ],
       "cleanup": [
-        "/app/local",
-        "/app/usr/share/pixmaps",
-        "/app/share/anki/runanki",
-        "/app/share/anki/Makefile"
+        "/app/usr/share/pixmaps"
       ]
     },
     {

@@ -1,0 +1,32 @@
+Anki officially requires Python3.6 but we only have Python3.5 in the
+runtime.
+
+Drop the version check and also patch the code that we know about
+that is incompatible with py3.5
+
+diff --git a/anki/media.py b/anki/media.py
+index b37e1cb..296f556 100644
+--- a/anki/media.py
++++ b/anki/media.py
+@@ -412,7 +412,8 @@ create table meta (dirMod int, lastUsn int); insert into meta values (0, 0);
+         added = []
+         removed = []
+         # loop through on-disk files
+-        with os.scandir(self.dir()) as it:
++        if True:
++            it = os.scandir(self.dir())
+             for f in it:
+                 # ignore folders and thumbs.db
+                 if f.is_dir():
+diff --git a/aqt/qt.py b/aqt/qt.py
+index c488f20..7dc4443 100644
+--- a/aqt/qt.py
++++ b/aqt/qt.py
+@@ -40,7 +40,3 @@ qtpoint = QT_VERSION & 0xff
+ 
+ if qtmajor != 5 or qtminor != 9:
+     raise Exception("Anki only supports Qt 5.9.x at this time.")
+-
+-# GUI code assumes python 3.6+
+-if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+-    raise Exception("Anki requires Python 3.6+")
