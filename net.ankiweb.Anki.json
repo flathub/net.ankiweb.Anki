@@ -6,6 +6,7 @@
   "command": "anki",
   "finish-args": [
      "--socket=x11",
+     "--socket=pulseaudio",
      "--socket=wayland",
      "--share=network",
      "--share=ipc",
@@ -106,6 +107,75 @@
         }
       ]
     },
+    {
+      "name": "mpv",
+      "cleanup": [ "/include", "/lib/pkgconfig" ],
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 waf configure --prefix=/app --disable-libass --disable-build-date --disable-oss-audio --disable-alsa",
+        "python3 waf build",
+        "python3 waf install"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/mpv-player/mpv/archive/v0.29.0.tar.gz",
+          "sha256": "772af878cee5495dcd342788a6d120b90c5b1e677e225c7198f1e76506427319"
+        },
+        {
+          "type": "file",
+          "url": "https://waf.io/waf-1.9.8",
+          "sha256": "167dc42bab6d5bd823b798af195420319cb5c9b571e00db7d83df2a0fe1f4dbf",
+          "dest-filename": "waf"
+        }
+      ],
+      "modules": [
+        {
+          "name": "ffmpeg",
+          "cleanup": [ "/include", "/lib/pkgconfig", "/share/ffmpeg/examples" ],
+          "config-opts": [
+            "--enable-shared",
+            "--disable-static",
+            "--enable-gnutls",
+            "--disable-doc",
+            "--disable-programs",
+            "--disable-encoders",
+            "--disable-muxers",
+            "--disable-network",
+            "--disable-libxcb",
+            "--disable-xlib",
+            "--disable-v4l2-m2m",
+            "--disable-vaapi",
+            "--disable-vdpau",
+            "--disable-sdl2",
+            "--disable-decoders",
+            "--enable-decoder=aac",
+            "--enable-decoder=mp3",
+            "--enable-decoder=cscd",
+            "--disable-hwaccels",
+            "--disable-parsers",
+            "--enable-parser=aac",
+            "--disable-demuxers",
+            "--enable-demuxer=aac",
+            "--enable-demuxer=mp3",
+            "--enable-demuxer=mov",
+            "--disable-filters",
+            "--disable-bsfs",
+            "--disable-indevs",
+            "--disable-outdevs",
+            "--enable-outdev=alsa",
+            "--disable-protocols",
+            "--enable-protocol=file"
+          ],
+          "sources": [{
+            "type": "archive",
+            "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
+            "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+          }]
+        }
+      ]
+    },
+    "lame-3.99.5.json",
     "decorator.json",
     "pyaudio.json",
     "bs4.json",
