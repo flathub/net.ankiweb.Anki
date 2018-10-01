@@ -15,43 +15,6 @@
   "rename-desktop-file": "anki.desktop",
   "modules": [
     {
-      "name": "anki",
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.4-source.tgz",
-          "sha256": "666886a36609ec605907da99a8373bc2d0a94704eefb14f60de0d6cf783bb701"
-        },
-        {
-          "type": "patch",
-          "path": "python3.5.patch"
-        },
-        {
-          "type": "file",
-          "path": "net.ankiweb.Anki.svg"
-        },
-        {
-          "type": "file",
-          "path": "net.ankiweb.Anki.appdata.xml"
-        }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "mkdir -p /app/bin",
-        "mkdir -p /app/share/man/man1",
-        "mkdir -p /app/share/{applications,icons,pixmaps}",
-        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
-        "sed -i -e 's/cp -a/cp -dR/' Makefile",
-        "make install PREFIX=/app",
-        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
-        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
-        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
-      ],
-      "cleanup": [
-        "/app/usr/share/pixmaps"
-      ]
-    },
-    {
       "name": "portaudio",
       "sources": [
         {
@@ -181,6 +144,43 @@
     "bs4.json",
     "requests.json",
     "send2trash.json",
-    "markdown.json"
+    "markdown.json",
+    {
+      "name": "anki",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.4-source.tgz",
+          "sha256": "666886a36609ec605907da99a8373bc2d0a94704eefb14f60de0d6cf783bb701"
+        },
+        {
+          "type": "patch",
+          "path": "python3.5.patch"
+        },
+        {
+          "type": "file",
+          "path": "net.ankiweb.Anki.svg"
+        },
+        {
+          "type": "file",
+          "path": "net.ankiweb.Anki.appdata.xml"
+        }
+      ],
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin",
+        "mkdir -p /app/share/man/man1",
+        "mkdir -p /app/share/{applications,icons,pixmaps}",
+        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
+        "sed -i -e 's/cp -a/cp -dR/' Makefile",
+        "make install PREFIX=/app",
+        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
+        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
+        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
+      ],
+      "cleanup": [
+        "/app/usr/share/pixmaps"
+      ]
+    }
   ]
 }
