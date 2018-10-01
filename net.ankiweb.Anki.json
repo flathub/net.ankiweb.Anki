@@ -5,12 +5,12 @@
   "sdk": "org.kde.Sdk",
   "command": "anki",
   "finish-args": [
-     "--socket=x11",
-     "--socket=pulseaudio",
-     "--socket=wayland",
-     "--share=network",
-     "--share=ipc",
-     "--device=dri"
+    "--socket=x11",
+    "--socket=pulseaudio",
+    "--socket=wayland",
+    "--share=network",
+    "--share=ipc",
+    "--device=dri"
   ],
   "rename-desktop-file": "anki.desktop",
   "modules": [
@@ -24,17 +24,20 @@
         }
       ],
       "cleanup": [
-        "/app/lib/pkgconfig",
-        "/app/lib/libportaudio.a",
-        "/app/lib/libportaudio.la",
-        "/app/include"
+        "/lib/pkgconfig",
+        "/include",
+        "*.a",
+        "*.la"
       ]
     },
     {
       "name": "pyqt5",
-      "config-opts": [ "--disable-static", "--enable-x11" ],
       "no-autogen": true,
       "buildsystem": "simple",
+      "config-opts": [
+        "--disable-static",
+        "--enable-x11"
+      ],
       "build-commands": [ 
         "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'", 
         "make -j `nproc`",
@@ -50,18 +53,18 @@
       "modules": [
         {
           "name": "sip",
+          "buildsystem": "simple",
+          "build-commands": [
+            "python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.5/site-packages --incdir=/app/include --pyidir=/app/lib/python3.5/site-packages --sipdir=/app/share/sip",
+            "make",
+            "make install"
+          ],
           "sources": [
             {
               "type": "archive",
               "url": "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.7/sip-4.19.7.tar.gz",
               "sha256": "25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde"
             }
-          ],
-          "buildsystem": "simple",
-          "build-commands": [
-            "python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.5/site-packages --incdir=/app/include --pyidir=/app/lib/python3.5/site-packages --sipdir=/app/share/sip",
-            "make",
-            "make install"
           ],
           "cleanup": [
             "/bin",
@@ -72,7 +75,6 @@
     },
     {
       "name": "mpv",
-      "cleanup": [ "/include", "/lib/pkgconfig" ],
       "buildsystem": "simple",
       "build-commands": [
         "python3 waf configure --prefix=/app --disable-libass --disable-build-date --disable-oss-audio --disable-alsa",
@@ -92,10 +94,18 @@
           "dest-filename": "waf"
         }
       ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ],
       "modules": [
         {
           "name": "ffmpeg",
-          "cleanup": [ "/include", "/lib/pkgconfig", "/share/ffmpeg/examples" ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig",
+            "/share/ffmpeg/examples"
+          ],
           "config-opts": [
             "--enable-shared",
             "--disable-static",
@@ -130,11 +140,13 @@
             "--disable-protocols",
             "--enable-protocol=file"
           ],
-          "sources": [{
-            "type": "archive",
-            "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
-            "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
-          }]
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
+              "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+            }
+          ]
         }
       ]
     },
@@ -147,6 +159,18 @@
     "python3-markdown.json",
     {
       "name": "anki",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin",
+        "mkdir -p /app/share/man/man1",
+        "mkdir -p /app/share/{applications,icons,pixmaps}",
+        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
+        "sed -i -e 's/cp -a/cp -dR/' Makefile",
+        "make install PREFIX=/app",
+        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
+        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
+        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
+      ],
       "sources": [
         {
           "type": "archive",
@@ -165,18 +189,6 @@
           "type": "file",
           "path": "net.ankiweb.Anki.appdata.xml"
         }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "mkdir -p /app/bin",
-        "mkdir -p /app/share/man/man1",
-        "mkdir -p /app/share/{applications,icons,pixmaps}",
-        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
-        "sed -i -e 's/cp -a/cp -dR/' Makefile",
-        "make install PREFIX=/app",
-        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
-        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
-        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
       ],
       "cleanup": [
         "/app/usr/share/pixmaps"
