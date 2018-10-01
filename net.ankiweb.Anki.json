@@ -138,7 +138,7 @@
         }
       ]
     },
-    "lame-3.99.5.json",
+    "lame/lame-3.99.5.json",
     "decorator.json",
     "pyaudio.json",
     "bs4.json",
