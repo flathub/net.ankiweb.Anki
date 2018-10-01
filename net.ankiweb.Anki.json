@@ -13,6 +13,7 @@
     "--device=dri"
   ],
   "rename-desktop-file": "anki.desktop",
+  "rename-icon": "anki",
   "modules": [
     {
       "name": "portaudio",
@@ -159,15 +160,12 @@
     "python3-markdown.json",
     {
       "name": "anki",
-      "buildsystem": "simple",
-      "build-commands": [
-        "mkdir -p /app/bin",
-        "mkdir -p /app/share/man/man1",
-        "mkdir -p /app/share/{applications,icons,pixmaps}",
-        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
-        "sed -i -e 's/cp -a/cp -dR/' Makefile",
-        "make install PREFIX=/app",
-        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
+      "no-autogen": true,
+      "make-install-args": [
+        "PREFIX=/app"
+      ],
+      "post-install": [
+        "install -D -t /app/share/icons/hicolor/scalable/apps anki.svg",
         "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
         "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
       ],
@@ -183,15 +181,21 @@
         },
         {
           "type": "file",
-          "path": "net.ankiweb.Anki.svg"
+          "path": "anki.svg"
         },
         {
           "type": "file",
           "path": "net.ankiweb.Anki.appdata.xml"
+        },
+        {
+          "type": "script",
+          "commands": [
+            "sed -i -e 's/cp -a/cp -dR/' Makefile"
+          ]
         }
       ],
       "cleanup": [
-        "/app/usr/share/pixmaps"
+        "/share/pixmaps"
       ]
     }
   ]
