@@ -198,7 +198,8 @@
         {
           "type": "script",
           "commands": [
-            "sed -i -e 's/cp -a/cp -dR/' Makefile"
+            "sed -i -e 's/cp -a/cp -dR/' Makefile",
+            "sed -i -e 's|/usr/share|/app/share|' anki/lang.py"
           ]
         }
       ],
