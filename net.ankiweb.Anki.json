@@ -46,8 +46,8 @@
         "--disable-static",
         "--enable-x11"
       ],
-      "build-commands": [ 
-        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'", 
+      "build-commands": [
+        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'",
         "make -j `nproc`",
         "make install DESTDIR=/app"
       ],
