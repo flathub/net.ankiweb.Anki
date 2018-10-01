@@ -139,12 +139,12 @@
       ]
     },
     "lame/lame-3.99.5.json",
-    "decorator.json",
-    "pyaudio.json",
-    "bs4.json",
-    "requests.json",
-    "send2trash.json",
-    "markdown.json",
+    "python3-decorator.json",
+    "python3-pyaudio.json",
+    "python3-bs4.json",
+    "python3-requests.json",
+    "python3-send2trash.json",
+    "python3-markdown.json",
     {
       "name": "anki",
       "sources": [
