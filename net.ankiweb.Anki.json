@@ -14,6 +14,13 @@
   ],
   "rename-desktop-file": "anki.desktop",
   "rename-icon": "anki",
+  "cleanup": [
+    "/bin/chardetect",
+    "/bin/markdown_py",
+    "/bin/pylupdate5",
+    "pyrcc5",
+    "pyuic5"
+  ],
   "modules": [
     {
       "name": "portaudio",
@@ -97,16 +104,12 @@
       ],
       "cleanup": [
         "/include",
-        "/lib/pkgconfig"
+        "/lib/pkgconfig",
+        "/share"
       ],
       "modules": [
         {
           "name": "ffmpeg",
-          "cleanup": [
-            "/include",
-            "/lib/pkgconfig",
-            "/share/ffmpeg/examples"
-          ],
           "config-opts": [
             "--enable-shared",
             "--disable-static",
@@ -147,6 +150,11 @@
               "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
               "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
             }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig",
+            "/share/ffmpeg"
           ]
         }
       ]
