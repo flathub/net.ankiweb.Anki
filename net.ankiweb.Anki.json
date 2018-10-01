@@ -16,10 +16,7 @@
   "rename-icon": "anki",
   "cleanup": [
     "/bin/chardetect",
-    "/bin/markdown_py",
-    "/bin/pylupdate5",
-    "pyrcc5",
-    "pyuic5"
+    "/bin/markdown_py"
   ],
   "modules": [
     {
