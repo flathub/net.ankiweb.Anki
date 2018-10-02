@@ -19,8 +19,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.4-source.tgz",
-          "sha256": "666886a36609ec605907da99a8373bc2d0a94704eefb14f60de0d6cf783bb701"
+          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.5-source.tgz",
+          "sha256": "56eef02545160388770ec4c923354b485269bcca666a8def7403216555a26117"
         },
         {
           "type": "patch",
