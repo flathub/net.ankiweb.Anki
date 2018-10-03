@@ -4,112 +4,68 @@
   "runtime-version": "5.9",
   "sdk": "org.kde.Sdk",
   "command": "anki",
-  "finish-args": [
-     "--socket=x11",
-     "--socket=pulseaudio",
-     "--socket=wayland",
-     "--share=network",
-     "--share=ipc",
-     "--device=dri"
-  ],
   "rename-desktop-file": "anki.desktop",
+  "finish-args": [
+    "--socket=x11",
+    "--share=ipc",
+    "--socket=wayland",
+    "--device=dri",
+    "--socket=pulseaudio",
+    "--share=network"
+  ],
   "modules": [
+    "lame/lame-3.99.5.json",
     {
-      "name": "anki",
+      "name": "ffmpeg",
+      "config-opts": [
+        "--enable-shared",
+        "--disable-static",
+        "--enable-gnutls",
+        "--disable-doc",
+        "--disable-programs",
+        "--disable-encoders",
+        "--disable-muxers",
+        "--disable-network",
+        "--disable-libxcb",
+        "--disable-xlib",
+        "--disable-v4l2-m2m",
+        "--disable-vaapi",
+        "--disable-vdpau",
+        "--disable-sdl2",
+        "--disable-decoders",
+        "--enable-decoder=aac",
+        "--enable-decoder=mp3",
+        "--enable-decoder=cscd",
+        "--disable-hwaccels",
+        "--disable-parsers",
+        "--enable-parser=aac",
+        "--disable-demuxers",
+        "--enable-demuxer=aac",
+        "--enable-demuxer=mp3",
+        "--enable-demuxer=mov",
+        "--disable-filters",
+        "--disable-bsfs",
+        "--disable-indevs",
+        "--disable-outdevs",
+        "--enable-outdev=alsa",
+        "--disable-protocols",
+        "--enable-protocol=file"
+      ],
       "sources": [
         {
           "type": "archive",
-          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.5-source.tgz",
-          "sha256": "56eef02545160388770ec4c923354b485269bcca666a8def7403216555a26117"
-        },
-        {
-          "type": "patch",
-          "path": "python3.5.patch"
-        },
-        {
-          "type": "file",
-          "path": "net.ankiweb.Anki.svg"
-        },
-        {
-          "type": "file",
-          "path": "net.ankiweb.Anki.appdata.xml"
-        }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "mkdir -p /app/bin",
-        "mkdir -p /app/share/man/man1",
-        "mkdir -p /app/share/{applications,icons,pixmaps}",
-        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
-        "sed -i -e 's/cp -a/cp -dR/' Makefile",
-        "make install PREFIX=/app",
-        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
-        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
-        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
-      ],
-      "cleanup": [
-        "/app/usr/share/pixmaps"
-      ]
-    },
-    {
-      "name": "portaudio",
-      "sources": [
-        {
-          "type": "archive",
-          "url": "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz",
-          "sha256": "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+          "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
+          "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
         }
       ],
       "cleanup": [
-        "/app/lib/pkgconfig",
-        "/app/lib/libportaudio.a",
-        "/app/lib/libportaudio.la",
-        "/app/include"
-      ]
-    },
-    {
-      "name": "pyqt5",
-      "config-opts": [ "--disable-static", "--enable-x11" ],
-      "no-autogen": true,
-      "buildsystem": "simple",
-      "build-commands": [ 
-        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'", 
-        "make -j `nproc`",
-        "make install DESTDIR=/app"
-      ],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz",
-          "sha256": "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
-        }
-      ],
-      "modules": [
-        {
-          "name": "sip",
-          "sources": [
-            {
-              "type": "archive",
-              "url": "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.7/sip-4.19.7.tar.gz",
-              "sha256": "25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde"
-            }
-          ],
-          "buildsystem": "simple",
-          "build-commands": [
-            "python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.5/site-packages --incdir=/app/include --pyidir=/app/lib/python3.5/site-packages --sipdir=/app/share/sip",
-            "make",
-            "make install"
-          ],
-          "cleanup": [
-            "/bin",
-            "/include"
-          ]
-        }
+        "/include",
+        "/lib/pkgconfig",
+        "/share/ffmpeg/examples"
       ]
     },
     {
       "name": "mpv",
-      "cleanup": [ "/include", "/lib/pkgconfig" ],
       "buildsystem": "simple",
       "build-commands": [
         "python3 waf configure --prefix=/app --disable-libass --disable-build-date --disable-oss-audio --disable-alsa",
@@ -129,58 +85,106 @@
           "dest-filename": "waf"
         }
       ],
-      "modules": [
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    },
+    {
+      "name": "sip",
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.5/site-packages --incdir=/app/include --pyidir=/app/lib/python3.5/site-packages --sipdir=/app/share/sip",
+        "make",
+        "make install"
+      ],
+      "sources": [
         {
-          "name": "ffmpeg",
-          "cleanup": [ "/include", "/lib/pkgconfig", "/share/ffmpeg/examples" ],
-          "config-opts": [
-            "--enable-shared",
-            "--disable-static",
-            "--enable-gnutls",
-            "--disable-doc",
-            "--disable-programs",
-            "--disable-encoders",
-            "--disable-muxers",
-            "--disable-network",
-            "--disable-libxcb",
-            "--disable-xlib",
-            "--disable-v4l2-m2m",
-            "--disable-vaapi",
-            "--disable-vdpau",
-            "--disable-sdl2",
-            "--disable-decoders",
-            "--enable-decoder=aac",
-            "--enable-decoder=mp3",
-            "--enable-decoder=cscd",
-            "--disable-hwaccels",
-            "--disable-parsers",
-            "--enable-parser=aac",
-            "--disable-demuxers",
-            "--enable-demuxer=aac",
-            "--enable-demuxer=mp3",
-            "--enable-demuxer=mov",
-            "--disable-filters",
-            "--disable-bsfs",
-            "--disable-indevs",
-            "--disable-outdevs",
-            "--enable-outdev=alsa",
-            "--disable-protocols",
-            "--enable-protocol=file"
-          ],
-          "sources": [{
-            "type": "archive",
-            "url": "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz",
-            "sha256": "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
-          }]
+          "type": "archive",
+          "url": "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.7/sip-4.19.7.tar.gz",
+          "sha256": "25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde"
+        }
+      ],
+      "cleanup": [
+        "/bin",
+        "/include"
+      ]
+    },
+    {
+      "name": "pyqt5",
+      "no-autogen": true,
+      "buildsystem": "simple",
+      "build-commands": [
+        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'",
+        "make -j `nproc`",
+        "make install DESTDIR=/app"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz",
+          "sha256": "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
         }
       ]
     },
-    "lame-3.99.5.json",
-    "decorator.json",
-    "pyaudio.json",
-    "bs4.json",
-    "requests.json",
-    "send2trash.json",
-    "markdown.json"
+    {
+      "name": "portaudio",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz",
+          "sha256": "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+        }
+      ],
+      "cleanup": [
+        "/app/lib/pkgconfig",
+        "/app/lib/libportaudio.a",
+        "/app/lib/libportaudio.la",
+        "/app/include"
+      ]
+    },
+    "python3-bs4.json",
+    "python3-send2trash.json",
+    "python3-pyaudio.json",
+    "python3-requests.json",
+    "python3-decorator.json",
+    "python3-markdown.json",
+    {
+      "name": "anki",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin",
+        "mkdir -p /app/share/man/man1",
+        "mkdir -p /app/share/{applications,icons,pixmaps}",
+        "sed -i -e 's/Icon=anki/Icon=net.ankiweb.Anki/' anki.desktop",
+        "sed -i -e 's/cp -a/cp -dR/' Makefile",
+        "make install PREFIX=/app",
+        "install -D -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg",
+        "install -D -t /app/share/appdata net.ankiweb.Anki.appdata.xml",
+        "install -D anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://apps.ankiweb.net/downloads/current/anki-2.1.5-source.tgz",
+          "sha256": "56eef02545160388770ec4c923354b485269bcca666a8def7403216555a26117"
+        },
+        {
+          "type": "patch",
+          "path": "python3.5.patch"
+        },
+        {
+          "type": "file",
+          "path": "net.ankiweb.Anki.svg"
+        },
+        {
+          "type": "file",
+          "path": "net.ankiweb.Anki.appdata.xml"
+        }
+      ],
+      "cleanup": [
+        "/app/usr/share/pixmaps"
+      ]
+    }
   ]
 }
