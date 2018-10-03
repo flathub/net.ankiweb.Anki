@@ -130,6 +130,10 @@
     },
     {
       "name": "portaudio",
+      "config-opts": [
+        "--disable-static",
+        "--without-oss"
+      ],
       "sources": [
         {
           "type": "archive",
@@ -138,10 +142,9 @@
         }
       ],
       "cleanup": [
-        "/app/lib/pkgconfig",
-        "/app/lib/libportaudio.a",
-        "/app/lib/libportaudio.la",
-        "/app/include"
+        "/lib/pkgconfig",
+        "/include",
+        "*.la"
       ]
     },
     "python3-bs4.json",
