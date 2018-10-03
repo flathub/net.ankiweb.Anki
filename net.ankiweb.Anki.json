@@ -14,6 +14,10 @@
     "--socket=pulseaudio",
     "--share=network"
   ],
+  "cleanup": [
+    "/bin/chardetect",
+    "/bin/markdown_py"
+  ],
   "modules": [
     "lame/lame-3.99.5.json",
     {
