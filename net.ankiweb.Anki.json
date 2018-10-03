@@ -106,6 +106,7 @@
           "commands": [
             "#!/bin/sh",
             "/usr/bin/python3 configure.py \\",
+            "  --no-stubs \\",
             "  --bindir=/app/bin \\",
             "  --destdir=/app/lib/python3.5/site-packages \\",
             "  --incdir=/app/include \\",
