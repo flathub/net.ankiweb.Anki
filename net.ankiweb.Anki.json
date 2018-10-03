@@ -122,18 +122,30 @@
     },
     {
       "name": "pyqt5",
-      "no-autogen": true,
-      "buildsystem": "simple",
-      "build-commands": [
-        "python3 configure.py --assume-shared --confirm-license --no-designer-plugin --no-qml-plugin --sysroot=/app -w --sip=/app/bin/sip --sip-incdir=/app/include -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'",
-        "make -j `nproc`",
-        "make install DESTDIR=/app"
-      ],
       "sources": [
         {
           "type": "archive",
           "url": "https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz",
           "sha256": "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
+        },
+        {
+          "type": "script",
+          "dest-filename": "configure",
+          "commands": [
+            "#!/bin/sh",
+            "/usr/bin/python3 configure.py \\",
+            "  --assume-shared \\",
+            "  --confirm-license \\",
+            "  --no-designer-plugin \\",
+            "  --no-qml-plugin \\",
+            "  --sysroot=/app \\",
+            "  -w \\",
+            "  --sip=/app/bin/sip \\",
+            "  --sip-incdir=/app/include \\",
+            "  -verbose \\",
+            "  QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' \\",
+            "  QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'"
+          ]
         }
       ]
     },
