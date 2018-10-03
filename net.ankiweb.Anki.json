@@ -94,17 +94,24 @@
     },
     {
       "name": "sip",
-      "buildsystem": "simple",
-      "build-commands": [
-        "python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.5/site-packages --incdir=/app/include --pyidir=/app/lib/python3.5/site-packages --sipdir=/app/share/sip",
-        "make",
-        "make install"
-      ],
       "sources": [
         {
           "type": "archive",
           "url": "https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.7/sip-4.19.7.tar.gz",
           "sha256": "25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde"
+        },
+        {
+          "type": "script",
+          "dest-filename": "configure",
+          "commands": [
+            "#!/bin/sh",
+            "/usr/bin/python3 configure.py \\",
+            "  --bindir=/app/bin \\",
+            "  --destdir=/app/lib/python3.5/site-packages \\",
+            "  --incdir=/app/include \\",
+            "  --pyidir=/app/lib/python3.5/site-packages \\",
+            "  --sipdir=/app/share/sip"
+          ]
         }
       ],
       "cleanup": [
