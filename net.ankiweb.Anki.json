@@ -139,10 +139,6 @@
             "  --no-designer-plugin \\",
             "  --no-qml-plugin \\",
             "  --sysroot=/app \\",
-            "  -w \\",
-            "  --sip=/app/bin/sip \\",
-            "  --sip-incdir=/app/include \\",
-            "  -verbose \\",
             "  QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/' \\",
             "  QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'"
           ]
