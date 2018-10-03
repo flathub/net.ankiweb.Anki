@@ -182,7 +182,7 @@
         "*.la"
       ]
     },
-    "python3-bs4.json",
+    "python3-beautifulsoup4.json",
     "python3-send2trash.json",
     "python3-pyaudio.json",
     "python3-requests.json",
