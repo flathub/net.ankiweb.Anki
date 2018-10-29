@@ -21,7 +21,7 @@
       <caption>Flashcard and answer</caption>
     </screenshot>
   </screenshots>
-  <translation>qt</translation>
+  <translation type="gettext">anki</translation>
   <releases>
     <release date="2018-10-01" version="2.1.5"/>
     <release date="2018-09-05" version="2.1.4"/>
