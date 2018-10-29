@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>net.ankiweb.Anki.desktop</id>
+  <id>net.ankiweb.Anki</id>
   <name>Anki</name>
   <developer_name>Damien Elmes</developer_name>
   <summary>Powerful, intelligent flash cards</summary>
@@ -32,5 +32,6 @@
   <provides>
     <id>anki.desktop</id>
   </provides>
+  <launchable type="desktop-id">anki.desktop</launchable>
   <update_contact>dan_at_reactivated.net</update_contact>
 </component>
