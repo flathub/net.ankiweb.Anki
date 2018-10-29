@@ -28,6 +28,10 @@
     <release date="2018-03-01" version="2.1.0beta37"/>
     <release date="2018-02-05" version="2.1.0beta36"/>
   </releases>
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+    <kudo>UserDocs</kudo>
+  </kudos>
   <content_rating type="oars-1.1"/>
   <provides>
     <id>anki.desktop</id>
