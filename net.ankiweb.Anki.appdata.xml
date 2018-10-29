@@ -29,5 +29,8 @@
     <release date="2018-02-05" version="2.1.0beta36"/>
   </releases>
   <content_rating type="oars-1.1"/>
+  <provides>
+    <id>anki.desktop</id>
+  </provides>
   <update_contact>dan_at_reactivated.net</update_contact>
 </component>
