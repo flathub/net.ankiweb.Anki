@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>net.ankiweb.Anki.desktop</id>
   <name>Anki</name>
   <developer_name>Damien Elmes</developer_name>
@@ -12,6 +12,9 @@
   <project_license>AGPL-3.0+</project_license>
   <url type="homepage">https://apps.ankiweb.net/</url>
   <url type="help">https://apps.ankiweb.net/docs/manual.html</url>
+  <url type="bugtracker">https://anki.tenderapp.com/discussions/ankidesktop</url>
+  <url type="donation">https://apps.ankiweb.net/support/</url>
+  <url type="translate">https://apps.ankiweb.net/docs/manual.html#_app_translations</url>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://i.imgur.com/zauNqLH.png</image>
@@ -20,10 +23,10 @@
   </screenshots>
   <translation>qt</translation>
   <releases>
-    <release version="2.1.5" date="2018-10-01"/>
-    <release version="2.1.4" date="2018-09-05"/>
-    <release version="2.1.0beta37" date="2018-03-01"/>
-    <release version="2.1.0beta36" date="2018-02-05"/>
+    <release date="2018-10-01" version="2.1.5"/>
+    <release date="2018-09-05" version="2.1.4"/>
+    <release date="2018-03-01" version="2.1.0beta37"/>
+    <release date="2018-02-05" version="2.1.0beta36"/>
   </releases>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
