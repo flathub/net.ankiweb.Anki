@@ -92,8 +92,8 @@ modules:
   - name: sip
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.7/sip-4.19.7.tar.gz
-        sha256: 25b50d29dd4b72965e7980c41e3320e460eff481a177beeddebf8c3be84b8cde
+        url: https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.13/sip-4.19.13.tar.gz
+        sha256: e353a7056599bf5fbd5d3ff9842a6ab2ea3cf4e0304a0f925ec5862907c0d15e
       - type: script
         dest-filename: configure
         commands:
