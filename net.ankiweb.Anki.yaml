@@ -90,54 +90,72 @@ modules:
       - /share
 
   - name: sip
+    config-opts:
+      - --no-stubs
+      - --bindir=/app/bin
+      - --destdir=/app/lib/python3.5/site-packages
+      - --incdir=/app/include
+      - --pyidir=/app/lib/python3.5/site-packages
+      - --sipdir=/app/share/sip
     sources:
       - type: archive
         url: https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.13/sip-4.19.13.tar.gz
         sha256: e353a7056599bf5fbd5d3ff9842a6ab2ea3cf4e0304a0f925ec5862907c0d15e
       - type: script
-        dest-filename: configure
         commands:
-          - /usr/bin/python3 configure.py
-              --no-stubs
-              --bindir=/app/bin
-              --destdir=/app/lib/python3.5/site-packages
-              --incdir=/app/include
-              --pyidir=/app/lib/python3.5/site-packages
-              --sipdir=/app/share/sip
+          - processed=`sed -e 's|--prefix=/app||' <<< $@`
+          - python3 configure.py $processed
+        dest-filename: configure
     cleanup:
       - /bin
       - /include
 
   - name: pyqt5
+    config-opts:
+      - --assume-shared
+      - --concatenate
+      - --confirm-license
+      - --no-designer-plugin
+      - --no-docstrings
+      - --no-qml-plugin
+      - --no-qsci-api
+      - --no-sip-files
+      - --no-stubs
+      - --no-tools
+      - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/'
+      - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'
+    # FIXME: we should do this on ARM too, but for some reason it fails to build
+    build-options:
+      arch:
+        i386:
+          config-opts:
+            - --enable=QtCore
+            - --enable=QtGui
+            - --enable=QtNetwork
+            - --enable=QtPrintSupport
+            - --enable=QtWebChannel
+            - --enable=QtWebEngineCore
+            - --enable=QtWebEngineWidgets
+            - --enable=QtWidgets
+        x86_64:
+          config-opts:
+            - --enable=QtCore
+            - --enable=QtGui
+            - --enable=QtNetwork
+            - --enable=QtPrintSupport
+            - --enable=QtWebChannel
+            - --enable=QtWebEngineCore
+            - --enable=QtWebEngineWidgets
+            - --enable=QtWidgets
     sources:
       - type: archive
         url: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz
         sha256: c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394
       - type: script
-        dest-filename: configure
         commands:
-          - /usr/bin/python3 configure.py
-              --assume-shared
-              --concatenate
-              --confirm-license
-              --enable=QtCore
-              --enable=QtGui
-              --enable=QtNetwork
-              --enable=QtPrintSupport
-              --enable=QtWebChannel
-              --enable=QtWebEngineCore
-              --enable=QtWebEngineWidgets
-              --enable=QtWidgets
-              --no-designer-plugin
-              --no-docstrings
-              --no-qml-plugin
-              --no-qsci-api
-              --no-sip-files
-              --no-stubs
-              --no-tools
-              --sysroot=/app
-              QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/'
-              QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'
+          - processed=`sed -e 's|prefix|sysroot|' <<< $@`
+          - python3 configure.py $processed
+        dest-filename: configure
 
   - name: portaudio
     config-opts:
