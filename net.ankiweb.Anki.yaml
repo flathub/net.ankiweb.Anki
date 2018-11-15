@@ -115,6 +115,14 @@ modules:
       - --assume-shared
       - --concatenate
       - --confirm-license
+      - --enable=QtCore
+      - --enable=QtGui
+      - --enable=QtNetwork
+      - --enable=QtPrintSupport
+      - --enable=QtWebChannel
+      - --enable=QtWebEngineCore
+      - --enable=QtWebEngineWidgets
+      - --enable=QtWidgets
       - --no-designer-plugin
       - --no-docstrings
       - --no-qml-plugin
@@ -124,29 +132,6 @@ modules:
       - --no-tools
       - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/'
       - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'
-    # FIXME: we should do this on ARM too, but for some reason it fails to build
-    build-options:
-      arch:
-        i386:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWebEngineCore
-            - --enable=QtWebEngineWidgets
-            - --enable=QtWidgets
-        x86_64:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWebEngineCore
-            - --enable=QtWebEngineWidgets
-            - --enable=QtWidgets
     sources:
       - type: archive
         url: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz
