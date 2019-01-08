@@ -19,11 +19,6 @@ finish-args:
   # Sync
   - --share=network
 
-# Cleanup after Python modules
-cleanup:
-  - /bin/chardetect
-  - /bin/markdown_py
-
 modules:
   - name: ffmpeg
     config-opts:
