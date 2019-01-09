@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>net.ankiweb.Anki</id>
+  <translation type="gettext">anki</translation>
   <name>Anki</name>
-  <developer_name>Damien Elmes</developer_name>
   <summary>Powerful, intelligent flash cards</summary>
+  <developer_name>Damien Elmes</developer_name>
   <description>
     <p>Anki is a program which makes remembering things easy. Because it's a lot more efficient than traditional study methods, you can either greatly decrease your time spent studying, or greatly increase the amount you learn.</p>
     <p>Anyone who needs to remember things in their daily life can benefit from Anki. Since it is content-agnostic and supports images, audio, videos and scientific markup (via LaTeX), the possibilities are endless.</p>
   </description>
-  <metadata_license>CC0-1.0</metadata_license>
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+    <kudo>UserDocs</kudo>
+  </kudos>
   <project_license>AGPL-3.0+</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
   <url type="homepage">https://apps.ankiweb.net/</url>
-  <url type="help">https://apps.ankiweb.net/docs/manual.html</url>
   <url type="bugtracker">https://anki.tenderapp.com/discussions/ankidesktop</url>
+  <url type="help">https://apps.ankiweb.net/docs/manual.html</url>
   <url type="donation">https://apps.ankiweb.net/support/</url>
   <url type="translate">https://apps.ankiweb.net/docs/manual.html#_app_translations</url>
   <screenshots>
@@ -21,20 +26,17 @@
       <caption>Flashcard and answer</caption>
     </screenshot>
   </screenshots>
-  <translation type="gettext">anki</translation>
+  <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2019-01-02" version="2.1.8"/>
+    <release date="2018-12-17" version="2.1.7"/>
+    <release date="2018-12-10" version="2.1.6"/>
     <release date="2018-10-01" version="2.1.5"/>
     <release date="2018-09-05" version="2.1.4"/>
     <release date="2018-03-01" version="2.1.0beta37"/>
     <release date="2018-02-05" version="2.1.0beta36"/>
   </releases>
-  <kudos>
-    <kudo>ModernToolkit</kudo>
-    <kudo>UserDocs</kudo>
-  </kudos>
-  <content_rating type="oars-1.1"/>
   <provides>
-    <id>anki.desktop</id>
     <id>net.ankiweb.Anki.desktop</id>
   </provides>
   <launchable type="desktop-id">anki.desktop</launchable>
