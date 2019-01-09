@@ -7,8 +7,13 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/88/df/86bffad6309f74f3ff85ea69344a078fc30003270c8df6894fca7a3c72ff/beautifulsoup4-4.6.3.tar.gz",
-            "sha256": "90f8e61121d6ae58362ce3bed8cd997efb00c914eae0ff3d363c32f9a9822d10"
+            "url": "https://files.pythonhosted.org/packages/6a/25/364d43b52e28e4274523e04660f6bc46c30b073400861abe1a68396192c9/soupsieve-1.6.2.tar.gz",
+            "sha256": "638535780f7b966411123d56eb3b89cd1d2e42d707270c6d7d053c7720a238f3"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/80/f2/f6aca7f1b209bb9a7ef069d68813b091c8c3620642b568dac4eb0e507748/beautifulsoup4-4.7.1.tar.gz",
+            "sha256": "945065979fb8529dd2f37dbb58f00b661bdbcbebf954f93b32fdf5263ef35348"
         }
     ]
 }

@@ -1,7 +1,7 @@
 app-id: net.ankiweb.Anki
 
 runtime: org.kde.Platform
-runtime-version: '5.9'
+runtime-version: '5.12'
 sdk: org.kde.Sdk
 
 command: anki
@@ -19,14 +19,7 @@ finish-args:
   # Sync
   - --share=network
 
-# Cleanup after Python modules
-cleanup:
-  - /bin/chardetect
-  - /bin/markdown_py
-
 modules:
-  - lame/lame-3.99.5.json
-
   - name: ffmpeg
     config-opts:
       - --enable-shared
@@ -81,8 +74,8 @@ modules:
         url: https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
         sha256: f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623
       - type: file
-        url: https://waf.io/waf-1.9.8
-        sha256: 167dc42bab6d5bd823b798af195420319cb5c9b571e00db7d83df2a0fe1f4dbf
+        url: https://waf.io/waf-2.0.14
+        sha256: c5bc6083bba5e24415bb83872fa9e048afa150109a7e8855af679076d0779b22
         dest-filename: waf
     cleanup:
       - /include
@@ -91,12 +84,14 @@ modules:
 
   - name: sip
     config-opts:
+      - --no-dist-info
       - --no-stubs
       - --bindir=/app/bin
-      - --destdir=/app/lib/python3.5/site-packages
+      - --destdir=/app/lib/python3.7/site-packages
       - --incdir=/app/include
-      - --pyidir=/app/lib/python3.5/site-packages
+      - --pyidir=/app/lib/python3.7/site-packages
       - --sipdir=/app/share/sip
+      - --sip-module PyQt5.sip
     sources:
       - type: archive
         url: https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.13/sip-4.19.13.tar.gz
@@ -116,14 +111,15 @@ modules:
       - --concatenate
       - --confirm-license
       - --no-designer-plugin
+      - --no-dist-info
       - --no-docstrings
       - --no-qml-plugin
       - --no-qsci-api
       - --no-sip-files
       - --no-stubs
       - --no-tools
-      - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.5m/'
-      - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.5m/'
+      - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/'
+      - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'
     # FIXME: we should do this on ARM too, but for some reason it fails to build
     build-options:
       arch:
@@ -149,8 +145,8 @@ modules:
             - --enable=QtWidgets
     sources:
       - type: archive
-        url: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz
-        sha256: c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394
+        url: https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.11.3/PyQt5_gpl-5.11.3.tar.gz
+        sha256: c9b57d15601d436faf35dacf8e0acefa220194829a653e771e80b189b3261073
       - type: script
         commands:
           - processed=`sed -e 's|prefix|sysroot|' <<< $@`
@@ -183,14 +179,12 @@ modules:
       - PREFIX=/app
     post-install:
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
-      - install -Dm644 -t /app/share/appdata net.ankiweb.Anki.appdata.xml
+      - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.appdata.xml
       - install -Dm644 anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
     sources:
       - type: archive
-        url: https://apps.ankiweb.net/downloads/current/anki-2.1.5-source.tgz
-        sha256: 56eef02545160388770ec4c923354b485269bcca666a8def7403216555a26117
-      - type: patch
-        path: python3.5.patch
+        url: https://apps.ankiweb.net/downloads/current/anki-2.1.8-source.tgz
+        sha256: 57c466884ba43ef704c438bb0129e7ed793c468d36ea03cd3007af7a394c8b23
       - type: file
         path: anki.svg
       - type: file
