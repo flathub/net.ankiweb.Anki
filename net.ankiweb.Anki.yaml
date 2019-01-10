@@ -4,6 +4,10 @@ runtime: org.kde.Platform
 runtime-version: '5.12'
 sdk: org.kde.Sdk
 
+platform-extensions:
+  # FFmpeg
+  - org.freedesktop.Platform.html5-codecs
+
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
@@ -22,49 +26,6 @@ finish-args:
   - --env=TMPDIR=/var/tmp
 
 modules:
-  - name: ffmpeg
-    config-opts:
-      - --enable-shared
-      - --disable-static
-      - --enable-gnutls
-      - --disable-doc
-      - --disable-programs
-      - --disable-encoders
-      - --disable-muxers
-      - --disable-network
-      - --disable-libxcb
-      - --disable-xlib
-      - --disable-v4l2-m2m
-      - --disable-vaapi
-      - --disable-vdpau
-      - --disable-sdl2
-      - --disable-decoders
-      - --enable-decoder=aac
-      - --enable-decoder=mp3
-      - --enable-decoder=cscd
-      - --disable-hwaccels
-      - --disable-parsers
-      - --enable-parser=aac
-      - --disable-demuxers
-      - --enable-demuxer=aac
-      - --enable-demuxer=mp3
-      - --enable-demuxer=mov
-      - --disable-filters
-      - --disable-bsfs
-      - --disable-indevs
-      - --disable-outdevs
-      - --enable-outdev=alsa
-      - --disable-protocols
-      - --enable-protocol=file
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
-        sha256: a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /share/ffmpeg
-
   - name: mpv
     buildsystem: simple
     build-commands:
