@@ -18,6 +18,8 @@ finish-args:
   - --socket=pulseaudio
   # Sync
   - --share=network
+  # Allow other instances to see lockfiles
+  - --env=TMPDIR=/var/tmp
 
 modules:
   - name: ffmpeg
