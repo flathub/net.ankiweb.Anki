@@ -26,31 +26,6 @@ finish-args:
   - --env=TMPDIR=/var/tmp
 
 modules:
-  - name: mpv
-    buildsystem: simple
-    build-commands:
-      - python3 waf configure
-          --disable-alsa
-          --disable-build-date
-          --disable-libass
-          --disable-manpage-build
-          --disable-oss-audio
-          --prefix=/app
-      - python3 waf build
-      - python3 waf install
-    sources:
-      - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
-        sha256: f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623
-      - type: file
-        url: https://waf.io/waf-2.0.14
-        sha256: c5bc6083bba5e24415bb83872fa9e048afa150109a7e8855af679076d0779b22
-        dest-filename: waf
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /share
-
   - name: sip
     config-opts:
       - --no-dist-info
@@ -121,6 +96,31 @@ modules:
           - processed=`sed -e 's|prefix|sysroot|' <<< $@`
           - python3 configure.py $processed
         dest-filename: configure
+
+  - name: mpv
+    buildsystem: simple
+    build-commands:
+      - python3 waf configure
+          --disable-alsa
+          --disable-build-date
+          --disable-libass
+          --disable-manpage-build
+          --disable-oss-audio
+          --prefix=/app
+      - python3 waf build
+      - python3 waf install
+    sources:
+      - type: archive
+        url: https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
+        sha256: f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623
+      - type: file
+        url: https://waf.io/waf-2.0.14
+        sha256: c5bc6083bba5e24415bb83872fa9e048afa150109a7e8855af679076d0779b22
+        dest-filename: waf
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /share
 
   - name: portaudio
     config-opts:
