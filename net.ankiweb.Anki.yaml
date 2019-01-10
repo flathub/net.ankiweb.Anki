@@ -29,7 +29,13 @@ modules:
   - name: mpv
     buildsystem: simple
     build-commands:
-      - python3 waf configure --prefix=/app --disable-libass --disable-build-date --disable-oss-audio --disable-alsa
+      - python3 waf configure
+          --disable-alsa
+          --disable-build-date
+          --disable-libass
+          --disable-manpage-build
+          --disable-oss-audio
+          --prefix=/app
       - python3 waf build
       - python3 waf install
     sources:
