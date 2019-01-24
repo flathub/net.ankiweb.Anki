@@ -4,10 +4,6 @@ runtime: org.kde.Platform
 runtime-version: '5.12'
 sdk: org.kde.Sdk
 
-platform-extensions:
-  # FFmpeg
-  - org.freedesktop.Platform.html5-codecs
-
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
