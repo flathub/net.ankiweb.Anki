@@ -28,6 +28,62 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2019-03-11" version="2.1.11">
+      <description>
+        <ul>
+          <li>Change Undo shortcut back to Ctrl+Alt+Z/Cmd+Opt+Z in Browse screen, to prevent accidentally undoing non-text changes when editing fields</li>
+          <li>Revert a previous card template optimization that could cause an error</li>
+          <li>Suppress a spurious error message that could occur when editing</li>
+        </ul>
+      </description>
+    </release>
+    <release date="2019-03-07" version="2.1.10">
+      <description>
+        <ul>
+          <li>Add option to strip html in export</li>
+          <li>Avoid nbsp for single spaces when pasting text</li>
+          <li>Fix preview screen flashing when moving between cards</li>
+          <li>Improvements to the add-ons screen (thanks to Glutanimate)</li>
+          <li>Support .ankiaddon bundles (thanks to Glutanimate)</li>
+          <li>Improve subpixel antialiasing on some machines (thanks to Glutanimate)</li>
+          <li>Fix inability to start if problem occurs on first run</li>
+          <li>Allow decreasing daily limits in custom study</li>
+          <li>Add a button to copy debug info to about screen (thanks to Glutanimate)</li>
+          <li>Allow add-ons to serve files from mediasrv (thanks to Glutanimate)</li>
+          <li>More user-friendly error messages for some network errors</li>
+        </ul>
+      </description>
+    </release>
+    <release date="2019-02-20" version="2.1.9">
+      <description>
+        <ul>
+          <li>Update standard build to latest toolkit version</li>
+          <li>Hardware acceleration defaults to off again on Windows/Linux, due to the issues it was causing some users. If you were not experiencing any issues, turning hardware acceleration back on in the preferences screen is recommended</li>
+          <li>Various statistics fixes for the V2 scheduler, including an automatic remapping of button 2/3 in the review history when moving back and forth between scheduler versions so the "answer buttons" graph displays correctly</li>
+          <li>Fix BR tags being included in empty fields (thanks to David and zjosua)</li>
+          <li>Optimize card template repositioning (thanks to Arthur)</li>
+          <li>Fix a crash when copying/cutting with an empty selection (thanks to David)</li>
+          <li>Avoid screen flash when undoing reviews</li>
+          <li>Make sure info/warning dialogs appear on top</li>
+          <li>Fixed an issue with just-typed text not being saved when using the mouse to save/add a card</li>
+          <li>Added support for {{CardFlag}}, which is either empty, or in the format "flagN" where N is 1-4</li>
+          <li>Fix bulk flag changes in Browse screen not syncing</li>
+          <li>Fix advanced menu in editor not showing shortcut keys</li>
+          <li>When UI fails to load after resuming computer from sync, show a tooltip and automatically refresh</li>
+          <li>Clean up old mplayer instances after a crash so that profile renaming works</li>
+          <li>Fix add-on list not refreshing when toggling enabled in latest toolkit</li>
+          <li>Fix cursor jumping on first click in "Edit Current" area on Windows</li>
+          <li>Preserve whitespace when pasting plain text</li>
+          <li>Prevent errors caused by a timer firing after collection is unloaded</li>
+          <li>Ensure a full sync is forced when restoring from a backup</li>
+          <li>Ensure full window is on screen when displaying windows on a changed screen layout</li>
+          <li>Improvements to the add-ons, debug console, and error screens (thanks to Glutanimate)</li>
+          <li>Ensure {{Deck}} shows the correct deck when adding (thanks to Arthur)</li>
+          <li>Ensure windows don’t get shown off-screen</li>
+          <li>Remember add-on window size and position</li>
+        </ul>
+      </description>
+    </release>
     <release date="2019-01-02" version="2.1.8"/>
     <release date="2018-12-17" version="2.1.7"/>
     <release date="2018-12-10" version="2.1.6"/>
