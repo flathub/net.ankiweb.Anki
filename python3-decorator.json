@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz",
-            "sha256": "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
+            "url": "https://files.pythonhosted.org/packages/ba/19/1119fe7b1e49b9c8a9f154c930060f37074ea2e8f9f6558efc2eeaa417a2/decorator-4.4.0.tar.gz",
+            "sha256": "86156361c50488b84a3f148056ea716ca587df2f0de1d34750d35c21312725de"
         }
     ]
 }
