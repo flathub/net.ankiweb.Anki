@@ -127,8 +127,8 @@ modules:
         url: https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
         sha256: f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623
       - type: file
-        url: https://waf.io/waf-2.0.14
-        sha256: c5bc6083bba5e24415bb83872fa9e048afa150109a7e8855af679076d0779b22
+        url: https://waf.io/waf-2.0.15
+        sha256: 34b8156ea375089e1bed5a31acfaff4024f6f3e96f3bee98f801f0c281ad3d2c
         dest-filename: waf
     cleanup:
       - /include
