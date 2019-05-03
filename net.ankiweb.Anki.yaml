@@ -31,7 +31,7 @@ modules:
       - --incdir=/app/include
       - --pyidir=/app/lib/python3.7/site-packages
       - --sipdir=/app/share/sip
-      - --sip-module PyQt5.sip
+      - --sip-module=PyQt5.sip
     sources:
       - type: archive
         url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.15/sip-4.19.15.tar.gz
