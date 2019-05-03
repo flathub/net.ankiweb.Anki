@@ -28,6 +28,23 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2019-04-23" version="2.1.12">
+      <description>
+        <ul>
+          <li>Fix fields appearing under editor buttons</li>
+          <li>Fix memory leak in card layout screen</li>
+          <li>Fix some issues with previewing in the Browse screen</li>
+          <li>Fix card counts not updating when a review is undone</li>
+          <li>Fix an error caused by missing note types</li>
+          <li>Fix an issue checking for add-on updates (thanks to Glutanimate)</li>
+          <li>Disable add-on config button when not appropriate (thanks to Glutanimate)</li>
+          <li>Tweaks to the deck age graph binning (thanks to Jian)</li>
+          <li>Add-ons hosted on AnkiWeb can now define conflicts in the manifest file</li>
+          <li>Make sure mpv doesn’t attempt to load scripts from default location</li>
+          <li>Other minor fixes</li>
+        </ul>
+      </description>
+    </release>
     <release date="2019-03-11" version="2.1.11">
       <description>
         <ul>

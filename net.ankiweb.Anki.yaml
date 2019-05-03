@@ -169,8 +169,8 @@ modules:
       - ln -s /app/share/locale /app/share/anki/locale
     sources:
       - type: archive
-        url: https://apps.ankiweb.net/downloads/current/anki-2.1.11-source.tgz
-        sha256: 787ce3d7333cc3f33f9bd18ec11d4da56b9ac060edaad21d78fe04e04e559265
+        url: https://apps.ankiweb.net/downloads/current/anki-2.1.12-source.tgz
+        sha256: be5284921cd6929a5451cd982736d9f952274d91b2da91c592f223390a008611
       - type: file
         path: anki.svg
       - type: file
