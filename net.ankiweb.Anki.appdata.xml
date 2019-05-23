@@ -28,6 +28,26 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2019-05-20" version="2.1.13">
+      <description>
+        <ul>
+          <li>Fix some issues that cause the main window to get stuck</li>
+          <li>Fix an empty deck list sometimes appearing when restoring from a backup</li>
+          <li>Fix Anki hanging after an error occurs during startup</li>
+          <li>Fix error message when syncing with an unconfirmed email address</li>
+          <li>Use jsonschema for add-on manifests (thanks to Erez)</li>
+          <li>Warn in DB check when high due numbers are encountered</li>
+          <li>Improve error messages on full disk and failed add-on deletion</li>
+          <li>Fix relearning cards being given learning step count in V2 scheduler</li>
+          <li>Fix preview window failing to appear when show both sides enabled</li>
+          <li>Removing trailing BR tag when pasting into an empty field</li>
+          <li>Don’t throw an error when non-Latin text in the Javascript console can’t be shown</li>
+          <li>Double click on add-ons to edit their configuration (thanks to lovac42)</li>
+          <li>Fix the window icon in a few screens (thanks to John)</li>
+          <li>Improve the default type in the answer note type</li>
+        </ul>
+      </description>
+    </release>
     <release date="2019-04-23" version="2.1.12">
       <description>
         <ul>
