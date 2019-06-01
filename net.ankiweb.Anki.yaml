@@ -154,6 +154,15 @@ modules:
   - python3-requests.json
   - python3-decorator.json
   - python3-markdown.json
+  - python3-distro.json
+
+  # jsonschema has is a PITA to install
+  # https://github.com/pypa/pip/issues/5268
+  # https://stackoverflow.com/questions/26664102/why-can-i-not-create-a-wheel-in-python
+  - python3-wheel.json
+  - python3-attrs.json
+  - python3-setuptools_scm.json
+  - python3-jsonschema.json
 
   - name: anki
     no-autogen: true
