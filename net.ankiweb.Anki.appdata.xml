@@ -28,6 +28,25 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2019-08-22" version="2.1.15">
+      <description>
+        <ul>
+          <li>The V2 scheduler now fully randomizes review cards due on a given day.</li>
+          <li>Fix add-ons errors on Windows when profile path was short.</li>
+          <li>Fix flag changes in Browse screen not syncing.</li>
+          <li>Cleanup recording wav file when recording canceled.</li>
+          <li>Fix the window icon on Wayland (thanks to Wilco).</li>
+          <li>Add a progress bar to media deletion.</li>
+          <li>Other minor changes.</li>
+          <li>Fix a bug in the V2 scheduler that would cause partially learnt cards removed from filtered decks to revert to an earlier state.</li>
+          <li>Fix a bug in the handling of relearning cards when switching back to the V1 scheduler.</li>
+          <li>Fix lost space when pasting indented text.</li>
+          <li>Limit image height relative to window height, not document height.</li>
+          <li>Fix deck list being re-rendered unnecessarily.</li>
+          <li>Remove the unable to connect to local port message.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2019-05-20" version="2.1.13">
       <description>
         <ul>
