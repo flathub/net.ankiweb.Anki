@@ -28,8 +28,7 @@ modules:
   - name: sip
     buildsystem: simple
     build-commands:
-      - python3 setup.py build
-      - python3 setup.py install --prefix="${FLATPAK_DEST}" --optimize=1
+      - python3 setup.py install --prefix="${FLATPAK_DEST}" --root=/ --optimize=1
     sources:
       - type: archive
         url: https://pypi.python.org/packages/source/s/sip/sip-5.2.0.tar.gz
@@ -41,7 +40,19 @@ modules:
       - python3-toml.json
       - python3-packaging.json
 
+  - name: PyQt5_sip
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py install --prefix="${FLATPAK_DEST}" --root=/ --optimize=1
+    sources:
+      - type: archive
+        url: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.7.2.tar.gz
+        sha256: 16a19b9f36985b8bff30b89fb8859d831713dd528fba5600563e36ff077960a2
+
   - name: pyqt5
+    build-options:
+      env:
+        - QMAKEPATH=/app/lib
     config-opts:
       - --assume-shared
       - --concatenate
@@ -53,8 +64,8 @@ modules:
       - --no-qsci-api
       - --no-stubs
       - --no-tools
-      - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/'
-      - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'
+      - QMAKE_CFLAGS_RELEASE+='-I/usr/include/python3.7m/'
+      - QMAKE_CXXFLAGS_RELEASE+='-I/usr/include/python3.7m/'
     # FIXME: we should do this on ARM too, but for some reason it fails to build
     build-options:
       arch:
@@ -81,12 +92,15 @@ modules:
       - type: script
         commands:
           - processed=`sed -e 's|prefix|sysroot|' <<< $@`
-          - python3 configure.py $processed
+          - python3 configure.py QMAKE_CFLAGS_RELEASE="$CFLAGS" QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS" QMAKE_LFLAGS_RELEASE="$LDFLAGS" $processed
         dest-filename: configure
     cleanup:
       - /share/sip
 
   - name: pyqt5-webengine
+    build-options:
+      env:
+        - QMAKEPATH=/app/lib
     config-opts:
       - --concatenate
       - --no-dist-info
@@ -94,8 +108,11 @@ modules:
       - --no-qsci-api
       - --no-sip-files
       - --no-stubs
-      - QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.7m/'
-      - QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.7m/'
+      - QMAKE_CFLAGS_RELEASE+='-I/usr/include/python3.7m/'
+      - QMAKE_CXXFLAGS_RELEASE+='-I/usr/include/python3.7m/'
+      - QMAKE_INCDIR+=/app/include/QtWebEngine
+      - QMAKE_INCDIR+=/app/include/QtWebEngineCore
+      - QMAKE_INCDIR+=/app/include/QtWebEngineWidgets
     sources:
       - type: archive
         url: https://pypi.python.org/packages/source/P/PyQtWebEngine/PyQtWebEngine-5.14.0.tar.gz
@@ -103,7 +120,7 @@ modules:
       - type: script
         commands:
           - processed=`sed -e 's|prefix|sysroot|' <<< $@`
-          - python3 configure.py $processed
+          - python3 configure.py QMAKE_CFLAGS_RELEASE="$CFLAGS" QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS" QMAKE_LFLAGS_RELEASE="$LDFLAGS" $processed
         dest-filename: configure
 
   - name: mpv
