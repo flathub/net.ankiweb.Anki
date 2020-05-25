@@ -49,79 +49,66 @@ modules:
         url: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.7.2.tar.gz
         sha256: 16a19b9f36985b8bff30b89fb8859d831713dd528fba5600563e36ff077960a2
 
+  - python3-pyqt-builder.json
+
   - name: pyqt5
+    buildsystem: simple
     build-options:
       env:
         - QMAKEPATH=/app/lib
-    config-opts:
-      - --assume-shared
-      - --concatenate
-      - --confirm-license
-      - --no-designer-plugin
-      - --no-dist-info
-      - --no-docstrings
-      - --no-qml-plugin
-      - --no-qsci-api
-      - --no-stubs
-      - --no-tools
-      - QMAKE_CFLAGS_RELEASE+='-I/usr/include/python3.7m/'
-      - QMAKE_CXXFLAGS_RELEASE+='-I/usr/include/python3.7m/'
-    # FIXME: we should do this on ARM too, but for some reason it fails to build
-    build-options:
-      arch:
-        i386:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWidgets
-        x86_64:
-          config-opts:
-            - --enable=QtCore
-            - --enable=QtGui
-            - --enable=QtNetwork
-            - --enable=QtPrintSupport
-            - --enable=QtWebChannel
-            - --enable=QtWidgets
+    build-commands:
+      - sip-install
+        --verbose
+        --build-dir ${FLATPAK_BUILDER_BUILDDIR}/build
+        --target-dir ${FLATPAK_DEST}/lib/python$(python3 -c 'import sys; print(sys.version[:3])')/site-packages
+        --enable=QtCore
+        --enable=QtGui
+        --enable=QtNetwork
+        --enable=QtPrintSupport
+        --enable=QtWebChannel
+        --enable=QtWidgets
+        --confirm-license
+        --qt-share
+        --no-designer-plugin
+        --no-qml-plugin
+        --no-dbus-python
+        --no-tools
+        --qmake-setting QMAKE_CFLAGS_RELEASE="$CFLAGS"
+        --qmake-setting QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS"
+        --qmake-setting QMAKE_LFLAGS_RELEASE="$LDFLAGS"
+        --concatenate 1
+        --debug
+        --no-docstrings
     sources:
       - type: archive
         url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.14.2.tar.gz
         sha256: bd230c6fd699eabf1ceb51e13a8b79b74c00a80272c622427b80141a22269eb0
-      - type: script
-        commands:
-          - processed=`sed -e 's|prefix|sysroot|' <<< $@`
-          - python3 configure.py QMAKE_CFLAGS_RELEASE="$CFLAGS" QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS" QMAKE_LFLAGS_RELEASE="$LDFLAGS" $processed
-        dest-filename: configure
     cleanup:
       - /share/sip
 
   - name: pyqt5-webengine
+    buildsystem: simple
     build-options:
       env:
         - QMAKEPATH=/app/lib
-    config-opts:
-      - --concatenate
-      - --no-dist-info
-      - --no-docstrings
-      - --no-qsci-api
-      - --no-sip-files
-      - --no-stubs
-      - QMAKE_CFLAGS_RELEASE+='-I/usr/include/python3.7m/'
-      - QMAKE_CXXFLAGS_RELEASE+='-I/usr/include/python3.7m/'
-      - QMAKE_INCDIR+=/app/include/QtWebEngine
-      - QMAKE_INCDIR+=/app/include/QtWebEngineCore
-      - QMAKE_INCDIR+=/app/include/QtWebEngineWidgets
+    build-commands:
+      - sip-install
+        --verbose
+        --build-dir ${FLATPAK_BUILDER_BUILDDIR}/build
+        --target-dir ${FLATPAK_DEST}/lib/python$(python3 -c 'import sys; print(sys.version[:3])')/site-packages
+        --qmake-setting QMAKE_CFLAGS_RELEASE="$CFLAGS"
+        --qmake-setting QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS"
+        --qmake-setting QMAKE_LFLAGS_RELEASE="$LDFLAGS"
+        --qmake-setting QMAKE_INCDIR+=/app/include/QtWebEngine
+        --qmake-setting QMAKE_INCDIR+=/app/include/QtWebEngineCore
+        --qmake-setting QMAKE_INCDIR+=/app/include/QtWebEngineWidgets
+        --concatenate 1
+        --debug
+        --no-docstrings
     sources:
       - type: archive
         url: https://pypi.python.org/packages/source/P/PyQtWebEngine/PyQtWebEngine-5.14.0.tar.gz
         sha256: e11595051f8bfbfa49175d899b2c8c2eea3a3deac4141edf4db68c3555221c92
-      - type: script
-        commands:
-          - processed=`sed -e 's|prefix|sysroot|' <<< $@`
-          - python3 configure.py QMAKE_CFLAGS_RELEASE="$CFLAGS" QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS" QMAKE_LFLAGS_RELEASE="$LDFLAGS" $processed
-        dest-filename: configure
 
   - name: mpv
     buildsystem: simple
