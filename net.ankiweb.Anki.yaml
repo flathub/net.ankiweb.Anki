@@ -54,6 +54,10 @@ modules:
   - name: pyqt5
     buildsystem: simple
     build-options:
+      arch:
+        x86_64:
+          env:
+            - ANKI_BINDINGS=--enable=QtCore --enable=QtGui --enable=QtNetwork --enable=QtPrintSupport --enable=QtWebChannel --enable=QtWidgets
       env:
         - QMAKEPATH=/app/lib
     build-commands:
@@ -61,12 +65,7 @@ modules:
         --verbose
         --build-dir ${FLATPAK_BUILDER_BUILDDIR}/build
         --target-dir ${FLATPAK_DEST}/lib/python$(python3 -c 'import sys; print(sys.version[:3])')/site-packages
-        --enable=QtCore
-        --enable=QtGui
-        --enable=QtNetwork
-        --enable=QtPrintSupport
-        --enable=QtWebChannel
-        --enable=QtWidgets
+        $ANKI_BINDINGS
         --confirm-license
         --qt-share
         --no-designer-plugin
