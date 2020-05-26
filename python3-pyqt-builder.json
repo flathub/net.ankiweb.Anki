@@ -1,0 +1,64 @@
+{
+    "name": "python3-pyqt-builder",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} pyqt-builder"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz",
+            "sha256": "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz",
+            "sha256": "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/b9/19/5cbd78eac8b1783671c40e34bb0fa83133a06d340a38b55c645076d40094/toml-0.10.0.tar.gz",
+            "sha256": "229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/65/37/83e3f492eb52d771e2820e88105f605335553fe10422cba9d256faeb1702/packaging-20.3.tar.gz",
+            "sha256": "3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/bc/dd/aa60ae73bc213466fd158e3d8b91d55ac00a248b14a98919bfe0e12c5d74/sip-5.2.0.tar.gz",
+            "sha256": "3d3f279a61d54d832b12496409811ee062dab1ac05a1e7b40824f63b423fb0e7"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/08/19/21cc98594bdb11ee6abe91522c79cedb9fa8b0119aa64a364fae0dec073c/PyQt-builder-1.3.2.tar.gz",
+            "sha256": "d4c93c95d737fb654f0c7e824c668357003c744529a39df6c4456d5627a64b66"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl",
+            "sha256": "ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/65/eb/1f97cb97bfc2390a276969c6fae16075da282f5058082d4cb10c6c5c1dba/six-1.14.0-py2.py3-none-any.whl",
+            "sha256": "8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/a2/12/ced7105d2de62fa7c8fb5fce92cc4ce66b57c95fb875e9318dba7f8c5db0/toml-0.10.0-py2.py3-none-any.whl",
+            "sha256": "235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/62/0a/34641d2bf5c917c96db0ded85ae4da25b6cd922d6b794648d4e7e07c88e5/packaging-20.3-py2.py3-none-any.whl",
+            "sha256": "82f77b9bee21c1bafbf35a84905d604d5d1223801d639cf3ed140bd651c08752"
+        },
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/3d/a8/89ace1cbf56cfc8dfcabeb02730ce0330173e020e3cd9d844d2c959cc39e/PyQt_builder-1.3.2-py3-none-any.whl",
+            "sha256": "c52d4ea9339ad4b8bc734a8520561939ec4c067a47fabf0002890f3358e3c634"
+        }
+    ]
+}
