@@ -3,6 +3,8 @@ app-id: net.ankiweb.Anki
 runtime: org.kde.Platform
 runtime-version: '5.14'
 sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
 
 base: io.qt.qtwebengine.BaseApp
 base-version: '5.14'
@@ -10,6 +12,9 @@ base-version: '5.14'
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
+
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
 
 finish-args:
   # X11/Wayland
@@ -25,6 +30,21 @@ finish-args:
   - --env=TMPDIR=/var/tmp
 
 modules:
+  - name: maturin
+    buildsystem: simple
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml --verbose
+      - cargo --offline build --release --locked --all-features
+      - install -Dm755 -t /app/bin/ target/release/maturin
+    build-options:
+      env:
+        - CARGO_HOME=/run/build/maturin/cargo
+    sources:
+      - type: archive
+        url: https://github.com/PyO3/maturin/archive/v0.8.1.tar.gz
+        sha256: b72a9885cda3ba4e53906a43aab101acb790622218ade6405b2ddf1ef1461f8f
+      - maturin-sources.json
+
   - name: sip
     buildsystem: simple
     build-commands:
@@ -162,25 +182,51 @@ modules:
   - python3-attrs.json
   - python3-setuptools_scm.json
   - python3-jsonschema.json
+  - python3-mypy-protobuf.json
+
 
   - name: anki
-    no-autogen: true
+    buildsystem: simple
+    build-commands:
+      - echo flatpak > meta/buildhash
+      - make -C rspy build
+      - make -C pylib build
+      - make -C qt build
     make-install-args:
       - PREFIX=/app
     post-install:
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
       - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.appdata.xml
       - install -Dm644 anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
+      # .mo files are in a non-standard directory, work-around that,
+      # so that Flatpak and Appstream can find the files
+      - mv /app/share/anki/locale /app/share/locale
+      - ln -s /app/share/locale /app/share/anki/locale
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/archive/2.1.15.tar.gz
-        sha256: 16fc2986accf545412884a8a938c5600c4740e87403580553573a05133cc86f9
+        url: https://github.com/ankitects/anki/archive/2.1.26.tar.gz
+        sha256: f5a0c41f3eebe0e77de9d46f2a5cbbe20f7c3a4787f0f02e1d33f298428acbdf
+      - type: archive
+        url: https://github.com/ankitects/anki-core-i18n/archive/8d6ec08.tar.gz
+        sha256: 697ba7987673e8d70d9ae0ffe36bd6fa3b9ed3a0906f99460f14429730ce7892
+        dest: rslib/ftl/repo
+      - type: archive
+        url: https://github.com/ankitects/anki-desktop-ftl/archive/04f26f2.tar.gz
+        sha256: 37fc9af8383f770554714474289576601497c2d62cdb17a6115c17d7559df9e0
+        dest: qt/ftl/repo
+      - type: archive
+        url: https://github.com/ankitects/anki-desktop-i18n/archive/0c64190.tar.gz
+        sha256: 6d86619e75e49d4d8da07133140c72aae9dad364ecbaa85f836fd89ad8f5b446
+        dest: qt/po/repo
       - type: file
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
-      - type: shell
-        commands:
-          - sed -i '/xdg-mime/d' Makefile
+      - type: patch
+        paths:
+          - patches/0001-Move-aqt_data-to-sys.prefix-share.patch
+          - patches/0002-Remove-bad-build-steps-from-makefiles.patch
+          - patches/0003-Compile-.py-s-before-building-wheel.patch
+          - patches/0004-Disable-auto-updates.patch
     cleanup:
       - /share/pixmaps
