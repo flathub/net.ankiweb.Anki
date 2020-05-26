@@ -171,10 +171,6 @@ modules:
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
       - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.appdata.xml
       - install -Dm644 anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
-      # .mo files are in a non-standard directory, work-around that,
-      # so that Flatpak and Appstream can find the files
-      - mv /app/share/anki/locale /app/share/locale
-      - ln -s /app/share/locale /app/share/anki/locale
     sources:
       - type: archive
         url: https://github.com/ankitects/anki/archive/2.1.15.tar.gz
