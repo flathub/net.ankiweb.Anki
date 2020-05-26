@@ -183,8 +183,8 @@ modules:
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
-      - type: script
+      - type: shell
         commands:
-        - sed -i -e 's/cp -a/cp -dR/' Makefile
+          - sed -i '/xdg-mime/d' Makefile
     cleanup:
       - /share/pixmaps
