@@ -28,6 +28,29 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2020-08-09" version="2.1.30">
+      <description>
+        <ul>
+          <li>Fix move into/out of filtered decks not syncing.</li>
+          <li>Add right axis to graphs.</li>
+          <li>Add night mode and mobile class toggles in card layout screen (thanks to ANH25).</li>
+          <li>Card counts graph now always shows table.</li>
+          <li>Catch negative review times in DB check.</li>
+          <li>Code improvements (thanks to Matt, phwoo, Evandro and aplaice).</li>
+          <li>Fix a crash in the DB check when a note type was missing.</li>
+          <li>Fix automatic logout not working when auth failure occurs.</li>
+          <li>Fix deck list and graphs not including v2 scheduler cards with rescheduling disabled.</li>
+          <li>Fix early reviews not appearing in review graph.</li>
+          <li>Fix hour graph problem in timezones west of UTC.</li>
+          <li>Fix negated conditonals being non-negated when renamed.</li>
+          <li>Fix some syncing errors that could happen until Check Database was run.</li>
+          <li>Fix some young cards being shown as mature in reviews graph.</li>
+          <li>Handle multiple same-numbered clozes in cloze-only filter.</li>
+          <li>Refresh tag list after clearing empty tags.</li>
+          <li>Other minor fixes.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2019-08-22" version="2.1.15">
       <description>
         <ul>
