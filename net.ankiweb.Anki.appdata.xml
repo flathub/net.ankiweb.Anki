@@ -28,6 +28,31 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2020-08-23" version="2.1.31">
+      <description>
+        <ul>
+          <li>Show card counts in pie graph, and other minor graph tweaks.</li>
+          <li>Fix sync error+lost review when undoing in v2 filtered deck with scheduling off.</li>
+          <li>Fix crash when dragging &amp; dropping, thanks to ANH25.</li>
+          <li>Fix ‘stale notetype’ error after sync+add.</li>
+          <li>Close “edit current” when current card deleted.</li>
+          <li>Code improvements thanks to ANH, Arthur, Evandro, Henrik and Thomas.</li>
+          <li>Find&amp;Replace completion is now case sensitive.</li>
+          <li>Fix crash when recovering notes with missing notetype.</li>
+          <li>Fix duplicate detection when input text is not normalized.</li>
+          <li>Fix Empty Cards not ignoring BR tags.</li>
+          <li>Fix Find&amp;Replace window sizing.</li>
+          <li>Fix handling of nested legacy template directives.</li>
+          <li>Fix issues with bulk tag removal.</li>
+          <li>Fix mpv failing to play audio after it’s restarted, thanks to Kelciour.</li>
+          <li>Fix some (rare) crashes.</li>
+          <li>Full syncs and media syncs now terminate more quickly when the connection breaks.</li>
+          <li>Improve support for getting proxies from Windows registry.</li>
+          <li>Remove embedded direction markers in RTL cloze deletions.</li>
+          <li>Strip nul characters from tags.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2020-08-09" version="2.1.30">
       <description>
         <ul>
