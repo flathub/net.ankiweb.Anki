@@ -1,6 +1,6 @@
 app-id: net.ankiweb.Anki
 runtime: org.kde.Platform
-runtime-version: '5.14'
+runtime-version: '5.15'
 sdk: org.kde.Sdk
 command: anki
 rename-desktop-file: anki.desktop
