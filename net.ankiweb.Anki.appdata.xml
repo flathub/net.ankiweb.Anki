@@ -28,6 +28,30 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2020-08-30" version="2.1.33">
+      <description>
+        <ul>
+          <li>Access More button in review screen with ‘m’ (thanks to ANH).</li>
+          <li>Audio no longer plays when dropped/pasted (thanks to ANH).</li>
+          <li>Fix bulk tag adding not adding tags if tag is a substring of an existing tag (thanks to Soren)</li>
+          <li>Fix cards not being unburied if leaving Anki open and the first action of a new day is a sync.</li>
+          <li>Fix drag&amp;drop into existing content (thanks to ANH).</li>
+          <li>Fix error when add-ons tried to access note/template in card template screen.</li>
+          <li>Fix next learn message in congrats screen.</li>
+          <li>Fix nonbreaking spaces in filenames not being handled properly.</li>
+          <li>Fix text in export file selector (thanks to ANH).</li>
+          <li>Fix timeouts in full syncs and media syncs again.</li>
+        </ul>
+      </description>
+    </release>
+    <release date="2020-08-25" version="2.1.32">
+      <description>
+        <ul>
+          <li>Roll back a change in the previous update that could cause syncs to time out.</li>
+          <li>Fix sign up link in login screen.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2020-08-23" version="2.1.31">
       <description>
         <ul>
