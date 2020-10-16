@@ -28,6 +28,32 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2020-10-02" version="2.1.35">
+      <description>
+        <ul>
+          <li>Fix a bug in Anki 2.1.29+ that caused excessive memory and CPU usage on long-running operations that show a progress bar, such as importing.</li>
+          <li>Roll back Mac and Windows builds to Qt 5.14 again, as there are still issues with 5.15.</li>
+          <li>Fix display issue in graphs on alternate Mac build.</li>
+          <li>Fix preview not updating on multiple selection (thanks to abdo).</li>
+          <li>Fix old content appearing when flagging immediately after typing.</li>
+          <li>Fix some handling of * in searches.</li>
+          <li>Sidebar now correctly escapes some characters (thanks to abdo).</li>
+        </ul>
+      </description>
+    </release>
+    <release date="2020-09-24" version="2.1.34">
+      <description>
+        <ul>
+          <li>Fix a bug in Anki 2.1.28+ where a newly created deck config would default to an ease of 130%. When updating, Anki will automatically change any deck configs with an ease of 130% back to 250%, and change any cards using those deck configs with a low ease back to an ease of 250%. (cont.)</li>
+          <li>(cont.) Users who updated from an older Anki version and did not add new deck configurations should not be affected. If you have deliberately set an initial ease of 130%, please change it to 131% or greater prior to upgrading, so that Anki leaves your settings alone. Thanks to Aleksa for discovering the issue.</li>
+          <li>Update the standard builds to the latest GUI toolkit version. Please report any improvements or regressions you notice.</li>
+          <li>Dropped audio plays automatically again (thanks to abdo).</li>
+          <li>Revert to older sound playing behaviour to work around issues (thanks to kelciour).</li>
+          <li>is:due now stops at now+learn ahead limit, instead of end of day.</li>
+          <li>Various improvements/fixes, some thanks Aleksa &amp; Henrik.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2020-08-30" version="2.1.33">
       <description>
         <ul>
