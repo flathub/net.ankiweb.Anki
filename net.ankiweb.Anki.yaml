@@ -44,27 +44,23 @@ modules:
       - /share
 
   - name: anki
-    no-autogen: true
-    make-install-args:
-      - PREFIX=/app
-    post-install:
+    buildsystem: simple
+    build-commands:
+      - ./install.sh
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
       - install -Dm644 -t /app/share/appdata net.ankiweb.Anki.appdata.xml
       - install -Dm644 anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
-      # .mo files are in a non-standard directory, work-around that,
-      # so that Flatpak and Appstream can find the files
-      - mv /app/share/anki/bin/aqt_data/locale /app/share/locale
-      - ln -s /app/share/locale /app/share/anki/bin/aqt_data/locale
     cleanup:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.35/anki-2.1.35-linux-amd64.tar.bz2
-        sha256: c0429a5e3a91ae1edf57f4af779072f4337056e363f854dc3db300d3c4eb6b02
+        url: https://github.com/ankitects/anki/releases/download/2.1.38/anki-2.1.38-linux.tar.bz2
+        sha256: e4535f040424fc75d0eba6a6c1009214a58acc188deab2869ab2091226faeb93
       - type: file
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
       - type: shell
         commands:
-        - sed -i '/xdg-mime/d' Makefile
+        - sed -i '/xdg-mime/d' install.sh
+        - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
