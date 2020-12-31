@@ -18,6 +18,20 @@ finish-args:
   - --env=TMPDIR=/var/tmp
 
 modules:
+  - name: libass
+    sources:
+      - type: archive
+        url: https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.xz
+        sha256: 9f09230c9a0aa68ef7aa6a9e2ab709ca957020f842e52c5b2e52b801a7d9e833
+      - type: script
+        commands:
+        - autoreconf -fiv
+        dest-filename: autogen.sh
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /share
+
   - name: mpv
     buildsystem: simple
     build-commands:
