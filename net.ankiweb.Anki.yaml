@@ -18,25 +18,37 @@ finish-args:
   - --env=TMPDIR=/var/tmp
 
 modules:
+  - name: libass
+    sources:
+      - type: archive
+        url: https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.xz
+        sha256: 9f09230c9a0aa68ef7aa6a9e2ab709ca957020f842e52c5b2e52b801a7d9e833
+      - type: script
+        commands:
+        - autoreconf -fiv
+        dest-filename: autogen.sh
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /share
+
   - name: mpv
     buildsystem: simple
     build-commands:
       - python3 waf configure
           --disable-alsa
           --disable-build-date
-          --disable-libass
           --disable-manpage-build
-          --disable-oss-audio
           --prefix=/app
       - python3 waf build
       - python3 waf install
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.32.0.tar.gz
-        sha256: 9163f64832226d22e24bbc4874ebd6ac02372cd717bef15c28a0aa858c5fe592 
+        url: https://github.com/mpv-player/mpv/archive/v0.33.0.tar.gz
+        sha256: f1b9baf5dc2eeaf376597c28a6281facf6ed98ff3d567e3955c95bf2459520b4
       - type: file
-        url: https://waf.io/waf-2.0.15
-        sha256: 34b8156ea375089e1bed5a31acfaff4024f6f3e96f3bee98f801f0c281ad3d2c
+        url: https://waf.io/waf-2.0.20
+        sha256: bf971e98edc2414968a262c6aa6b88541a26c3cd248689c89f4c57370955ee7f
         dest-filename: waf
     cleanup:
       - /include
@@ -44,27 +56,23 @@ modules:
       - /share
 
   - name: anki
-    no-autogen: true
-    make-install-args:
-      - PREFIX=/app
-    post-install:
+    buildsystem: simple
+    build-commands:
+      - ./install.sh
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
       - install -Dm644 -t /app/share/appdata net.ankiweb.Anki.appdata.xml
       - install -Dm644 anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
-      # .mo files are in a non-standard directory, work-around that,
-      # so that Flatpak and Appstream can find the files
-      - mv /app/share/anki/bin/aqt_data/locale /app/share/locale
-      - ln -s /app/share/locale /app/share/anki/bin/aqt_data/locale
     cleanup:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.35/anki-2.1.35-linux-amd64.tar.bz2
-        sha256: c0429a5e3a91ae1edf57f4af779072f4337056e363f854dc3db300d3c4eb6b02
+        url: https://github.com/ankitects/anki/releases/download/2.1.38/anki-2.1.38-linux.tar.bz2
+        sha256: e4535f040424fc75d0eba6a6c1009214a58acc188deab2869ab2091226faeb93
       - type: file
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
       - type: shell
         commands:
-        - sed -i '/xdg-mime/d' Makefile
+        - sed -i '/xdg-mime/d' install.sh
+        - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
