@@ -47,8 +47,8 @@ modules:
         url: https://github.com/mpv-player/mpv/archive/v0.33.0.tar.gz
         sha256: f1b9baf5dc2eeaf376597c28a6281facf6ed98ff3d567e3955c95bf2459520b4
       - type: file
-        url: https://waf.io/waf-2.0.20
-        sha256: bf971e98edc2414968a262c6aa6b88541a26c3cd248689c89f4c57370955ee7f
+        url: https://waf.io/waf-2.0.22
+        sha256: 0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1
         dest-filename: waf
     cleanup:
       - /include
@@ -66,8 +66,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.38/anki-2.1.38-linux.tar.bz2
-        sha256: e4535f040424fc75d0eba6a6c1009214a58acc188deab2869ab2091226faeb93
+        url: https://github.com/ankitects/anki/releases/download/2.1.40/anki-2.1.40-linux.tar.bz2
+        sha256: 554525fc0af88e2e8a8e13a3715c9cde05a59c2f81ec6b85a5b28edd40959b7d
       - type: file
         path: anki.svg
       - type: file

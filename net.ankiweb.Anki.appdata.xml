@@ -28,6 +28,14 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2021-02-07" version="2.1.40">
+      <description>
+        <ul>
+          <li>Fixed backup not being made when choosing "Download" when syncing.</li>
+          <li>Fixed a slowdown after importing.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2020-12-26" version="2.1.38">
       <description>
         <ul>
