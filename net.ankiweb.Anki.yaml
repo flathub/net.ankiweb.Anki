@@ -7,7 +7,8 @@ rename-desktop-file: anki.desktop
 rename-icon: anki
 finish-args:
   # X11/Wayland
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --device=dri
   # Flashcards with sound
