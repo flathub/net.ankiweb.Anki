@@ -66,8 +66,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.40/anki-2.1.40-linux.tar.bz2
-        sha256: 554525fc0af88e2e8a8e13a3715c9cde05a59c2f81ec6b85a5b28edd40959b7d
+        url: https://github.com/ankitects/anki/releases/download/2.1.44/anki-2.1.44-linux.tar.bz2
+        sha256: 4926c6956f83edc88b6af7e96a77094f553ed721bbaad767049b34bd07a5a505
       - type: file
         path: anki.svg
       - type: file
