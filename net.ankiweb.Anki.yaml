@@ -2,6 +2,10 @@ app-id: net.ankiweb.Anki
 runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
+add-extensions:
+  org.freedesktop.Sdk.Extension.texlive:
+    version: '20.08'
+    directory: texlive # this is relative to /app
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
@@ -16,8 +20,15 @@ finish-args:
   - --share=network
   # Allow other instances to see lockfiles
   - --env=TMPDIR=/var/tmp
+  # LaTeX
+  - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
 
 modules:
+  - name: texlive
+    buildsystem: simple
+    build-commands:
+      - install -d /app/texlive
+
   - name: libass
     sources:
       - type: archive
