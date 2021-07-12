@@ -2,6 +2,10 @@ app-id: net.ankiweb.Anki
 runtime: org.kde.Platform
 runtime-version: '5.15'
 sdk: org.kde.Sdk
+add-extensions:
+  org.freedesktop.Sdk.Extension.texlive:
+    version: '20.08'
+    directory: texlive # this is relative to /app
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
@@ -16,13 +20,20 @@ finish-args:
   - --share=network
   # Allow other instances to see lockfiles
   - --env=TMPDIR=/var/tmp
+  # LaTeX
+  - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
 
 modules:
+  - name: texlive
+    buildsystem: simple
+    build-commands:
+      - install -d /app/texlive
+
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.xz
-        sha256: 9f09230c9a0aa68ef7aa6a9e2ab709ca957020f842e52c5b2e52b801a7d9e833
+        url: https://github.com/libass/libass/releases/download/0.15.1/libass-0.15.1.tar.xz
+        sha256: 1cdd39c9d007b06e737e7738004d7f38cf9b1e92843f37307b24e7ff63ab8e53
       - type: script
         commands:
         - autoreconf -fiv
@@ -44,8 +55,8 @@ modules:
       - python3 waf install
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.33.0.tar.gz
-        sha256: f1b9baf5dc2eeaf376597c28a6281facf6ed98ff3d567e3955c95bf2459520b4
+        url: https://github.com/mpv-player/mpv/archive/v0.33.1.tar.gz
+        sha256: 100a116b9f23bdcda3a596e9f26be3a69f166a4f1d00910d1789b6571c46f3a9
       - type: file
         url: https://waf.io/waf-2.0.22
         sha256: 0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1
@@ -66,8 +77,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.40/anki-2.1.40-linux.tar.bz2
-        sha256: 554525fc0af88e2e8a8e13a3715c9cde05a59c2f81ec6b85a5b28edd40959b7d
+        url: https://github.com/ankitects/anki/releases/download/2.1.44/anki-2.1.44-linux.tar.bz2
+        sha256: 4926c6956f83edc88b6af7e96a77094f553ed721bbaad767049b34bd07a5a505
       - type: file
         path: anki.svg
       - type: file

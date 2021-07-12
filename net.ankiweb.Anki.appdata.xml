@@ -28,6 +28,14 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2021-05-12" version="2.1.44">
+      <description>
+        <ul>
+          <li>Search text is no longer automatically quoted/interspersed with ANDs.</li>
+          <li>Fix two backslashes being treated as one in MathJax.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-02-07" version="2.1.40">
       <description>
         <ul>
