@@ -6,6 +6,7 @@ add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
     version: '20.08'
     directory: texlive # this is relative to /app
+    no-autodownload: true
 command: anki
 rename-desktop-file: anki.desktop
 rename-icon: anki
