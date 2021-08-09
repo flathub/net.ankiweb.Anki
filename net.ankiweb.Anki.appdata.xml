@@ -28,6 +28,24 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2021-08-04" version="2.1.46">
+      <description>
+        <ul>
+          <li>Fix duplicate text when pasting with Ctrl+Shift+V (thanks to Henrik).</li>
+          <li>Remember last colors in editing window (thanks to Henrik).</li>
+          <li>Show flag and mark icons in preview window (thanks to Hikaru).</li>
+          <li>Center first match when searching in sidebar (thanks to Abdo).</li>
+          <li>Added F9/Shift+F9 shortcuts for sticky fields, and increase opacity (thanks to Henrik).</li>
+          <li>Fixed starting ease specified in deck options not being used by v3 scheduler.</li>
+          <li>Fixed learning cutoff not updating during review, and some learning cards remaining at the end of review in the v3 scheduler.</li>
+          <li>Fixed Change Notetype not mapping fields correctly when count differed.</li>
+          <li>The congrats screen now updates periodically again.</li>
+          <li>Fixed Redo menu item showing Undo action name.</li>
+          <li>Fixed notetype selection in the import screen.</li>
+          <li>Fixed error in overview/congrats screen when there is no current deck.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-05-12" version="2.1.44">
       <description>
         <ul>
