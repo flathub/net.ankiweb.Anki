@@ -28,6 +28,25 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2021-09-21" version="2.1.48">
+      <description>
+        <ul>
+          <li>Add "Previous Card Info" action to review screen (thanks to Evandro).</li>
+          <li>Fix flag names not updating on profile switch (thanks to Rumo).</li>
+          <li>Hide "Rename with Parents" for top-level items (thanks to Rumo).</li>
+          <li>"Add Field" action now correctly handles multi-word font names.</li>
+          <li>Fix newline being added when coloring text (thanks to Henrik).</li>
+          <li>Fix incorrect system font when running Anki in some non-English languages.</li>
+          <li>Fix learning count sometimes jumping to a large number in the v3 scheduler.</li>
+          <li>Another fix for Reposition command not working on buried/suspended cards.</li>
+          <li>Preserve focus when changing notetype in the Add screen.</li>
+          <li>Wayland can now be optionally enabled with an env var in the packaged builds, but remains off by default due to a number of bugs.</li>
+          <li>Fix an error message that could appear when deleting notes (thanks to Rumo).</li>
+          <li>The card templates screen no longer defaults to filling empty fields when opened from the Add screen (thanks to BlueGreenMagick).</li>
+          <li>Miscellaneous other fixes.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-08-29" version="2.1.47">
       <description>
         <p>Changes to the v3 scheduler:</p>
