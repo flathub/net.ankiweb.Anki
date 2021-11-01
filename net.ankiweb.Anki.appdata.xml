@@ -29,6 +29,26 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2021-10-26" version="2.1.49">
+      <description>
+        <ul>
+          <li>Fixed cards not being automatically unburied when v3 scheduler enabled.</li>
+          <li>Fixed incorrect learning count in v3 scheduler when interday learning cards were queued (thanks to Rumo).</li>
+          <li>Work around an AnkiDroid inconsistency causing deck config to be reset if options edited on AnkiDroid.</li>
+          <li>Fixed a memory leak in the Preview screen (thanks to Hikaru).</li>
+          <li>Fixed an issue copying filenames from the Check Media screen (thanks to Abdo).</li>
+          <li>Fixed deck changing when toggling sticky fields (thanks to Abdo).</li>
+          <li>Fixed invalid default column in notes mode in the Browse screen (thanks to Abdo).</li>
+          <li>The bury command ignores suspended cards now (thanks to Rumo).</li>
+          <li>Anki no longer migrates any files from the old ~/Documents/Anki and ~/Anki folders.</li>
+          <li>Increased number of card templates shown in card templates screen dropdown (thanks to Evando).</li>
+          <li>Added a new example Dockerfile (thanks to Jakub).</li>
+          <li>Handle spaces in Linux install location (thanks to lolilo).</li>
+          <li>Work around a PyQt error on Python 3.10.</li>
+          <li>Other minor changes.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-09-21" version="2.1.48">
       <description>
         <ul>
