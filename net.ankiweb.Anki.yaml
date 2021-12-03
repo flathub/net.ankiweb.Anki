@@ -56,8 +56,8 @@ modules:
       - python3 waf install
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.33.1.tar.gz
-        sha256: 100a116b9f23bdcda3a596e9f26be3a69f166a4f1d00910d1789b6571c46f3a9
+        url: https://github.com/mpv-player/mpv/archive/v0.34.0.tar.gz
+        sha256: f654fb6275e5178f57e055d20918d7d34e19949bc98ebbf4a7371902e88ce309
       - type: file
         url: https://waf.io/waf-2.0.22
         sha256: 0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1
@@ -78,8 +78,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.48/anki-2.1.48-linux.tar.bz2
-        sha256: d59bc2f023e760ccc2c71ae4a3515f993bca8894feec184e764e76ccb4e72c61
+        url: https://github.com/ankitects/anki/releases/download/2.1.49/anki-2.1.49-linux.tar.bz2
+        sha256: b86dfd83d0979eab80ac5b31b451d65a80da370bbccb628a87e4aa1adf1aaa2d
       - type: file
         path: anki.svg
       - type: file
