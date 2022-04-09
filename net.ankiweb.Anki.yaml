@@ -13,6 +13,7 @@ rename-icon: anki
 finish-args:
   # X11/Wayland
   - --socket=x11
+  - --socket=wayland
   - --share=ipc
   - --device=dri
   # Flashcards with sound
