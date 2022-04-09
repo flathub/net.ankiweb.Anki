@@ -21,6 +21,8 @@ finish-args:
   - --share=network
   # Allow other instances to see lockfiles
   - --env=TMPDIR=/var/tmp
+  # IBus support
+  - --env=IBUS_USE_PORTAL=1
   # LaTeX
   - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
 
@@ -67,6 +69,25 @@ modules:
       - /lib/pkgconfig
       - /share
 
+  - name: kerberos
+    subdir: src
+    config-opts:
+      - --localstatedir=/var/lib
+      - --sbindir=${FLATPAK_DEST}/bin
+    build-commands:
+      - install -Dm644 ../krb5.conf /app/etc/krb5.conf
+    sources:
+      - type: archive
+        url: https://kerberos.org/dist/krb5/1.19/krb5-1.19.3.tar.gz
+        sha256: 56d04863cfddc9d9eb7af17556e043e3537d41c6e545610778676cf551b9dcd0
+      - type: file
+        path: krb5.conf
+    cleanup:
+      - /bin
+      - /include
+      - /lib/pkgconfig
+      - /share
+
   - name: anki
     buildsystem: simple
     build-commands:
@@ -78,8 +99,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.49/anki-2.1.49-linux.tar.bz2
-        sha256: b86dfd83d0979eab80ac5b31b451d65a80da370bbccb628a87e4aa1adf1aaa2d
+        url: https://github.com/ankitects/anki/releases/download/2.1.50/anki-2.1.50-linux-qt5.tar.zst
+        sha256: c21848ac9ffd0352fea234c1f3d48c63c5544898e1a4c2b32f7b30dd28f505ae
       - type: file
         path: anki.svg
       - type: file
