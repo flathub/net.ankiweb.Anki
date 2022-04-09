@@ -37,6 +37,11 @@ modules:
       - type: archive
         url: https://github.com/libass/libass/releases/download/0.15.2/libass-0.15.2.tar.xz
         sha256: 1be2df9c4485a57d78bb18c0a8ed157bc87a5a8dd48c661961c625cb112832fd
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/libass/libass/releases/latest
+          version-query: .tag_name
+          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") | .browser_download_url
       - type: script
         commands:
         - autoreconf -fiv
@@ -60,10 +65,20 @@ modules:
       - type: archive
         url: https://github.com/mpv-player/mpv/archive/v0.34.1.tar.gz
         sha256: 32ded8c13b6398310fa27767378193dc1db6d78b006b70dbcbd3123a1445e746
+        x-checker-data:
+          type: html
+          url: https://github.com/mpv-player/mpv/releases/latest
+          version-pattern: href="/mpv-player/mpv/archive/refs/tags/v(\d[\d.-]*)\.tar.gz"
+          url-template: https://github.com/mpv-player/mpv/archive/v$version.tar.gz
       - type: file
         url: https://waf.io/waf-2.0.23
         sha256: 28a2e4583314a162cfcbffefb8a9202c1d7869040d30b5852da479b76d9c0491
         dest-filename: waf
+        x-checker-data:
+          type: html
+          url: https://waf.io/
+          version-pattern: href="waf-(\d[\d.-]*)\"
+          url-template: https://waf.io/waf-$version
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -80,6 +95,11 @@ modules:
       - type: archive
         url: https://kerberos.org/dist/krb5/1.19/krb5-1.19.3.tar.gz
         sha256: 56d04863cfddc9d9eb7af17556e043e3537d41c6e545610778676cf551b9dcd0
+        x-checker-data:
+          type: html
+          url: https://kerberos.org/dist/
+          version-pattern: Kerberos V5 Release ([\d\.-]*) - current release
+          url-template: https://kerberos.org/dist/krb5/$version0.$version1/krb5-$version.tar.gz
       - type: file
         path: krb5.conf
     cleanup:
@@ -101,6 +121,11 @@ modules:
       - type: archive
         url: https://github.com/ankitects/anki/releases/download/2.1.50/anki-2.1.50-linux-qt5.tar.zst
         sha256: c21848ac9ffd0352fea234c1f3d48c63c5544898e1a4c2b32f7b30dd28f505ae
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/ankitects/anki/releases/latest
+          version-query: .tag_name
+          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst") | .browser_download_url
       - type: file
         path: anki.svg
       - type: file
