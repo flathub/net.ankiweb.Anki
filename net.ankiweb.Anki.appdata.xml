@@ -29,6 +29,163 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2022-04-09" version="2.1.50">
+      <description>
+        <p><b>Platform-Specific Changes (Linux)</b></p>
+        <ul>
+          <li>The Linux builds need zstd to decompress.</li>
+          <li>The packaged version requires glibc 2.27 or later.</li>
+          <li>A wheel is now provided for ARM64 Linux, and requires glibc 2.31 or greater.</li>
+          <li>Both Fcitx4 and Fcitx5 support is now bundled.</li>
+        </ul>
+        <p><b>Qt6</b></p>
+        <p>The packaged builds now come in separate Qt5 and Qt6 versions. Each version has some advantages and disadvantages. The Flatpak build will use Qt5 for now.</p>
+        <p><b>Scheduler Changes</b></p>
+        <p>The V1 scheduler is no longer supported. If you have not yet updated to V2 or V3, you will be prompted to update when you attempt to review cards in 2.1.50.</p>
+        <p>This release includes a number of improvements to the V3 scheduler, mostly thanks to Rumo:</p>
+        <ul>
+          <li>Intermediate deck limits now affect their children. Please see the scheduler page for more info.</li>
+          <li>When new cards are answered, Anki now records their original position. When you later export a shared deck without scheduling, the original positions will be restored.</li>
+          <li>The Forget action now gives you options to restore the original card position, and to reset the card's lapse and repetition counters.</li>
+          <li>The gathering and sorting of new cards has been reworked, trading a little performance for more intuitive behaviour:
+            <ul>
+              <li>It is now possible to sort notes or cards randomly at gather time, ensuring a random selection is taken from all available new cards.</li>
+              <li>The gather order and sort order options have been simplified, but should offer the same functionality as before. Please check your deck options after upgrading, as some users may need to adjust their display order settings to match what they were using before.</li>
+            </ul>
+          </li>
+          <li>The overview screen now shows how many cards will be buried.</li>
+          <li>Added a separate option to control burying of interday learning siblings.</li>
+          <li>Fixed interday learning siblings not being buried during review, causing them to reappear later after actions like an edit.</li>
+          <li>If you have more than 2 learning steps, after the first step, Hard repeats the previous delay, instead of being the average of the previous and next step.</li>
+          <li>When a Hard learning step exceeds a day, it is now rounded to a full day, so the delay does not vary depending on the time of day you answer.</li>
+          <li>Fuzz is applied more evenly now, especially with smaller intervals.</li>
+          <li>Fixed new cards not decrementing the review limit, which could lead to more new cards appearing after the review limit was reached.</li>
+          <li>Review cards and new cards are now interspersed more evenly.</li>
+          <li>When using Custom Study to extend deck limits in the V3 scheduler, parent/child limits of the selected deck are no longer adjusted.</li>
+        </ul>
+        <p><b>Editor Changes</b></p>
+        <p>Most of these changes are thanks to Henrik.</p>
+        <ul>
+          <li>A redesigned editing area, and a redesigned tag editor.</li>
+          <li>MathJax has a live preview.</li>
+          <li>HTML source and rendered text can be viewed at the same time.</li>
+          <li>The HTML editor now matches the current Anki theme.</li>
+          <li>Images can be resized within the editor.</li>
+          <li>Fields can now have an optional description/tooltip assigned to them (thanks to Matthias, Henrik &amp; Rumo).</li>
+          <li>The "remove formatting" button now offers a choice of what to remove.</li>
+          <li>Adjust color picker shortcut, and apply color when different color selected.</li>
+          <li>Reduced editor button size on Windows/Linux (thanks to Matthias).</li>
+          <li>Fixed IME input after pressing tab.</li>
+          <li>Fixed media files not being inserted at cursor position on Windows.</li>
+          <li>Cloze shortcut correctly positions cursor.</li>
+          <li>Added a separate cloze button to repeat the current cloze.</li>
+          <li>Lots of behind-the-scenes changes and fixes. Because of the extensive changes, some add-ons that modify the editing screen will have broken.</li>
+        </ul>
+        <p><b>New Features</b></p>
+        <ul>
+          <li>Anki will now switch to day or night mode automatically depending on your system settings. You can force day or night mode in the Preferences screen. (thanks in large part to Rumo).</li>
+          <li>Reworked backup handling (mostly thanks to Rumo):
+            <ul>
+              <li>Backups are created much faster than they were previously.</li>
+              <li>Anki can now create backups periodically. The default is every 30 minutes; you can adjust this in the preferences screen.</li>
+              <li>There are new options in the preferences to control the number of daily, weekly and monthly backups you'd like to retain.</li>
+              <li>The File menu now has an option to create a backup immediately.</li>
+              <li>Because the backup storage format has changed, backups created with 2.1.50 will not be importable into older Anki versions.</li>
+            </ul>
+          </li>
+          <li>Reworked .colpkg import/export (thanks to Rumo):
+            <ul>
+              <li>When exporting, you can optionally target Anki 2.1.50+. When doing so, imports and exports are faster, and media files will be compressed, but the resulting .colpkg will not be readable by older Anki clients.</li>
+              <li>Collections are now checked for corruption when importing.</li>
+            </ul>
+          </li>
+          <li>An option to ignore accents in searches by default has been added to preferences screen (thanks to Abdo).</li>
+          <li>The Card Info screen now updates automatically as you change to a different card (thanks to Rumo).</li>
+          <li>Added a View menu to the main window and browse window (thanks to Rumo). The view menu provides options to zoom in and out, and to toggle a full screen mode. Due to technical issues, the full screen mode is not currently available on Windows when graphics acceleration is enabled.</li>
+          <li>A new TTS tag format that allows you to combine extra text and multiple fields, such as [anki:tts lang=en_US]Here is {{Field1}} and {{Field2}}[/anki:tts] (thanks to Rumo). There are no plans to deprecate the old TTS syntax - either can be used.</li>
+          <li>Added an option to add/remove sidebar tag to selected notes (thanks to Rumo).</li>
+          <li>Be smarter about mapping existing text to new fields when switching notetypes in the Add screen (thanks to Abdo).</li>
+          <li>Apkg files can now be dragged on the main window to import them (thanks to Abdo).</li>
+          <li>Added a "Create Copy" option in the browse screen and review screen, to copy selected note's contents into the Add window (thanks to Rumo).</li>
+          <li>You can now search for tags by regular expression (thanks to Rumo). One use for this is locating notes that are tagged with a parent tag, while not matching ones tagged with parent::child: tag:re:^parent$.</li>
+          <li>When switching Anki versions, an add-on update check is run on startup (thanks to Rumo).</li>
+          <li>Make links with target=_blank work (thanks to Danish).</li>
+          <li>Added "Forget Card" action to review screen (thanks to Araceli).</li>
+          <li>Added Belarusian and Odia to available languages in the preferences.</li>
+          <li>Added a silent option (/s) for the Windows uninstaller (thanks to Patric).</li>
+          <li>Added tooltips to some browser columns (thanks to Rumo).</li>
+        </ul>
+        <p><b>Other Improvements</b></p>
+        <ul>
+          <li>Added a "Learn" label to the learning counts in the deck list.</li>
+          <li>Added shortcut keys for creating lists and indentation (thanks to Rumo).</li>
+          <li>Allow longer maximum answer times in the deck settings (thanks to Bruce).</li>
+          <li>Behind-the-scenes improvements to the deck and notetype selectors (thanks to Sam).</li>
+          <li>Change cards/notes toggle to Ctrl/Cmd+Alt+T to avoid conflict on macOS.</li>
+          <li>Changed the "Previous Card Info" shortcut to avoid a conflict with language input.</li>
+          <li>Colpkg imports now always require a full sync.</li>
+          <li>Deck creation in the custom study screen has been reworked, and now supports undo properly (thanks to Rumo).</li>
+          <li>Don't show error when gsettings exists but does not have a GNOME theme set (thanks to Spooghetti420).</li>
+          <li>Don't show error when Windows color scheme setting is missing (thanks to qxo).</li>
+          <li>Fall back on regular file deletion when no recycling bin/trash folder is available on Linux.</li>
+          <li>Filtered decks in 'order added' now sort by card template.</li>
+          <li>Fix deck name not updating after deck/notetype renamed (thanks to Hikaru).</li>
+          <li>Fixed "tag duplicates" possibly operating on stale data (thanks to Ren).</li>
+          <li>Fixed a number of issues with the preview window (thanks to Hikaru).</li>
+          <li>Fixed AltGr triggering Ctrl+Alt shortcuts on Windows (thanks to Rumo).</li>
+          <li>Fixed an error loading the old deck options screen when using Python 3.10.</li>
+          <li>Fixed an error that could appear when clicking on the sidebar (thanks to qxo).</li>
+          <li>Fixed an error that could occur in the browser when switching profiles (thanks to Hikaru).</li>
+          <li>Fixed an error when an installed TTS voice on Windows supported multiple languages (thanks to Rumo).</li>
+          <li>Fixed an error when exporting a collection with media files in it with very old modification dates (thanks to gnnoh).</li>
+          <li>Fixed an intermittent error when building on Windows.</li>
+          <li>Fixed error shown when double-tapping answer buttons on the v3 scheduler.</li>
+          <li>Fixed errors and display issues when flagging and undoing in the review screen.</li>
+          <li>Fixed external scripts being executed out of order (thanks to Hikaru).</li>
+          <li>Fixed field content sometimes spilling outside container (thanks to Hikaru).</li>
+          <li>Fixed flicker in review screen when referencing external js, and preload css files (thanks to Hikaru).</li>
+          <li>Fixed incorrect card count in timebox after undo (thanks to Abdo).</li>
+          <li>Fixed new card position appearing as a date when cards were in preview (thanks to Abdo).</li>
+          <li>Fixed newly-added deck not being selected in the Add screen (thanks to Hikaru).</li>
+          <li>Fixed quotation of "and" and "or" in search (thanks to Rumo).</li>
+          <li>Fixed some parts of the media handling code matching more HTML tags than it should have (thanks to Brayan).</li>
+          <li>Fixed sound failing to play after exporting a collection (thanks to Rumo and Kelciour).</li>
+          <li>Fixed the deck list showing up blank in collections with many expanded decks.</li>
+          <li>Fixed the main window sometimes failing to load properly when Anki starts (which could lead to blank windows, a giant sync icon, etc).</li>
+          <li>Fixed unwanted &lt;div&gt; being left behind when deleting field contents (thanks to Hikaru).</li>
+          <li>Fixed various memory leaks (thanks to Rumo and Hikaru).</li>
+          <li>Flip sidebar location in RTL mode (thanks to Abdo).</li>
+          <li>Hide "open new window" action in GNOME (thanks to Fusion future &amp; Felipe).</li>
+          <li>Improve search highlight color in templates screen (thanks to Abdo).</li>
+          <li>Improved display of the card info screen (thanks to Rumo).</li>
+          <li>Improved localization of large numbers in the graphs, and various layout tweaks (thanks to Vova).</li>
+          <li>Improved performance with large selections in the Browse screen (thanks to Rumo).</li>
+          <li>Improvements to the Change Notetype screen (thanks to Matthias).</li>
+          <li>Performance improvements for searching through many fields with a wildcard search (thanks to Rumo).</li>
+          <li>Randomized card positions now start at 1, which avoids a corner case in filtered deck scheduling.</li>
+          <li>Reduced flicker when opening browser in night mode (thanks to Rumo).</li>
+          <li>Report correct count in timebox screen with v2 scheduler (thanks to Abdo).</li>
+          <li>Rows with database inconsistencies in the browse screen now prompt you to use "check database" instead of saying they were deleted (thanks to Rumo).</li>
+          <li>Some behind-the-scenes code improvements (thanks to Sam).</li>
+          <li>Support autoplay in audio tags again (thanks to Andreas).</li>
+          <li>Support Markdown inside HTML tags in config.md (thanks to Abdo).</li>
+          <li>The 'future due' graph no longer shows learning cards in a filtered deck as being due a long time ago.</li>
+          <li>The note: and card: searches no longer do a substring match (thanks to Rumo).</li>
+          <li>The Add Cards screen will no longer allow accidental triggering of main window shortcuts when it is open on a Mac (thanks to Rumo).</li>
+          <li>The calendar graph uses consistent coloring as years are changed (thanks to Ryan).</li>
+          <li>The custom study screen no longer (sometimes incorrectly) limits the amount you can extend the daily limits by.</li>
+          <li>The top and bottom bars will no longer zoom in/out, but the main area and editors can be zoomed in and out (thanks to Rumo).</li>
+          <li>Truncate deck names in the deck list if they are too long (thanks to Sachin).</li>
+          <li>Tweaks to the sidebar icons (thanks to Henrik).</li>
+          <li>Updated translations - thanks as always to all the translators.</li>
+          <li>Use white menubar on Windows (thanks to Rumo).</li>
+          <li>Various behind-the-scenes fixes (thanks to Arthur).</li>
+          <li>Various improvements to right-to-left display (thanks to Abdo).</li>
+          <li>When Anki encounters an issue with a card template, it now provides a link to a help page with more information (thanks to Rumo).</li>
+          <li>Numerous other fixes and contributions, thanks to Rumo, Henrik, Abdo, Matthias, Evandro, Arthur, Soren, BlueGreenMagick, Yoshi, Jakub, Gesa, blue-putty, stopendy, TheFeelTrain and zjosua.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2021-10-26" version="2.1.49">
       <description>
         <ul>
