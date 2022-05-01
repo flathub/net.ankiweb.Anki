@@ -29,6 +29,32 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2022-04-25" version="2.1.51">
+      <description>
+        <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
+        <p>Changes:</p>
+        <ul>
+          <li>Reviews in the V3 scheduler can now optionally be sorted by relative overdueness (thanks to Abdo).</li>
+          <li>Remember original card position when using 'set due date' on a card (thanks to Rumo).</li>
+          <li>Improve editor startup time, especially with many fields (thanks to Henrik).</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fixed compatibility with older macOS versions.</li>
+          <li>Fixed an issue that was breaking some add-ons when running on Windows without using anki-console.bat</li>
+          <li>Anki now closes the Browse screen before full sync or colpkg import/export, so it doesn't show errors.</li>
+          <li>Automatically re-enable disabled add-ons when user explicitly reinstalls them, and improve conflict handling (thanks to Aristotelis).</li>
+          <li>Fixed an issue with the search history when clicking on items in the sidebar (thanks to Rumo).</li>
+          <li>Fixed card layout screen opening too wide if card template name was long (thanks to Sam).</li>
+          <li>Fixed compatibility with 'card info during review' and similar add-ons.</li>
+          <li>Fixed formatting being turned off when pressing shift (thanks to Henrik).</li>
+          <li>Fixed full sync not being triggered when changing sort field.</li>
+          <li>Fixed illegible calendar buttons in dark mode on Mac/Linux.</li>
+          <li>Fixed stats PDF being illegible when saving in dark mode after scrolling down (thanks to Luka).</li>
+          <li>Use &lt;b&gt; and &lt;i&gt; formatting tags, instead of &lt;strong&gt; and &lt;em&gt;.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-04-09" version="2.1.50">
       <description>
         <p>Platform-Specific Changes (Linux)</p>
