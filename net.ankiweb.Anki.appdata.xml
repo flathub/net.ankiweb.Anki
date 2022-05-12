@@ -29,6 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.51" date="2022-04-25"/>
     <release date="2022-04-09" version="2.1.50">
       <description>
         <p><b>Platform-Specific Changes (Linux)</b></p>
