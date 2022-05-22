@@ -36,16 +36,17 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.15.2/libass-0.15.2.tar.xz
-        sha256: 1be2df9c4485a57d78bb18c0a8ed157bc87a5a8dd48c661961c625cb112832fd
+        url: https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz
+        sha256: 5dbde9e22339119cf8eed59eea6c623a0746ef5a90b689e68a090109078e3c08
         x-checker-data:
           type: json
           url: https://api.github.com/repos/libass/libass/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") | .browser_download_url
+          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") |
+            .browser_download_url
       - type: script
         commands:
-        - autoreconf -fiv
+          - autoreconf -fiv
         dest-filename: autogen.sh
     cleanup:
       - /include
@@ -55,11 +56,8 @@ modules:
   - name: mpv
     buildsystem: simple
     build-commands:
-      - python3 waf configure
-          --disable-alsa
-          --disable-build-date
-          --disable-manpage-build
-          --prefix=/app
+      - python3 waf configure --disable-alsa --disable-build-date --disable-manpage-build
+        --prefix=/app
       - python3 waf build
       - python3 waf install
     sources:
@@ -72,8 +70,8 @@ modules:
           version-pattern: href="/mpv-player/mpv/archive/refs/tags/v(\d[\d.-]*)\.tar.gz"
           url-template: https://github.com/mpv-player/mpv/archive/v$version.tar.gz
       - type: file
-        url: https://waf.io/waf-2.0.23
-        sha256: 28a2e4583314a162cfcbffefb8a9202c1d7869040d30b5852da479b76d9c0491
+        url: https://waf.io/waf-2.0.24
+        sha256: 93909bca823a675f9f40af7c65b24887c3a3c0efdf411ff1978ba827194bdeb0
         dest-filename: waf
         x-checker-data:
           type: html
@@ -120,18 +118,19 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.50/anki-2.1.50-linux-qt5.tar.zst
-        sha256: c21848ac9ffd0352fea234c1f3d48c63c5544898e1a4c2b32f7b30dd28f505ae
+        url: https://github.com/ankitects/anki/releases/download/2.1.52/anki-2.1.52-linux-qt5.tar.zst
+        sha256: 7e243b149d2209f54c247345b6e3d8f20dd422db93806b1045e73ca9ca729825
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst") | .browser_download_url
+          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst")
+            | .browser_download_url
       - type: file
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
       - type: shell
         commands:
-        - sed -i '/xdg-mime/d' install.sh
-        - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
+          - sed -i '/xdg-mime/d' install.sh
+          - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
