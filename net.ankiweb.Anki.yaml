@@ -72,8 +72,8 @@ modules:
           version-pattern: href="/mpv-player/mpv/archive/refs/tags/v(\d[\d.-]*)\.tar.gz"
           url-template: https://github.com/mpv-player/mpv/archive/v$version.tar.gz
       - type: file
-        url: https://waf.io/waf-2.0.23
-        sha256: 28a2e4583314a162cfcbffefb8a9202c1d7869040d30b5852da479b76d9c0491
+        url: https://waf.io/waf-2.0.24
+        sha256: 93909bca823a675f9f40af7c65b24887c3a3c0efdf411ff1978ba827194bdeb0
         dest-filename: waf
         x-checker-data:
           type: html
