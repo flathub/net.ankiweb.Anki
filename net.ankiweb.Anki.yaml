@@ -12,7 +12,7 @@ rename-desktop-file: anki.desktop
 rename-icon: anki
 finish-args:
   # X11/Wayland
-  - --socket=fallback-x11
+  - --socket=x11
   - --socket=wayland
   - --share=ipc
   - --device=dri
