@@ -42,10 +42,11 @@ modules:
           type: json
           url: https://api.github.com/repos/libass/libass/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") | .browser_download_url
+          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") |
+            .browser_download_url
       - type: script
         commands:
-        - autoreconf -fiv
+          - autoreconf -fiv
         dest-filename: autogen.sh
     cleanup:
       - /include
@@ -55,11 +56,8 @@ modules:
   - name: mpv
     buildsystem: simple
     build-commands:
-      - python3 waf configure
-          --disable-alsa
-          --disable-build-date
-          --disable-manpage-build
-          --prefix=/app
+      - python3 waf configure --disable-alsa --disable-build-date --disable-manpage-build
+        --prefix=/app
       - python3 waf build
       - python3 waf install
     sources:
@@ -94,8 +92,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.19/krb5-1.19.3.tar.gz
-        sha256: 56d04863cfddc9d9eb7af17556e043e3537d41c6e545610778676cf551b9dcd0
+        url: https://kerberos.org/dist/krb5/1.20/krb5-1.20.tar.gz
+        sha256: 7e022bdd3c851830173f9faaa006a230a0e0fdad4c953e85bff4bf0da036e12f
         x-checker-data:
           type: html
           url: https://kerberos.org/dist/
@@ -126,12 +124,13 @@ modules:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst") | .browser_download_url
+          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst")
+            | .browser_download_url
       - type: file
         path: anki.svg
       - type: file
         path: net.ankiweb.Anki.appdata.xml
       - type: shell
         commands:
-        - sed -i '/xdg-mime/d' install.sh
-        - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
+          - sed -i '/xdg-mime/d' install.sh
+          - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
