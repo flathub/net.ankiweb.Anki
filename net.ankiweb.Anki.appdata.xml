@@ -29,6 +29,37 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2022-05-28" version="2.1.53">
+      <description>
+        <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
+        <p>Editor Improvements</p>
+        <ul>
+          <li>Rework image resizing (thanks to Henrik). Images expand to the editor width by default now, and images that are resized for the editor will remain that way if you switch fields, or navigate to a different note and back.</li>
+          <li>Existing height constraints on images are stripped when resizing (thanks to BlueGreenMagick).</li>
+          <li>The MathJax editor now provides buttons/shortcuts to cloze-delete selected text (thanks to Henrik).</li>
+          <li>MathJax preview now hides cloze markers.</li>
+          <li>Style tags are no longer stripped when editing (thanks to Henrik).</li>
+          <li>&lt;br&gt; tags in MathJax are now handled correctly (thanks to Henrik).</li>
+          <li>MathJax in the review screen now supports mathtools, and available packages in editor and review screen match (thanks to Henrik).</li>
+          <li>Move focus into HTML editor when hiding normal editor (thanks to Henrik).</li>
+          <li>Image tags now have the alt property preserved when pasting.</li>
+        </ul>
+        <p>Other Improvements</p>
+        <ul>
+          <li>Fixed the Qt6 version crashing on some machines.</li>
+          <li>Custom study no longer includes child decks in available card count in v3 scheduler.</li>
+          <li>Fixed an error sometimes appearing in the browser when deleting notes (thanks to Rumo).</li>
+          <li>Fixed automatic backups popping up progress window when Anki minimized.</li>
+          <li>Fixed cards not being generated after template edits.</li>
+          <li>Fixed deck options top bar disappearing as you scroll down.</li>
+          <li>Fixed duplicate Anki icons appearing in dock on macOS.</li>
+          <li>Fixed duplicate first character in certain ibus configurations (thanks to wisherhxl).</li>
+          <li>Fixed future due graph incorrectly including new cards.</li>
+          <li>Fixed initially-incorrect tooltip position in graphs (thanks to BlueGreenMagick).</li>
+          <li>Fixed some MathJax directives failing to render in editor.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-05-13" version="2.1.52">
       <description>
         <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
@@ -81,7 +112,7 @@
         <p>The new functionality is hidden behind a feature flag, and not active by default. You can try it out by using mw.pm.set_new_import_export(True) in the debug console. To revert to the old behaviour, replace True with False.</p>
         <p>Things to note:</p>
         <ul>
-          <li>This is new code that has received limited testing so far, so please use File>Create Backup before trying it out. Any testing/feedback you can provide would be appreciated.</li>
+          <li>This is new code that has received limited testing so far, so please use File&gt;Create Backup before trying it out. Any testing/feedback you can provide would be appreciated.</li>
           <li>While active, it is not currently possible to import/export files other than apkg/colpkg.</li>
           <li>The Special Fields add-on will not work while this functionality is enabled.</li>
         </ul>
