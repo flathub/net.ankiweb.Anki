@@ -29,6 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.53" date="2022-05-28"/>
     <release date="2022-05-13" version="2.1.52">
       <description>
         <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
@@ -81,7 +82,7 @@
         <p>The new functionality is hidden behind a feature flag, and not active by default. You can try it out by using mw.pm.set_new_import_export(True) in the debug console. To revert to the old behaviour, replace True with False.</p>
         <p>Things to note:</p>
         <ul>
-          <li>This is new code that has received limited testing so far, so please use File>Create Backup before trying it out. Any testing/feedback you can provide would be appreciated.</li>
+          <li>This is new code that has received limited testing so far, so please use File&gt;Create Backup before trying it out. Any testing/feedback you can provide would be appreciated.</li>
           <li>While active, it is not currently possible to import/export files other than apkg/colpkg.</li>
           <li>The Special Fields add-on will not work while this functionality is enabled.</li>
         </ul>
