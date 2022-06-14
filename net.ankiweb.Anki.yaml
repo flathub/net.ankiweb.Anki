@@ -118,8 +118,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.53/anki-2.1.53-linux-qt5.tar.zst
-        sha256: 9df27c3f8f1505684eafbb8be3f9682528c197b209881a22f021df6c52f101e3
+        url: https://github.com/ankitects/anki/releases/download/2.1.52/anki-2.1.52-linux-qt5.tar.zst
+        sha256: 7e243b149d2209f54c247345b6e3d8f20dd422db93806b1045e73ca9ca729825
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
