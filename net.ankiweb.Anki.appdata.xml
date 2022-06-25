@@ -29,7 +29,42 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.54" date="2022-06-24"/>
+    <release date="2022-06-24" version="2.1.54">
+      <description>
+        <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
+        <p>A new CSV importer &amp; exporter, thanks to Rumo:</p>
+        <ul>
+          <li>Shows a preview based on the selected field separator.</li>
+          <li>Column mapping includes field text for reference.</li>
+          <li>Multiple decks and notetypes can now be imported/exported at once, as columns can be mapped to deck or notetype name.</li>
+          <li>Supports exporting and importing a unique identifier for a note, to use instead of a matching first field. This removes the need for the 'add note id' add-on.</li>
+          <li>Extends the header syntax so that files can specify metadata such as the desired field separator, and the mapping of fields.</li>
+          <li>The new functionality is not enabled by default, and can be enabled with a checkbox in the preferences screen. This also enables the new apkg import/export code introduced in 2.1.52. If you use the Special Fields add-on, you will need to disable this option in order to use the add-on.</li>
+        </ul>
+        <p>Update to Qt 6.3.1:</p>
+        <ul>
+          <li>Fixes complex-language input (eg Japanese, Hindi, etc) on macOS being flaky.</li>
+          <li>Fixes unwanted text when copying from the review screen on Windows.</li>
+          <li>Fixes a startup failure with certain Linux keyboard configurations.</li>
+          <li>Due to a change in Qt, you will need to reconfigure your columns in the browse screen after updating.</li>
+        </ul>
+        <p>Fixes &amp; improvements:</p>
+        <ul>
+          <li>Accept .zip extension when importing add-ons (thanks to Abdo).</li>
+          <li>Add support for getting light/dark mode status with latest freedesktop standard (thanks to Bart).</li>
+          <li>Editor API improvements (thanks to Henrik).</li>
+          <li>Field descriptions in the editor are now shown inline, instead of in a tooltip (thanks to Matthias, Henrik and Hikaru).</li>
+          <li>Fixed a rounding issue when describing time intervals of a year or more.</li>
+          <li>Fixed an error that occurred after a one-way download fetched a collection with a different scheduler version enabled.</li>
+          <li>Fixed desktop hanging when attempting to add a new notetype in KDE (kwin).</li>
+          <li>Fixed flag names not updating after sync until Anki restarted.</li>
+          <li>Fixed inability to enter underscore in tags area on some keyboard layouts (thanks to Henrik).</li>
+          <li>Fixed undo history being cleared and error showing when double-tapping delete in Browse screen.</li>
+          <li>Provide a way for the review screen to support drop events (thanks to Abdo).</li>
+          <li>Other minor fixes and improvements.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-05-28" version="2.1.53">
       <description>
         <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
