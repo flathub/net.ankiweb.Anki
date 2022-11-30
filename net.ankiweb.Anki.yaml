@@ -36,8 +36,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz
-        sha256: 5dbde9e22339119cf8eed59eea6c623a0746ef5a90b689e68a090109078e3c08
+        url: https://github.com/libass/libass/releases/download/0.17.0/libass-0.17.0.tar.xz
+        sha256: 971e2e1db59d440f88516dcd1187108419a370e64863f70687da599fdf66cc1a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/libass/libass/releases/latest
@@ -92,8 +92,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.20/krb5-1.20.tar.gz
-        sha256: 7e022bdd3c851830173f9faaa006a230a0e0fdad4c953e85bff4bf0da036e12f
+        url: https://kerberos.org/dist/krb5/1.20/krb5-1.20.1.tar.gz
+        sha256: 704aed49b19eb5a7178b34b2873620ec299db08752d6a8574f95d41879ab8851
         x-checker-data:
           type: html
           url: https://kerberos.org/dist/
