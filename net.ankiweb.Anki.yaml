@@ -36,8 +36,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz
-        sha256: 5dbde9e22339119cf8eed59eea6c623a0746ef5a90b689e68a090109078e3c08
+        url: https://github.com/libass/libass/releases/download/0.17.0/libass-0.17.0.tar.xz
+        sha256: 971e2e1db59d440f88516dcd1187108419a370e64863f70687da599fdf66cc1a
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -61,8 +61,8 @@ modules:
       - python3 waf install
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.34.1.tar.gz
-        sha256: 32ded8c13b6398310fa27767378193dc1db6d78b006b70dbcbd3123a1445e746
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.35.0.tar.gz
+        sha256: dc411c899a64548250c142bf1fa1aa7528f1b4398a24c86b816093999049ec00
         x-checker-data:
           type: anitya
           project-id: 5348
@@ -87,17 +87,23 @@ modules:
     config-opts:
       - --localstatedir=/var/lib
       - --sbindir=${FLATPAK_DEST}/bin
+      - --disable-static
+      - --disable-rpath
     build-commands:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.20/krb5-1.20.tar.gz
-        sha256: 7e022bdd3c851830173f9faaa006a230a0e0fdad4c953e85bff4bf0da036e12f
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.20.1-final.tar.gz
+        sha256: ec3861c3bec29aa8da9281953c680edfdab1754d1b1db8761c1d824e4b25496a
         x-checker-data:
           type: anitya
           project-id: 13287
           stable-only: true
           url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
+      - type: shell
+        dest: src
+        commands:
+          - autoreconf -si
       - type: file
         path: krb5.conf
     cleanup:
