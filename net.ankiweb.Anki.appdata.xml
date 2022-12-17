@@ -29,6 +29,95 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2022-12-16" version="2.1.55">
+      <description>
+        <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
+        <p>Lots of UI improvements, thanks to Matthias:</p>
+        <ul>
+          <li>The theme has been reworked, especially on Windows/Linux.</li>
+          <li>A number of screens like the deck list, editor, deck options and graphs have been re-styled.</li>
+          <li>Added an option for fields to show the HTML editor by default.</li>
+          <li>Fields can now be collapsed/expanded. The animation can be disabled in the preferences.</li>
+          <li>HTML tag auto-close can now be toggled via settings button in editor.</li>
+          <li>Improve layout for RTL languages.</li>
+          <li>The editor in the browse screen can now be shown on the right.</li>
+          <li>The tags area can now be collapsed/expanded (thanks also to Henrik).</li>
+          <li>On macOS, dark mode now uses the default macOS styling; you can optionally force behavior like the other platforms with the following in the debug console: mw.pm.set_force_custom_styles(True).</li>
+          <li>Many other small tweaks.</li>
+        </ul>
+        <p>V3 scheduler improvements, thanks to Rumo:</p>
+        <ul>
+          <li>Custom scheduling now supports per-card data, enabling things like FSRS.</li>
+          <li>Decks can now specify daily limits independently of the deck preset. You can either specify a permanent override, or one that will reset when the next day comes around.</li>
+          <li>The Hard button on the first step is now capped to a maximum of 1 day greater than Again.</li>
+          <li>You should no longer see strange behavior when changing learning steps while cards are in learning.</li>
+        </ul>
+        <p>Import/export improvements, thanks to Rumo:</p>
+        <ul>
+          <li>The new import/export code is now the default.</li>
+          <li>When scheduling is included, filtered decks are no longer converted to normal decks.</li>
+          <li>When a deck is specified in a CSV import, it's now created if missing.</li>
+          <li>Keep content of unmapped fields when importing CSV.</li>
+          <li>Various other fixes.</li>
+        </ul>
+        <p>Other improvements:</p>
+        <ul>
+          <li>introduced:x now ignores manual reschedulings (thanks to Rumo).</li>
+          <li>Anki now opens to the previously-active profile (thanks to Sam).</li>
+          <li>Card info now refreshes as a card is reviewed (thanks to Rumo).</li>
+          <li>Close MathJax editor when Esc is pressed (thanks to Abdo).</li>
+          <li>Double-click on an editor pane to equally split the two sides (thanks to Aristotelis).</li>
+          <li>Improve Anki's error handling, including some more informative error messages (thanks to Rumo).</li>
+          <li>Improvements to the MathJax editor (thanks to Henrik).</li>
+          <li>Make dvipng use transparent background by default (thanks to gnnoh).</li>
+          <li>Preload images on the front side of a card to reduce pop-in (thanks to Kelciour).</li>
+          <li>Remember previous choices in reposition dialog (thanks to Sam).</li>
+          <li>The build system now uses ninja instead of bazel.</li>
+          <li>The MathJax preview can now be turned off.</li>
+          <li>The maximum answer time can now be set below 30 seconds.</li>
+          <li>The way your typed text is compared with the correct answer has been tweaked.</li>
+          <li>The zoom level is no longer reset when moving between screens.</li>
+          <li>Updated to Qt 6.4 on Windows/Linux.</li>
+          <li>You can now control whether images are automatically shrunk or not in the editor.</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Add screen can be closed with Cmd+W on macOS (thanks to Sam).</li>
+          <li>Add tooltip to More button (thanks to Hikaru).</li>
+          <li>Cmd+Shift+C cloze shortcut should be more responsive on macOS now.</li>
+          <li>Fix {{CardFlags}} not working with flags 5-7</li>
+          <li>Fix an error showing when making network connections on macOS after leaving Anki open for a few days.</li>
+          <li>Fix browser sidebars appearing in wrong order in RTL mode (thanks to Abdo).</li>
+          <li>Fix certain installed TTS voices on Windows causing errors.</li>
+          <li>Fix daily counts being included in apkg import.</li>
+          <li>Fix fields sticking in add screen when they shouldn't (thanks to Henrik).</li>
+          <li>Fix flicker when remapping imported notetype field (thanks to Rumo).</li>
+          <li>Fix font size not being removed when pasting between fields.</li>
+          <li>Fix incorrect header text alignment in Qt 6.3.1 (thanks to Rumo).</li>
+          <li>Fix non-admin users having trouble with Anki on macOS.</li>
+          <li>Fix reviewer shortcuts being inaccessible due to IME</li>
+          <li>Fix scheduler change not reflected after normal sync.</li>
+          <li>Fix scrolling with keys/keyboard event listeners not working on answer side (thanks to Hikaru).</li>
+          <li>Fix sidebar appearing as small window in some cases (thanks to Hikaru).</li>
+          <li>Fix slow field pin/unpin with large notetype (thanks to Rumo).</li>
+          <li>Fix styling of pop-over arrows (thanks to BlueGreekMagick).</li>
+          <li>Fix the UI getting stuck at startup when multiple pop-ups appear (thanks to Sam).</li>
+          <li>Fixed an issue with the night theme class (thanks to BlueGreenMagick).</li>
+          <li>Fixed indent/outdent shortcuts not working properly.</li>
+          <li>Fixed inverted ctrl+right/left handling in RTL fields again (thanks to Abdo).</li>
+          <li>Fixed shortcuts to select all/delete tags not working (thanks to Hikaru).</li>
+          <li>Fixed some issues with dragging tags/decks onto other tags/decks (thanks to Abdo).</li>
+          <li>Improve handling of invalid UTF-8 in DB check.</li>
+          <li>Improve the appearance of the note/card switch toggle (thanks to Aristotelis).</li>
+          <li>Make it easier to read add-on errors (thanks to Abdo).</li>
+          <li>Possible fix for error when copying text in editor</li>
+          <li>Preserve background color when copy+pasting between fields.</li>
+          <li>Preserve background-color when pasting external content in light mode.</li>
+          <li>Suppress the "Unknown error" message that the web toolkit can output on Windows.</li>
+          <li>Various other fixes.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-06-24" version="2.1.54">
       <description>
         <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
