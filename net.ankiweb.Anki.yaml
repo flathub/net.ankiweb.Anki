@@ -1,10 +1,10 @@
 app-id: net.ankiweb.Anki
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
-    version: '21.08'
+    version: '22.08'
     directory: texlive # this is relative to /app
     no-autodownload: true
 command: anki
@@ -36,14 +36,13 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.16.0/libass-0.16.0.tar.xz
-        sha256: 5dbde9e22339119cf8eed59eea6c623a0746ef5a90b689e68a090109078e3c08
+        url: https://github.com/libass/libass/releases/download/0.17.0/libass-0.17.0.tar.xz
+        sha256: 971e2e1db59d440f88516dcd1187108419a370e64863f70687da599fdf66cc1a
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/libass/libass/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="libass-" + $version + ".tar.xz") |
-            .browser_download_url
+          type: anitya
+          project-id: 1560
+          stable-only: true
+          url-template: https://github.com/libass/libass/releases/download/$version/libass-$version.tar.xz
       - type: script
         commands:
           - autoreconf -fiv
@@ -62,43 +61,49 @@ modules:
       - python3 waf install
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.34.1.tar.gz
-        sha256: 32ded8c13b6398310fa27767378193dc1db6d78b006b70dbcbd3123a1445e746
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.35.0.tar.gz
+        sha256: dc411c899a64548250c142bf1fa1aa7528f1b4398a24c86b816093999049ec00
         x-checker-data:
-          type: html
-          url: https://github.com/mpv-player/mpv/releases/latest
-          version-pattern: href="/mpv-player/mpv/archive/refs/tags/v(\d[\d.-]*)\.tar.gz"
-          url-template: https://github.com/mpv-player/mpv/archive/v$version.tar.gz
+          type: anitya
+          project-id: 5348
+          stable-only: true
+          url-template: https://github.com/mpv-player/mpv/archive/refs/tags/v$version.tar.gz
       - type: file
         url: https://waf.io/waf-2.0.24
         sha256: 93909bca823a675f9f40af7c65b24887c3a3c0efdf411ff1978ba827194bdeb0
         dest-filename: waf
         x-checker-data:
-          type: html
-          url: https://waf.io/
-          version-pattern: href="waf-(\d[\d.-]*)\"
+          type: anitya
+          project-id: 5116
+          stable-only: true
           url-template: https://waf.io/waf-$version
     cleanup:
       - /include
       - /lib/pkgconfig
       - /share
 
-  - name: kerberos
+  - name: krb5
     subdir: src
     config-opts:
       - --localstatedir=/var/lib
       - --sbindir=${FLATPAK_DEST}/bin
+      - --disable-static
+      - --disable-rpath
     build-commands:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://kerberos.org/dist/krb5/1.20/krb5-1.20.tar.gz
-        sha256: 7e022bdd3c851830173f9faaa006a230a0e0fdad4c953e85bff4bf0da036e12f
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.20.1-final.tar.gz
+        sha256: ec3861c3bec29aa8da9281953c680edfdab1754d1b1db8761c1d824e4b25496a
         x-checker-data:
-          type: html
-          url: https://kerberos.org/dist/
-          version-pattern: Kerberos V5 Release ([\d\.-]*) - current release
-          url-template: https://kerberos.org/dist/krb5/$version0.$version1/krb5-$version.tar.gz
+          type: anitya
+          project-id: 13287
+          stable-only: true
+          url-template: https://github.com/krb5/krb5/archive/refs/tags/krb5-$version.tar.gz
+      - type: shell
+        dest: src
+        commands:
+          - autoreconf -si
       - type: file
         path: krb5.conf
     cleanup:
@@ -118,14 +123,14 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.54/anki-2.1.54-linux-qt5.tar.zst
-        sha256: aa9cbfe5ed035ce73621b8d461d64bcde71621466f314c651e0af20676ff5c59
+        url: https://github.com/ankitects/anki/releases/download/2.1.55/anki-2.1.55-linux-qt6.tar.zst
+        sha256: 7e2ede7d6059667a8e133b553a13ac7eca5c4c10f1ab0d91aff78018c1586c05
         x-checker-data:
-          type: json
-          url: https://api.github.com/repos/ankitects/anki/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="anki-" + $version + "-linux-qt5.tar.zst")
-            | .browser_download_url
+          type: anitya
+          is-main-source: true
+          project-id: 49
+          stable-only: true
+          url-template: https://github.com/ankitects/anki/releases/download/$version/anki-$version-linux-qt6.tar.zst
       - type: file
         path: anki.svg
       - type: file
