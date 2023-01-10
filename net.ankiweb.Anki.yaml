@@ -69,8 +69,8 @@ modules:
           stable-only: true
           url-template: https://github.com/mpv-player/mpv/archive/refs/tags/v$version.tar.gz
       - type: file
-        url: https://waf.io/waf-2.0.24
-        sha256: 93909bca823a675f9f40af7c65b24887c3a3c0efdf411ff1978ba827194bdeb0
+        url: https://waf.io/waf-2.0.25
+        sha256: 21199cd220ccf60434133e1fd2ab8c8e5217c3799199c82722543970dc8e38d5
         dest-filename: waf
         x-checker-data:
           type: anitya
@@ -123,8 +123,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.55/anki-2.1.55-linux-qt6.tar.zst
-        sha256: 7e2ede7d6059667a8e133b553a13ac7eca5c4c10f1ab0d91aff78018c1586c05
+        url: https://github.com/ankitects/anki/releases/download/2.1.56/anki-2.1.56-linux-qt6.tar.zst
+        sha256: 6e88acf3e5bf26fb5ed07a82e958bc59c5f3adcf32f1f2a85b7b6d6cf6ffbf5e
         x-checker-data:
           type: anitya
           is-main-source: true
