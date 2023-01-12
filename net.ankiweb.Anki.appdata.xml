@@ -29,7 +29,43 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.56" date="2023-01-09"/>
+    <release date="2023-01-09" version="2.1.56">
+      <description>
+        <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
+        <p>New features/improvements:</p>
+        <ul>
+          <li>Cloze deletions can now be nested inside other cloze deletions (thanks to TRIAEIOU).</li>
+          <li>Inactive cloze deletions can now be styled with .cloze-inactive (thanks to TRIAEIOU).</li>
+          <li>Graphs in large collections now load approximately twice as quickly.</li>
+          <li>Add-on config help is now shown in a webview (thanks to Abdo).</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix error popping up 12 hours after starting Anki on macOS and some Linux machines.</li>
+          <li>Fix unreadable text when searching in sidebar.</li>
+          <li>Fix fcitx not working on Linux Qt6 package.</li>
+          <li>Fix old graphs failing to appear.</li>
+          <li>Fix dark mode display issues on macOS/Qt5.</li>
+          <li>Don't display a 'timestamps in the future' message after a bulk import.</li>
+          <li>Fix cloze buttons being disabled in MathJax editor.</li>
+          <li>Fix images not being constrained to window width when image shrinking disabled.</li>
+          <li>Fix incorrect macOS minimum version in Qt5 build.</li>
+          <li>Fix lack of highlight for marked cards in day mode.</li>
+          <li>Fix pop-up menu in editor sometimes flashing (thanks to Hikaru).</li>
+          <li>Fix some issues entering text via IME around MathJax area (thanks to Hikaru).</li>
+          <li>Fix some regressions with the graphs when saving to a PDF.</li>
+          <li>Fix truncated text on some buttons.</li>
+          <li>Fix two mpv issues on Windows (thanks to Kelciour).</li>
+          <li>Tweak focus highlight of some widgets (thanks to Abdo).</li>
+        </ul>
+        <p>For devs:</p>
+        <ul>
+          <li>Improve web building/reloading experience (thanks to Aristotelis).</li>
+          <li>Fix an issue building the code with the latest git version.</li>
+          <li>Fix aqt type completion not working with PyPI wheel.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2022-12-16" version="2.1.55">
       <description>
         <p>If updating from Anki 2.1.49 or below, please see the 2.1.50 change notes first.</p>
