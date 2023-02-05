@@ -43,7 +43,7 @@
         <p>Syncing has also been updated:</p>
         <ul>
           <li>Tweaks to the sync protocol that should be transparent when syncing with AnkiWeb, but that will break syncing with third-party servers that haven't been updated yet.</li>
-          <li>The sync server bundled with Anki has been updated, and now supports syncing media as well. More information is available on https://docs.ankiweb.net/sync-server.html.</li>
+          <li>The sync server bundled with Anki has been updated, and now supports syncing media as well.</li>
         </ul>
         <p>Other changes:</p>
         <ul>
