@@ -29,6 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.58" date="2023-02-17"/>
     <release date="2023-01-28" version="2.1.57">
       <description>
         <p>More UI improvements/fixes thanks to Matthias, including:</p>
