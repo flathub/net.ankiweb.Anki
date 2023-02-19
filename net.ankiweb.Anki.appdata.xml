@@ -29,6 +29,43 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2023-02-17" version="2.1.58">
+      <description>
+        <p>This release fixes an issue in 2.1.57 that caused cards and deck presets to be reset to the default ease, if you exported a .colpkg with compatibility with older clients enabled, or used the downgrade and quit option, then opened the collection again. For the former issue, this occurred to the collection you were exporting from, and not just the .colpkg file.</p>
+        <p>Other changes in this update:</p>
+        <p>Custom sync server</p>
+        <ul>
+          <li>You can now customize the network timeout in the sync settings, which may be required if you have a large collection and/or a slower device.</li>
+          <li>Maximum sizes are no longer enforced when downloading from custom sync servers.</li>
+        </ul>
+        <p>Type in the answer</p>
+        <ul>
+          <li>Fix type answer comparison being collapsed when extra characters in input.</li>
+          <li>Revert to blanking out missed chars in provided text, like older releases.</li>
+          <li>Wrap expected text in code block when no answer provided.</li>
+        </ul>
+        <p>Importing</p>
+        <ul>
+          <li>When importing csv files, you can now limit duplicate matching to the deck cards are in (thanks to Rumo).</li>
+          <li>Support UTF-8-BOM when importing CSV (thanks to Rumo).</li>
+          <li>Duplicate handling policy can be specified in the csv file header (thanks to Rumo).</li>
+        </ul>
+        <p>Scheduling</p>
+        <ul>
+          <li>It is no longer possible to enable burying of reviews without also burying new cards, as Anki excludes buried cards up front, and needs to do so in a particular order to avoid errors during review.</li>
+          <li>Fix v3 deck-specific limits affecting the deck list/study screen in v2 mode.</li>
+          <li>Show custom data from third-party schedulers in stats screen.</li>
+          <li>Allow burying cards in the browser (thanks to Kaben).</li>
+        </ul>
+        <p>Fixes</p>
+        <ul>
+          <li>Switch to a new Windows TTS implementation, which unblocks future upgrades, and should perform better (thanks to Rumo).</li>
+          <li>Work around a startup error some users were receiving on Windows.</li>
+          <li>Fix currently-selected preset not being indicated in deck options (thanks to Fabricio).</li>
+          <li>Fix error shown after toggling full screen.</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-01-28" version="2.1.57">
       <description>
         <p>More UI improvements/fixes thanks to Matthias, including:</p>
