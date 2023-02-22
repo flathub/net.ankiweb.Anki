@@ -29,6 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.60" date="2023-02-22"/>
     <release date="2023-02-17" version="2.1.58">
       <description>
         <p>This release fixes an issue in 2.1.57 that caused cards and deck presets to be reset to the default ease, if you exported a .colpkg with compatibility with older clients enabled, or used the downgrade and quit option, then opened the collection again. For the former issue, this occurred to the collection you were exporting from, and not just the .colpkg file.</p>
