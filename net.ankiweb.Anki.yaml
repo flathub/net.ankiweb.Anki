@@ -123,8 +123,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.58/anki-2.1.58-linux-qt6.tar.zst
-        sha256: f6b94d4a16dda2c09aeb47f8265842d78765de3d83c6a16bdc680e38c59d5c56
+        url: https://github.com/ankitects/anki/releases/download/2.1.60/anki-2.1.60-linux-qt6.tar.zst
+        sha256: 21780854c71a6414dab11b5e673ded45a0d0dabb167a5d9c3689dd2b6567cd35
         x-checker-data:
           type: anitya
           is-main-source: true

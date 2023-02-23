@@ -18,9 +18,9 @@
   <metadata_license>CC0-1.0</metadata_license>
   <url type="homepage">https://apps.ankiweb.net/</url>
   <url type="bugtracker">https://forums.ankiweb.net/</url>
-  <url type="help">https://apps.ankiweb.net/docs/manual.html</url>
+  <url type="help">https://docs.ankiweb.net/</url>
   <url type="donation">https://apps.ankiweb.net/support/</url>
-  <url type="translate">https://apps.ankiweb.net/docs/manual.html#_app_translations</url>
+  <url type="translate">https://translating.ankiweb.net/</url>
   <screenshots>
     <screenshot type="default">
       <image type="source">https://i.imgur.com/zauNqLH.png</image>
@@ -29,6 +29,22 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release date="2023-02-22" version="2.1.60">
+      <description>
+        <p>If updating from 2.1.57 or earlier, please see the important note in the 2.1.58 change notes.</p>
+        <ul>
+          <li>Add button to tag notes with missing media (thanks to Rumo).</li>
+          <li>Fix slow editor startup for users with lots of fields (thanks to Hikaru).</li>
+          <li>Fix a regression in 2.1.58 that broke TTS add-ons (thanks to Rumo).</li>
+          <li>Fix HTML editor hiding when shown by default (thanks to Fabricio).</li>
+          <li>Fix some widgets not indicating they're disabled (thanks to Matthias).</li>
+          <li>Fix deck options selector not updating the current entry sometimes (thanks to Fabricio).</li>
+          <li>Fix type box losing focus when switching IMEs (thanks to Hikaru).</li>
+          <li>Fix 'toggle bury' not updating for automatically-buried cards.</li>
+          <li>Improvements to lifecycle handling for add-ons accessing Svelte components (thanks to Matthias).</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-02-17" version="2.1.58">
       <description>
         <p>This release fixes an issue in 2.1.57 that caused cards and deck presets to be reset to the default ease, if you exported a .colpkg with compatibility with older clients enabled, or used the downgrade and quit option, then opened the collection again. For the former issue, this occurred to the collection you were exporting from, and not just the .colpkg file.</p>
