@@ -36,8 +36,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.0/libass-0.17.0.tar.xz
-        sha256: 971e2e1db59d440f88516dcd1187108419a370e64863f70687da599fdf66cc1a
+        url: https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
+        sha256: f0da0bbfba476c16ae3e1cfd862256d30915911f7abaa1b16ce62ee653192784
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -123,8 +123,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/2.1.60/anki-2.1.60-linux-qt6.tar.zst
-        sha256: 21780854c71a6414dab11b5e673ded45a0d0dabb167a5d9c3689dd2b6567cd35
+        url: https://github.com/ankitects/anki/releases/download/2.1.61/anki-2.1.61-linux-qt6.tar.zst
+        sha256: 7fe3e778fdaf07b1c5c48de6be4ae6fe4caf74166029bbb9a583d4351e5710ee
         x-checker-data:
           type: anitya
           is-main-source: true
