@@ -29,6 +29,63 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.61" date="2023-03-31">
+      <description>
+        <p>Improvements to the V3 scheduler:</p>
+        <ul>
+          <li>Added a global option to stop the review limit from limiting new cards (thanks to Rumo).</li>
+          <li>You can now enable review burying without new burying again (thanks to Rumo).<br/>
+          There are some caveats - please see the bury tooltips in the deck options.</li>
+          <li>Ensure good is at least previous+1 even if low hard factor set.</li>
+        </ul>
+        <p>Other features/improvements:</p>
+        <ul>
+          <li>You can now exclude certain fields from unqualified searches via the Fields screen (thanks to Abdo).</li>
+          <li>The tag area in the editor is now shown with a dropdown instead of a splitter (thanks to Matthias).</li>
+          <li>You can now adjust the current deck in the stats screen (thanks to yellowjello).</li>
+          <li>Add a button in the preferences to reset window sizes (thanks to Abdo).</li>
+          <li>Passing an invalid profile name on the commandline will now show profile picker instead of an error.</li>
+          <li>You can shift-click on a deck to select it as the current deck (thanks to Tobias).</li>
+          <li>You can now import decks with broken timestamps - they'll automatically be fixed on import (thanks to Rumo).</li>
+          <li>A DB check will now fix broken timestamps (thanks to Rumo).</li>
+          <li>Add time of date to browser date.</li>
+          <li>Allow Shift+Tab to move focus from tag area to last field (thanks to Hikaru).</li>
+          <li>Custom schedulers now have the deck name and random seed passed in to them, so they don't need to extract the info from the DOM (thanks to Rumo).</li>
+          <li>Improve debug console (thanks to Rumo).</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix stats calendar incorrect due to daylight savings time (thanks to Kieran).</li>
+          <li>Prevent the top bar from hiding in the stats page as you scroll down (thanks to Fabricio).</li>
+          <li>Reduce motion is now on by default, as it fixes an issue with the bottom bar failing to appear for some users.</li>
+          <li>Fix new limit in v3 decreasing more than it should (thanks to Rumo).</li>
+          <li>Fix current tag text not being saved when changing note via shortcut key (thanks to Hikaru).</li>
+          <li>Fix tags popover becoming separated from the tags field (thanks to Fabricio).</li>
+          <li>Ensure the bottom buttons aren't displayed until the custom scheduling code has finished running (thanks to Rumo).</li>
+          <li>Refresh study screen if the user toggles the v3 scheduler (thanks to Rumo).</li>
+          <li>Fix notetypes screen not being closable after adding a notetype on Mac.</li>
+          <li>Check for division by zero when calculating browser aspect ratio, which fixes an issue with i3 (thanks to Ben).</li>
+          <li>Fallback to Wayland if X11 is not available (thanks to Ingemar).</li>
+          <li>Tweaks to the build scripts to make packaging in distros easier (thanks to Euan).</li>
+          <li>Fix silent file save failures and bad default save path in Flatpak (thanks to Jack).</li>
+          <li>Fix HTML editor sometimes not properly sized when opening editor (thanks to Hikaru).</li>
+          <li>Fix error showing if user clicks in sidebar before it's rendered.</li>
+          <li>Fix backup creation for collections &gt; 1 GiB (thanks to Rumo).</li>
+          <li>Fix black on grey minimalist buttons in Qt5 (thanks to Daniel).</li>
+          <li>Fix black on grey deck options on Qt5 (thanks to Daniel).</li>
+          <li>Export static references from sound tags (thanks to Rumo).</li>
+          <li>Fix packaged audio tools path on Windows (thanks to Abdo).</li>
+          <li>Fix a case where 'reduce motion' and 'minimalist mode' were switched (thanks to Daniel).</li>
+          <li>Fix panic with invalid sync server URL with port (thanks to Daniel).</li>
+          <li>Fix double scrollbars in deck options (thanks to Fabricio).</li>
+          <li>Fix images with non-Latin text and commas failing to display.</li>
+          <li>Fix editor text possibly being transfer to different notetypes (thanks to Fabricio).</li>
+          <li>Improve hover appearance of buttons (thanks to Matthias).</li>
+          <li>Fix inability to activate search in graphs screen on Android (thanks to yellowjello).</li>
+          <li>Fix an issue building on Windows (thanks to Kieran).</li>
+        </ul>
+      </description>
+    </release>
     <release date="2023-02-22" version="2.1.60">
       <description>
         <p>If updating from 2.1.57 or earlier, please see the important note in the 2.1.58 change notes.</p>
@@ -420,10 +477,10 @@
           <li>When new cards are answered, Anki now records their original position. When you later export a shared deck without scheduling, the original positions will be restored.</li>
           <li>The Forget action now gives you options to restore the original card position, and to reset the card's lapse and repetition counters.</li>
           <li>The gathering and sorting of new cards has been reworked, trading a little performance for more intuitive behaviour:
-            <ul>
-              <li>It is now possible to sort notes or cards randomly at gather time, ensuring a random selection is taken from all available new cards.</li>
-              <li>The gather order and sort order options have been simplified, but should offer the same functionality as before. Please check your deck options after upgrading, as some users may need to adjust their display order settings to match what they were using before.</li>
-            </ul>
+          <ul>
+            <li>It is now possible to sort notes or cards randomly at gather time, ensuring a random selection is taken from all available new cards.</li>
+            <li>The gather order and sort order options have been simplified, but should offer the same functionality as before. Please check your deck options after upgrading, as some users may need to adjust their display order settings to match what they were using before.</li>
+          </ul>
           </li>
           <li>The overview screen now shows how many cards will be buried.</li>
           <li>Added a separate option to control burying of interday learning siblings.</li>
@@ -457,19 +514,19 @@
         <ul>
           <li>Anki will now switch to day or night mode automatically depending on your system settings. You can force day or night mode in the Preferences screen. (thanks in large part to Rumo).</li>
           <li>Reworked backup handling (mostly thanks to Rumo):
-            <ul>
-              <li>Backups are created much faster than they were previously.</li>
-              <li>Anki can now create backups periodically. The default is every 30 minutes; you can adjust this in the preferences screen.</li>
-              <li>There are new options in the preferences to control the number of daily, weekly and monthly backups you'd like to retain.</li>
-              <li>The File menu now has an option to create a backup immediately.</li>
-              <li>Because the backup storage format has changed, backups created with 2.1.50 will not be importable into older Anki versions.</li>
-            </ul>
+          <ul>
+            <li>Backups are created much faster than they were previously.</li>
+            <li>Anki can now create backups periodically. The default is every 30 minutes; you can adjust this in the preferences screen.</li>
+            <li>There are new options in the preferences to control the number of daily, weekly and monthly backups you'd like to retain.</li>
+            <li>The File menu now has an option to create a backup immediately.</li>
+            <li>Because the backup storage format has changed, backups created with 2.1.50 will not be importable into older Anki versions.</li>
+          </ul>
           </li>
           <li>Reworked .colpkg import/export (thanks to Rumo):
-            <ul>
-              <li>When exporting, you can optionally target Anki 2.1.50+. When doing so, imports and exports are faster, and media files will be compressed, but the resulting .colpkg will not be readable by older Anki clients.</li>
-              <li>Collections are now checked for corruption when importing.</li>
-            </ul>
+          <ul>
+            <li>When exporting, you can optionally target Anki 2.1.50+. When doing so, imports and exports are faster, and media files will be compressed, but the resulting .colpkg will not be readable by older Anki clients.</li>
+            <li>Collections are now checked for corruption when importing.</li>
+          </ul>
           </li>
           <li>An option to ignore accents in searches by default has been added to preferences screen (thanks to Abdo).</li>
           <li>The Card Info screen now updates automatically as you change to a different card (thanks to Rumo).</li>
@@ -679,11 +736,11 @@
           <li>Fix some instances of the sync indicator remaining on after sync (thanks to Rumo).</li>
           <li>Work around –text-fg appearing in fields.</li>
           <li>Fix link in about screen (thanks to Abdo).</li>
-	  <li>Fix ‘1’ being shown instead of the correct number in some Russian translations.</li>
+	        <li>Fix ‘1’ being shown instead of the correct number in some Russian translations.</li>
           <li>Fixed invisible characters when adding new card templates (thanks to Henrik).</li>
           <li>Fixed duplicate check getting confused by non-breaking spaces (thanks to abdo).</li>
           <li>Don’t throw error when computer hostname is invalid.</li>
-	  <li>Other minor changes (thanks to Henrik &amp; k12sh)</li>
+	        <li>Other minor changes (thanks to Henrik &amp; k12sh)</li>
         </ul>
       </description>
     </release>
