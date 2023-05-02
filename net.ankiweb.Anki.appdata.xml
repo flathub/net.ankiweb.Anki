@@ -29,7 +29,29 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.62" date="2023-05-01"/>
+    <release version="2.1.62" date="2023-04-30">
+      <description>
+        <ul>
+          <li>
+            <p>Update macOS/Linux builds to Qt 6.5, and update Windows build to Qt 6.4.3.</p>
+            <ul>
+              <li> The minimum macOS version for the Qt6 build is now macOS 11.</li>
+              <li>If you are on Linux and don't have ANKI_WAYLAND set, you may need to install libxcb-cursor or Anki will fail to start. Eg on Debian/Ubuntu:
+              <code>sudo apt install libxcb-cursor0</code>
+              </li>
+            </ul>
+          </li>
+          <li>Add an option to fully randomize reviews in the V3 scheduler.</li>
+          <li>Add a new option to the card templates screen to restore a notetype to the default fields/templates/styling.</li>
+          <li>Add clearer tooltip to hourly breakdown graph (thanks to Rumo).</li>
+          <li>Fix focus loss when closing HTML editor (thanks to Hikaru).</li><li>Prevent MathJax editor from closing when you selected text with the mouse and released the mouse button outside the window (thanks to Hikaru).</li>
+          <li>Pass original deck name to custom scheduling code, instead of filtered deck name.</li>
+          <li>When importing an .apkg where notetypes have changed, display a clearer message, and only if the notes in the incoming collection are newer.</li>
+          <li>Fix MathJax editor not being sized correctly (thanks to Hikaru).</li>
+          <li>Fix a flicker when dropdowns shown with reduce motion on (thanks to Hikaru).</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.1.61" date="2023-03-31">
       <description>
         <p>Improvements to the V3 scheduler:</p>
