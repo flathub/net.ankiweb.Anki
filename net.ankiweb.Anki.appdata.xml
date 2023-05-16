@@ -23,12 +23,13 @@
   <url type="translate">https://translating.ankiweb.net/</url>
   <screenshots>
     <screenshot type="default">
-      <image type="source">https://i.imgur.com/zauNqLH.png</image>
+      <image type="source">https://iili.io/HU8RpwX.png</image>
       <caption>Flashcard and answer</caption>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.63" date="2023-05-09"/>
     <release version="2.1.62" date="2023-04-30">
       <description>
         <ul>
