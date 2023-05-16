@@ -29,7 +29,18 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.63" date="2023-05-09"/>
+    <release version="2.1.63" date="2023-05-09">
+      <description>
+        <ul>
+          <li>Add alternative review shortcuts (h,j,k,l,u) (thanks to Ren).</li>
+          <li>Add an option in the preferences to stop spacebar from rating card (thanks to Ren).</li>
+          <li>Prevent change in image aspect ratio in editor when images have an explicit size set (thanks to Matthias).</li>
+          <li>Fix custom sync URL not working with subpaths (thanks to XeR).</li>
+          <li>Fix fcitx5 failing to work in Linux Qt6 build.</li>
+          <li>Fix some buttons in the deck options screen being illegible when hovering.</li>
+         </ul>
+      </description>
+	  </release>
     <release version="2.1.62" date="2023-04-30">
       <description>
         <ul>
