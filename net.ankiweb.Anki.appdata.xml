@@ -29,6 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2.1.65" date="2023-05-31"/>
     <release version="2.1.64" date="2023-05-22">
       <description>
 			  <p>Functional changes:</p>
