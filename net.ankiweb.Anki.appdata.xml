@@ -29,7 +29,21 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="2.1.65" date="2023-05-31"/>
+    <release version="2.1.65" date="2023-05-31">
+			<description>
+				<ul>
+					<li>Default to current deck in csv import if settings allow it.</li>
+					<li>Disable Toggle Bury when nothing is selected (thanks to Abdo).</li>
+					<li>Fix broken window styling when installation path includes certain Latin1 chars on Windows.</li>
+					<li>Fix illegible tooltips when system in dark mode on some Linux installs.</li>
+					<li>Fix incorrect font sizes on X11 when fractional scaling in use.</li>
+					<li>If the old Anki uninstaller fails, allow installation to proceed.</li>
+					<li>Improve phrasing in dialog that asks which deck's options should be shown (thanks to chrissy0).</li>
+					<li>Fix some add-on installation errors not being reported (thanks to Abdo)</li>
+					<li>Add add-on installation hooks (thanks to Abdo).</li>
+				</ul>
+			</description>
+		</release>
     <release version="2.1.64" date="2023-05-22">
       <description>
 			  <p>Functional changes:</p>
