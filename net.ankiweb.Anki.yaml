@@ -53,12 +53,7 @@ modules:
       - /share
 
   - name: mpv
-    buildsystem: simple
-    build-commands:
-      - python3 waf configure --disable-alsa --disable-build-date --disable-manpage-build
-        --prefix=/app
-      - python3 waf build
-      - python3 waf install
+    buildsystem: meson
     sources:
       - type: archive
         url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.35.1.tar.gz
@@ -68,19 +63,6 @@ modules:
           project-id: 5348
           stable-only: true
           url-template: https://github.com/mpv-player/mpv/archive/refs/tags/v$version.tar.gz
-      - type: file
-        url: https://waf.io/waf-2.0.25
-        sha256: 21199cd220ccf60434133e1fd2ab8c8e5217c3799199c82722543970dc8e38d5
-        dest-filename: waf
-        x-checker-data:
-          type: anitya
-          project-id: 5116
-          stable-only: true
-          url-template: https://waf.io/waf-$version
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /share
 
   - name: krb5
     subdir: src
@@ -93,8 +75,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.20.1-final.tar.gz
-        sha256: ec3861c3bec29aa8da9281953c680edfdab1754d1b1db8761c1d824e4b25496a
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21-final.tar.gz
+        sha256: f0fe1d7c94a1437c921f599797bce103981301428b2abfa1a9494c5e984843a6
         x-checker-data:
           type: anitya
           project-id: 13287
