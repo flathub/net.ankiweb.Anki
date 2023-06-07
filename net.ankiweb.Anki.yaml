@@ -53,12 +53,7 @@ modules:
       - /share
 
   - name: mpv
-    buildsystem: simple
-    build-commands:
-      - python3 waf configure --disable-alsa --disable-build-date --disable-manpage-build
-        --prefix=/app
-      - python3 waf build
-      - python3 waf install
+    buildsystem: meson
     sources:
       - type: archive
         url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.35.1.tar.gz
@@ -68,19 +63,6 @@ modules:
           project-id: 5348
           stable-only: true
           url-template: https://github.com/mpv-player/mpv/archive/refs/tags/v$version.tar.gz
-      - type: file
-        url: https://waf.io/waf-2.0.25
-        sha256: 21199cd220ccf60434133e1fd2ab8c8e5217c3799199c82722543970dc8e38d5
-        dest-filename: waf
-        x-checker-data:
-          type: anitya
-          project-id: 5116
-          stable-only: true
-          url-template: https://waf.io/waf-$version
-    cleanup:
-      - /include
-      - /lib/pkgconfig
-      - /share
 
   - name: krb5
     subdir: src
