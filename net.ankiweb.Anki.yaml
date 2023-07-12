@@ -75,8 +75,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21-final.tar.gz
-        sha256: f0fe1d7c94a1437c921f599797bce103981301428b2abfa1a9494c5e984843a6
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.1-final.tar.gz
+        sha256: 72425658b8ede9948e3b5517269a9220f70ffad25e6fc73e352ca11360233d3b
         x-checker-data:
           type: anitya
           project-id: 13287
