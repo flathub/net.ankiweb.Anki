@@ -56,8 +56,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.35.1.tar.gz
-        sha256: 41df981b7b84e33a2ef4478aaf81d6f4f5c8b9cd2c0d337ac142fc20b387d1a9
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.36.0.tar.gz
+        sha256: 29abc44f8ebee013bb2f9fe14d80b30db19b534c679056e4851ceadf5a5e8bf6
         x-checker-data:
           type: anitya
           project-id: 5348
@@ -75,8 +75,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.1-final.tar.gz
-        sha256: 72425658b8ede9948e3b5517269a9220f70ffad25e6fc73e352ca11360233d3b
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.2-final.tar.gz
+        sha256: 5827fa39ead0e7f7b8a158799eb5d50b194129e81b378892caedcafe50c5c195
         x-checker-data:
           type: anitya
           project-id: 13287
