@@ -1,10 +1,10 @@
 app-id: net.ankiweb.Anki
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
-    version: '22.08'
+    version: '23.08'
     directory: texlive # this is relative to /app
     no-autodownload: true
 command: anki
