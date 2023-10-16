@@ -8,7 +8,7 @@
   <description>
     <p>Anki is a program which makes remembering things easy. Because it's a lot more efficient than traditional study methods, you can either greatly decrease your time spent studying, or greatly increase the amount you learn.</p>
     <p>Anyone who needs to remember things in their daily life can benefit from Anki. Since it is content-agnostic and supports images, audio, videos and scientific markup (via LaTeX), the possibilities are endless.</p>
-    <p>Optional LaTeX support is provided by the TeX Live Flatpak extension org.freedesktop.Sdk.Extension.texlive//22.08.</p>
+    <p>Optional LaTeX support is provided by the TeX Live Flatpak extension org.freedesktop.Sdk.Extension.texlive.</p>
   </description>
   <kudos>
     <kudo>ModernToolkit</kudo>
@@ -32,8 +32,8 @@
     <release version="2.1.66" date="2023-08-19">
       <description>
         <ul>
-          <li>Please see the official Anki changelogs at: <a href="https://changes.ankiweb.net/">https://changes.ankiweb.net/</a></li>
-          <li>Please see the changes for this flatpak at: <a href="https://github.com/flathub/net.ankiweb.Anki/commits/master">https://github.com/flathub/net.ankiweb.Anki/commits/master/</a></li>
+          <li>Please see the official Anki changelogs at: changes.ankiweb.net</li>
+          <li>Please see the changes for this flatpak at: github.com/flathub/net.ankiweb.Anki/commits/master</li>
         </ul>
       </description>
     </release>
