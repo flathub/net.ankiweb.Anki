@@ -32,8 +32,8 @@
     <release version="2.1.66" date="2023-08-19">
       <description>
         <ul>
-          <li>Please see the official Anki changelogs at: https://changes.ankiweb.net/</li>
-          <li>Please see the changes for this flatpak at: https://github.com/flathub/net.ankiweb.Anki/commits/master/</li>
+          <li>Please see the official Anki changelogs at: changes.ankiweb.net</li>
+          <li>Please see the changes for this flatpak at: github.com/flathub/net.ankiweb.Anki/commits/master</li>
         </ul>
       </description>
     </release>
