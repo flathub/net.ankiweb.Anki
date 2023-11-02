@@ -21,14 +21,12 @@
   <url type="help">https://docs.ankiweb.net/</url>
   <url type="donation">https://apps.ankiweb.net/support/</url>
   <url type="translate">https://translating.ankiweb.net/</url>
-  <!--
-    <screenshots>
-      <screenshot type="default">
-        <image type="source">https://iili.io/HU8RpwX.png</image>
-        <caption>Flashcard and answer</caption>
-      </screenshot>
-    </screenshots>
-  -->
+  <screenshots>
+    <screenshot type="default">
+      <image type="source">https://docs.ankiweb.net/media/decks_screen.png</image>
+      <caption>Sample Deck Screen</caption>
+    </screenshot>
+  </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
     <release version="23.10" date="2023-10-31">
