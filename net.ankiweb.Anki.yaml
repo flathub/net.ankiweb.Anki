@@ -113,7 +113,6 @@ modules:
           project-id: 49
           stable-only: true
           url-template: https://github.com/ankitects/anki/releases/download/$version/anki-$version-linux-qt6.tar.zst
-          versions: {"!=": "23.10placeholder"}
       - type: file
         path: anki.svg
       - type: file
