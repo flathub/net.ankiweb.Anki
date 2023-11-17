@@ -105,8 +105,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/23.10/anki-23.10-linux-qt6.tar.zst
-        sha256: 75f2fde542aeea4c03e161cbb579487647f9508b44b56d9608028fed81a50ad7
+        url: https://github.com/ankitects/anki/releases/download/23.10.1/anki-23.10.1-linux-qt6.tar.zst
+        sha256: 2afd121fe6cb9c148cfed6077b690425ce27ee2cd94c135642cda79bfb5e2c45
         x-checker-data:
           type: anitya
           is-main-source: true
