@@ -56,12 +56,12 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/libplacebo/-/tags/v6.338.1.tar.gz
+        url: https://code.videolan.org/videolan/libplacebo/-/archive/v6.338.1/libplacebo-v6.338.1.tar.gz
         sha256: f748bf9385f4c228e1379d7d1bed13581176bfdc54eb99f4abe22e649f8dc93f
         x-checker-data:
           type: anitya
           project-id: 20101
-          url-template: https://code.videolan.org/videolan/libplacebo/-/tags/v$version.tar.gz
+          url-template: https://code.videolan.org/videolan/libplacebo/-/archive/v$version/libplacebo-v$version.tar.gz
 
   - name: mpv
     buildsystem: meson
