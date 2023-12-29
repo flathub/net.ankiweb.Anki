@@ -61,14 +61,62 @@ modules:
       - /include
       - /lib/pkgconfig
     sources:
-      - type: archive
-        url: https://code.videolan.org/videolan/libplacebo/-/archive/v6.338.1/libplacebo-v6.338.1.tar.gz
-        sha256: f748bf9385f4c228e1379d7d1bed13581176bfdc54eb99f4abe22e649f8dc93f
+      - type: git
+        url: https://code.videolan.org/videolan/libplacebo.git
+        mirror-urls:
+          - https://github.com/haasn/libplacebo.git
+        tag: v6.338.1
+        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
         x-checker-data:
-          type: anitya
-          project-id: 20101
-          url-template: https://code.videolan.org/videolan/libplacebo/-/archive/v$version/libplacebo-v$version.tar.gz
-
+          type: git
+          tag-pattern: ^v([\d.]+)$
+    modules:
+      - name: shaderc
+        buildsystem: cmake-ninja
+        builddir: true
+        config-opts:
+          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
+          - -DSHADERC_SKIP_EXAMPLES=ON
+          - -DSHADERC_SKIP_TESTS=ON
+          - -DSPIRV_SKIP_EXECUTABLES=ON
+          - -DENABLE_GLSLANG_BINARIES=OFF
+        cleanup:
+          - /bin
+          - /include
+          - /lib/cmake
+          - /lib/pkgconfig
+        sources:
+          - type: git
+            url: https://github.com/google/shaderc.git
+            tag: v2023.7
+            commit: 3882b16417077aa8eaa7b5775920e7ba4b8a224d
+            x-checker-data:
+              type: git
+              tag-pattern: ^v(\d{4}\.\d{1,2})$
+          - type: git
+            url: https://github.com/KhronosGroup/SPIRV-Tools.git
+            tag: v2023.2
+            commit: 44d72a9b36702f093dd20815561a56778b2d181e
+            dest: third_party/spirv-tools
+            x-checker-data:
+              type: git
+              tag-pattern: ^v(\d{4}\.\d{1})$
+          - type: git
+            url: https://github.com/KhronosGroup/SPIRV-Headers.git
+            tag: sdk-1.3.250.1
+            commit: 268a061764ee69f09a477a695bf6a11ffe311b8d
+            dest: third_party/spirv-headers
+            #x-checker-data:
+            #  type: git
+            #  tag-pattern: ^sdk-([\d.]+)$
+          - type: git
+            url: https://github.com/KhronosGroup/glslang.git
+            tag: 14.0.0
+            commit: a91631b260cba3f22858d6c6827511e636c2458a
+            dest: third_party/glslang
+            x-checker-data:
+              type: git
+              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
   - name: mpv
     buildsystem: meson
     sources:
