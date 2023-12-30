@@ -111,12 +111,12 @@ modules:
             #  tag-pattern: ^sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.0.0
-            commit: a91631b260cba3f22858d6c6827511e636c2458a
+            tag: 13.1.1
+            commit: 36d08c0d940cf307a23928299ef52c7970d8cee6
             dest: third_party/glslang
-            x-checker-data:
-              type: git
-              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
+            # x-checker-data:
+            #   type: git
+            #   tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
   
   - name: mpv
     buildsystem: meson
