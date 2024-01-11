@@ -85,6 +85,7 @@ modules:
           - /include
           - /lib/cmake
           - /lib/pkgconfig
+          - /lib/*.a
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
