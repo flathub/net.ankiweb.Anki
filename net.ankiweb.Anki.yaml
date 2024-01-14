@@ -27,7 +27,6 @@ finish-args:
   # LaTeX
   - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
   # Discord RPC Support
-  --filesystem=xdg-run/discord-ipc-*
   --filesystem=xdg-run/app/com.discordapp.Discord:create
   --filesystem=xdg-run/.flatpak/dev.vencord.Vesktop:create
   --filesystem=xdg-run/.flatpak/com.xyz.armcord.ArmCord:create
