@@ -195,7 +195,7 @@ modules:
           - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
       - type: script
         dest-filename: anki
-        Commands:
+        commands:
           - |
             for i in {0..9}; do
               test -S $XDG_RUNTIME_DIR/discord-ipc-$i ||
