@@ -26,6 +26,11 @@ finish-args:
   - --env=IBUS_USE_PORTAL=1
   # LaTeX
   - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
+  # Discord RPC Support
+  --filesystem=xdg-run/discord-ipc-*
+  --filesystem=xdg-run/app/com.discordapp.Discord:create
+  --filesystem=xdg-run/.flatpak/dev.vencord.Vesktop:create
+  --filesystem=xdg-run/.flatpak/com.xyz.armcord.ArmCord:create
 
 modules:
   - name: texlive
@@ -188,3 +193,11 @@ modules:
         commands:
           - sed -i '/xdg-mime/d' install.sh
           - sed -i 's/PREFIX=\/usr\/local/PREFIX=\/app/' install.sh
+      - type: script
+        dest-filename: anki
+        Commands:
+        for i in {0..9}; do
+        test -S $XDG_RUNTIME_DIR/discord-ipc-$i || ln -sf {app/com.discordapp.Discord,$XDG_RUNTIME_DIR}/discord-ipc-$i;
+        done
+        anki "$@"
+
