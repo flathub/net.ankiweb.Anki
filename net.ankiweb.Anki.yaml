@@ -65,8 +65,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.1
-        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
+        tag: v6.338.2
+        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -118,7 +118,6 @@ modules:
             # x-checker-data:
             #   type: git
             #   tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
-  
   - name: mpv
     buildsystem: meson
     sources:
