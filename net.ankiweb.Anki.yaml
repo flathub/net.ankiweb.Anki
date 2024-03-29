@@ -65,8 +65,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.1
-        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
+        tag: v6.338.2
+        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -89,15 +89,15 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2023.8
-            commit: e6edd6d48fa5bdd9d176794c6810fae7f8e938e1
+            tag: v2024.0
+            commit: d792558a8902cb39b1c237243cc4edab226513a5
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2023.2
-            commit: 44d72a9b36702f093dd20815561a56778b2d181e
+            tag: v2024.1
+            commit: 04896c462d9f3f504c99a4698605b6524af813c1
             dest: third_party/spirv-tools
             x-checker-data:
               type: git
@@ -118,7 +118,6 @@ modules:
             # x-checker-data:
             #   type: git
             #   tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
-  
   - name: mpv
     buildsystem: meson
     sources:
