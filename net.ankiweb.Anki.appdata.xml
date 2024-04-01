@@ -32,7 +32,7 @@
     <release version="23.12.1" date="2023-12-28">
       <description>
         <ul>
-          <li>Anki official changelog: changes.ankiweb.net</li>
+          <li>Anki official changelog: github.com/ankitects/anki/releases</li>
           <li>Changes for this flatpak: github.com/flathub/net.ankiweb.Anki/commits/master</li>
         </ul>
       </description>
