@@ -102,7 +102,7 @@ modules:
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1})$
-              version:
+              versions:
                 !=: v2024.1
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Headers.git
