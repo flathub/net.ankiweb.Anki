@@ -29,10 +29,10 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="23.12.1" date="2023-12-28">
+    <release version="24.04.1" date="2024-04-11">
       <description>
         <ul>
-          <li>Anki official changelog: changes.ankiweb.net</li>
+          <li>Anki official changelog: github.com/ankitects/anki/releases</li>
           <li>Changes for this flatpak: github.com/flathub/net.ankiweb.Anki/commits/master</li>
         </ul>
       </description>
