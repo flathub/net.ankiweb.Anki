@@ -65,8 +65,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.1
-        commit: 2805a0d01c029084ab36bf5d0e3c8742012a0b27
+        tag: v6.338.2
+        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -89,35 +89,36 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2023.8
-            commit: e6edd6d48fa5bdd9d176794c6810fae7f8e938e1
+            tag: v2024.0
+            # commit: 40bced4e1e205ecf44630d2dfa357655b6dabd04
+            commit: d792558a8902cb39b1c237243cc4edab226513a5
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2023.2
-            commit: 44d72a9b36702f093dd20815561a56778b2d181e
+            tag: v2024.1
+            commit: 04896c462d9f3f504c99a4698605b6524af813c1
             dest: third_party/spirv-tools
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            tag: sdk-1.3.250.1
-            commit: 268a061764ee69f09a477a695bf6a11ffe311b8d
+            tag: vulkan-sdk-1.3.280.0
+            commit: 8b246ff75c6615ba4532fe4fde20f1be090c3764
             dest: third_party/spirv-headers
-            #x-checker-data:
-            #  type: git
-            #  tag-pattern: ^sdk-([\d.]+)$
+            x-checker-data:
+              type: git
+              tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.0.0
-            commit: a91631b260cba3f22858d6c6827511e636c2458a
+            tag: 14.1.0
+            commit: ee2f5d09eaf8f4e8d0d598bd2172fce290d4ca60
             dest: third_party/glslang
-            # x-checker-data:
-            #   type: git
-            #   tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
+            x-checker-data:
+              type: git
+              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
   
   - name: mpv
     buildsystem: meson
@@ -172,8 +173,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/23.12.1/anki-23.12.1-linux-qt6.tar.zst
-        sha256: 6c5b4052a4a8152f025844a27a9597cb09dd9228c04db5a9e8225daa541e72e9
+        url: https://github.com/ankitects/anki/releases/download/24.04.1/anki-24.04.1-linux-qt6.tar.zst
+        sha256: 7a5513af42ee9b0e5bcd66de53be26f1efc0c503cda4a5e220e0b445c821dc06
         x-checker-data:
           type: anitya
           is-main-source: true
