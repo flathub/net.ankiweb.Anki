@@ -57,7 +57,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -Dvulkan=enabled
-      - -Dc=enabled
+      - -Dshaderc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -72,7 +72,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
     modules:
-      - name: c
+      - name: shaderc
         buildsystem: cmake-ninja
         builddir: true
         config-opts:
