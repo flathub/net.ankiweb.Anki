@@ -57,7 +57,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -Dvulkan=enabled
-      - -Dshaderc=enabled
+      - -Dc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -72,7 +72,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
     modules:
-      - name: shaderc
+      - name: c
         buildsystem: cmake-ninja
         builddir: true
         config-opts:
@@ -90,12 +90,11 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2024.0
-            # commit: 40bced4e1e205ecf44630d2dfa357655b6dabd04
-            commit: d792558a8902cb39b1c237243cc4edab226513a5
-            x-checker-data:
-              type: git
-              tag-pattern: ^v(\d{4}\.\d{1,2})$
+            tag: v2024.1
+            commit: 47a9387ef5b3600d30d84c71ec77a59dc7db46fa
+            #x-checker-data:
+            #  type: git
+            #  tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
             tag: v2024.1
@@ -114,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.1.0
-            commit: ee2f5d09eaf8f4e8d0d598bd2172fce290d4ca60
+            tag: 14.2.0
+            commit: e8dd0b6903b34f1879520b444634c75ea2deedf5
             dest: third_party/glslang
             x-checker-data:
               type: git
