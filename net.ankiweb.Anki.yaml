@@ -57,7 +57,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -Dvulkan=enabled
-      - -Dshaderc=enabled
+      - -Dc=enabled
     cleanup:
       - /include
       - /lib/pkgconfig
@@ -90,7 +90,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/shaderc.git
-            tag: v2024.1
+            # tag: v2024.1
             commit: d792558a8902cb39b1c237243cc4edab226513a5
             # x-checker-data:
             #  type: git
