@@ -91,11 +91,10 @@ modules:
           - type: git
             url: https://github.com/google/shaderc.git
             tag: v2024.1
-            # commit: 40bced4e1e205ecf44630d2dfa357655b6dabd04
             commit: 47a9387ef5b3600d30d84c71ec77a59dc7db46fa
-            x-checker-data:
-              type: git
-              tag-pattern: ^v(\d{4}\.\d{1,2})$
+            # x-checker-data:
+            #  type: git
+            #  tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
             tag: v2024.1
