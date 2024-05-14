@@ -105,8 +105,8 @@ modules:
               tag-pattern: ^v(\d{4}\.\d{1})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            tag: vulkan-sdk-1.3.280.0
-            commit: 8b246ff75c6615ba4532fe4fde20f1be090c3764
+            tag: vulkan-sdk-1.3.283.0
+            commit: 4f7b471f1a66b6d06462cd4ba57628cc0cd087d7
             dest: third_party/spirv-headers
             x-checker-data:
               type: git
