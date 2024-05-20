@@ -37,8 +37,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
-        sha256: f0da0bbfba476c16ae3e1cfd862256d30915911f7abaa1b16ce62ee653192784
+        url: https://github.com/libass/libass/releases/download/0.17.2/libass-0.17.2.tar.xz
+        sha256: e8261b51d66ba933fe99248c6fdd8767ed96c5a7e5363c83992c735a2c2fbf74
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -105,8 +105,8 @@ modules:
               tag-pattern: ^v(\d{4}\.\d{1})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            tag: vulkan-sdk-1.3.280.0
-            commit: 8b246ff75c6615ba4532fe4fde20f1be090c3764
+            tag: vulkan-sdk-1.3.283.0
+            commit: 4f7b471f1a66b6d06462cd4ba57628cc0cd087d7
             dest: third_party/spirv-headers
             x-checker-data:
               type: git
