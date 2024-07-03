@@ -66,8 +66,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.2
-        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
+        tag: v7.349.0
+        commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -97,8 +97,8 @@ modules:
             #  tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2024.1
-            commit: 04896c462d9f3f504c99a4698605b6524af813c1
+            tag: v2024.3
+            commit: 0cfe9e7219148716dfd30b37f4d21753f098707a
             dest: third_party/spirv-tools
             x-checker-data:
               type: git
@@ -113,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.2.0
-            commit: e8dd0b6903b34f1879520b444634c75ea2deedf5
+            tag: 14.3.0
+            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
             dest: third_party/glslang
             x-checker-data:
               type: git
@@ -173,8 +173,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/24.06.2/anki-24.06.2-linux-qt6.tar.zst
-        sha256: 03bfd1ee7414b742f87ca15a74fbcaca2d6c0845085dc399496f98af5b72eb77
+        url: https://github.com/ankitects/anki/releases/download/24.06.3/anki-24.06.3-linux-qt6.tar.zst
+        sha256: fe8c90cb840753d0c2a98a6572e20dcb9cb4776fe7f9f242a60c0d0d4460b985
         x-checker-data:
           type: anitya
           is-main-source: true
