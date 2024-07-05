@@ -37,8 +37,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.2/libass-0.17.2.tar.xz
-        sha256: e8261b51d66ba933fe99248c6fdd8767ed96c5a7e5363c83992c735a2c2fbf74
+        url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
+        sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -66,8 +66,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.2
-        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
+        tag: v7.349.0
+        commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -97,8 +97,8 @@ modules:
             #  tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2024.1
-            commit: 04896c462d9f3f504c99a4698605b6524af813c1
+            tag: v2024.3
+            commit: 0cfe9e7219148716dfd30b37f4d21753f098707a
             dest: third_party/spirv-tools
             x-checker-data:
               type: git
@@ -113,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.2.0
-            commit: e8dd0b6903b34f1879520b444634c75ea2deedf5
+            tag: 14.3.0
+            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
             dest: third_party/glslang
             x-checker-data:
               type: git
