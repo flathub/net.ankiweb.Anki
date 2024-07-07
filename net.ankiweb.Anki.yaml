@@ -37,8 +37,8 @@ modules:
   - name: libass
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.2/libass-0.17.2.tar.xz
-        sha256: e8261b51d66ba933fe99248c6fdd8767ed96c5a7e5363c83992c735a2c2fbf74
+        url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
+        sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -66,8 +66,8 @@ modules:
         url: https://code.videolan.org/videolan/libplacebo.git
         mirror-urls:
           - https://github.com/haasn/libplacebo.git
-        tag: v6.338.2
-        commit: 64c1954570f1cd57f8570a57e51fb0249b57bb90
+        tag: v7.349.0
+        commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -113,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.2.0
-            commit: e8dd0b6903b34f1879520b444634c75ea2deedf5
+            tag: 14.3.0
+            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
             dest: third_party/glslang
             x-checker-data:
               type: git
@@ -143,8 +143,8 @@ modules:
       - install -Dm644 ../krb5.conf /app/etc/krb5.conf
     sources:
       - type: archive
-        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.2-final.tar.gz
-        sha256: 5827fa39ead0e7f7b8a158799eb5d50b194129e81b378892caedcafe50c5c195
+        url: https://github.com/krb5/krb5/archive/refs/tags/krb5-1.21.3-final.tar.gz
+        sha256: 2157d92020d408ed63ebcd886a92d1346a1383b0f91123a0473b4f69b4a24861
         x-checker-data:
           type: anitya
           project-id: 13287
@@ -173,8 +173,8 @@ modules:
       - /share/pixmaps
     sources:
       - type: archive
-        url: https://github.com/ankitects/anki/releases/download/24.06.2/anki-24.06.2-linux-qt6.tar.zst
-        sha256: 03bfd1ee7414b742f87ca15a74fbcaca2d6c0845085dc399496f98af5b72eb77
+        url: https://github.com/ankitects/anki/releases/download/24.06.3/anki-24.06.3-linux-qt6.tar.zst
+        sha256: fe8c90cb840753d0c2a98a6572e20dcb9cb4776fe7f9f242a60c0d0d4460b985
         x-checker-data:
           type: anitya
           is-main-source: true
