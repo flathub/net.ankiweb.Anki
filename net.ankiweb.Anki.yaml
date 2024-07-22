@@ -97,16 +97,16 @@ modules:
             #  tag-pattern: ^v(\d{4}\.\d{1,2})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2024.1
-            commit: 04896c462d9f3f504c99a4698605b6524af813c1
+            tag: v2024.3
+            commit: 0cfe9e7219148716dfd30b37f4d21753f098707a
             dest: third_party/spirv-tools
             x-checker-data:
               type: git
               tag-pattern: ^v(\d{4}\.\d{1})$
           - type: git
             url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            tag: vulkan-sdk-1.3.283.0
-            commit: 4f7b471f1a66b6d06462cd4ba57628cc0cd087d7
+            tag: vulkan-sdk-1.3.290.0
+            commit: 2acb319af38d43be3ea76bfabf3998e5281d8d12
             dest: third_party/spirv-headers
             x-checker-data:
               type: git
