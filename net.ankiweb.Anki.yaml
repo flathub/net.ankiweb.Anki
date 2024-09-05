@@ -1,7 +1,7 @@
 app-id: net.ankiweb.Anki
-runtime: org.freedesktop.Platform
-runtime-version: '23.08'
-sdk: org.freedesktop.Sdk
+runtime: org.kde.Platform
+runtime-version: '6.6'
+sdk: org.kde.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
     version: '23.08'
