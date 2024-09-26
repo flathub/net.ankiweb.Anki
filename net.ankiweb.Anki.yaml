@@ -113,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.3.0
-            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
+            tag: 15.0.0
+            commit: 46ef757e048e760b46601e6e77ae0cb72c97bd2f
             dest: third_party/glslang
             x-checker-data:
               type: git
@@ -124,8 +124,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.38.0.tar.gz
-        sha256: 86d9ef40b6058732f67b46d0bbda24a074fae860b3eaae05bab3145041303066
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz
+        sha256: 2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683
         x-checker-data:
           type: anitya
           project-id: 5348
