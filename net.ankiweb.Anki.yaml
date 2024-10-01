@@ -113,8 +113,8 @@ modules:
               tag-pattern: ^vulkan-sdk-([\d.]+)$
           - type: git
             url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.3.0
-            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
+            tag: 15.0.0
+            commit: 46ef757e048e760b46601e6e77ae0cb72c97bd2f
             dest: third_party/glslang
             x-checker-data:
               type: git
