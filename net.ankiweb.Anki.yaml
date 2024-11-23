@@ -1,10 +1,10 @@
 app-id: net.ankiweb.Anki
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
-    version: '23.08'
+    version: '24.08'
     directory: texlive
     add-ld-path: lib
     no-autodownload: true
@@ -71,61 +71,13 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-    modules:
-      - name: shaderc
-        buildsystem: cmake-ninja
-        builddir: true
-        config-opts:
-          - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
-          - -DSHADERC_SKIP_EXAMPLES=ON
-          - -DSHADERC_SKIP_TESTS=ON
-          - -DSPIRV_SKIP_EXECUTABLES=ON
-          - -DENABLE_GLSLANG_BINARIES=OFF
-        cleanup:
-          - /bin
-          - /include
-          - /lib/cmake
-          - /lib/pkgconfig
-          - /lib/*.a
-        sources:
-          - type: git
-            url: https://github.com/google/shaderc.git
-            tag: v2024.1
-            commit: 47a9387ef5b3600d30d84c71ec77a59dc7db46fa
-            #x-checker-data:
-            #  type: git
-            #  tag-pattern: ^v(\d{4}\.\d{1,2})$
-          - type: git
-            url: https://github.com/KhronosGroup/SPIRV-Tools.git
-            tag: v2024.3
-            commit: 0cfe9e7219148716dfd30b37f4d21753f098707a
-            dest: third_party/spirv-tools
-            x-checker-data:
-              type: git
-              tag-pattern: ^v(\d{4}\.\d{1})$
-          - type: git
-            url: https://github.com/KhronosGroup/SPIRV-Headers.git
-            tag: vulkan-sdk-1.3.290.0
-            commit: 2acb319af38d43be3ea76bfabf3998e5281d8d12
-            dest: third_party/spirv-headers
-            x-checker-data:
-              type: git
-              tag-pattern: ^vulkan-sdk-([\d.]+)$
-          - type: git
-            url: https://github.com/KhronosGroup/glslang.git
-            tag: 14.3.0
-            commit: fa9c3deb49e035a8abcabe366f26aac010f6cbfb
-            dest: third_party/glslang
-            x-checker-data:
-              type: git
-              tag-pattern: ^(\d{1,2}\.\d{1,2}\.\d{1,4})$
 
   - name: mpv
     buildsystem: meson
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.38.0.tar.gz
-        sha256: 86d9ef40b6058732f67b46d0bbda24a074fae860b3eaae05bab3145041303066
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz
+        sha256: 2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683
         x-checker-data:
           type: anitya
           project-id: 5348
