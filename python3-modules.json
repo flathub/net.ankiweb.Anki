@@ -227,7 +227,18 @@
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/84/97/5e2bfbcf42725ba5f64310423edcf00d90e684a61d55dd0a26b2313a44b6/maturin-1.7.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl",
-                    "sha256": "8b441521c151f0dbe70ed06fb1feb29b855d787bda038ff4330ca962e5d56641"
+                    "sha256": "8b441521c151f0dbe70ed06fb1feb29b855d787bda038ff4330ca962e5d56641",
+		    "only-arches": [
+			    "x86_64"
+		    ]
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/34/59/e0d58ce67a8a6245dcb74ffb81cb12f0cda8b622c8d902f2371de742ae04/maturin-1.7.4-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl",
+                    "sha256": "7ccb66d0c5297cf06652c5f72cb398f447d3a332eccf5d1e73b3fe14dbc9498c",
+		    "only-arches": [
+			    "aarch64"
+		    ]
                 }
             ]
         },
