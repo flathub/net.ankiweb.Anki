@@ -35,6 +35,7 @@ finish-args:
   - --env=IBUS_USE_PORTAL=1
   # LaTeX
   - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
+  # QtWebEngineProcess from baseapp
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 cleanup:
   - '*.a'
@@ -69,7 +70,7 @@ modules:
           type: anitya
           project-id: 5348
           stable-only: true
-          url-template: https://github.com/mpv-player/mpv/archive/v$version.tar.gz
+          url-template: https://github.com/mpv-player/mpv/archive/refs/tags/v$version.tar.gz
     modules:
       - name: libplacebo
         buildsystem: meson

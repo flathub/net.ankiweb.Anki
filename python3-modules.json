@@ -264,7 +264,7 @@
                     "sha256": "4c48f78f62ab596c679086084d0dd13254ae4f3d6c72a83ffdf5ebdef8f265a4"
                 }
             ]
-  },
+  	},
         {
             "name": "python3-orjson",
             "buildsystem": "simple",
@@ -276,8 +276,27 @@
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/e0/04/bb9f72987e7f62fb591d6c880c0caaa16238e4e530cbc3bdc84a7372d75f/orjson-3.10.12.tar.gz",
                     "sha256": "0a78bbda3aea0f9f079057ee1ee8a1ecf790d4f1af88dd67493c6b8ee52506ff"
-                }
-            ]
-        }
+		}
+	    ]
+	},
+	{
+		"name": "python3-pip_system_certs",
+		"buildsystem": "simple",
+		"build-commands": [
+			"pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pip_system_certs\" --no-build-isolation"
+		],
+		"sources": [
+			{
+				"type": "file",
+				"url": "https://files.pythonhosted.org/packages/70/82/78c30a18858d484acd13a3aea22ead89c66f200e118d1aa4b4bae392efee/pip_system_certs-4.0-py2.py3-none-any.whl",
+				"sha256": "47202b9403a6f40783a9674bbc8873f5fc86544ec01a49348fa913e99e2ff68b"
+			},
+			{
+				"type": "file",
+				"url": "https://files.pythonhosted.org/packages/24/a1/fc03dca9b0432725c2e8cdbf91a349d2194cf03d8523c124faebe581de09/wrapt-1.17.0.tar.gz",
+				"sha256": "16187aa2317c731170a88ef35e8937ae0f533c402872c1ee5e6d079fcf320801"
+			}
+		]
+	}
     ]
 }
