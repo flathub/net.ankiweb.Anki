@@ -1,0 +1,14 @@
+Flatpak build for [[https://apps.ankiweb.net/][Anki]], a powerful and intelligent flash card software.
+
+To install: Configure the Flathub remote and run the system-wide or user install:
+#+begin_src shell
+# system install
+flatpak install net.ankiweb.Anki
+
+# user install
+flatpak install --user net.ankiweb.Anki
+#+end_src
+
+Optional:
+- mpv is already bundled together with the package for audio and video support
+- Install =org.freedesktop.Sdk.Extension.texlive//23.08= if you want to use TeX
