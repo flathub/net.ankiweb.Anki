@@ -219,7 +219,7 @@ modules:
         x-checker-data:
           type: git
           stable-only: true
-          tag-pattern: ""^([\\d.]+)$"
+          tag-pattern: "^([\\d.]+)$"
       - type: patch
         paths:
           - dprint-update-for-musl-aarch64.patch
