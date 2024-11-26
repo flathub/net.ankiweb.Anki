@@ -217,11 +217,9 @@ modules:
         url: https://github.com/ankitects/anki.git
         tag: 24.06.3
         x-checker-data:
-          type: anitya
-          is-main-source: true
-          project-id: 49
+          type: git
           stable-only: true
-          url-template: https://github.com/ankitects/anki/releases/download/$version/anki-$version-linux-qt6.tar.zst
+          tag-pattern: ""^([\\d.]+)$"
       - type: patch
         paths:
           - dprint-update-for-musl-aarch64.patch
