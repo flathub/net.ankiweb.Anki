@@ -1,0 +1,1 @@
+((nil . ((compile-command . "if [ \"$container\"==\"flatpak\" ]; then flatpak-spawn --host ./compile-app.sh; else ./compile-app.sh; fi"))))
