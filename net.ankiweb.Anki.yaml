@@ -154,7 +154,8 @@ modules:
               stable-only: true
               url-template: https://github.com/libass/libass/releases/download/$version/libass-$version.tar.xz
 
-  - python3-modules.json # stringcase beautifulsoup4 waitress requests decorator markdown protobuf pysocks distro send2trash certifi flask-cors jsonschema orjson maturin
+  - python3-modules.json # stringcase beautifulsoup4 waitress requests decorator markdown protobuf pysocks distro send2trash certifi flask-cors jsonschema orjson
+  # manual: maturin
 
   - name: rsync
     cleanup:
@@ -189,12 +190,12 @@ modules:
       # deps
       - cargo fetch --manifest-path ./Cargo.toml
       - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - yarn --offline install --modules-folder out/node_modules --ignore-scripts
+      - yarn --offline install --modules-folder out/node_modules --ignore-scripts --verbose
       - ln -sf out/node_modules ./
       # build
       - ./ninja wheels
-      - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
       # install
+      - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
       - cp /app/bin/anki ./qt/bundle/lin
       - env --chdir=./qt/bundle/lin - PREFIX=/app ./install.sh
       - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
@@ -217,19 +218,20 @@ modules:
           - x86_64
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 24.06.3
+        tag: '24.11'
+        commit: 87ccd24efd0ea635558b1679614b6763e4f514eb
         x-checker-data:
           type: git
           stable-only: true
-          tag-pattern: "^([\\d.]+)$"
+          tag-pattern: ^([\\d.]+)$
       - type: patch
         paths:
-          - dprint-update-for-musl-aarch64.patch
-          - yarn-lock.patch
+          # - dprint-update-for-musl-aarch64.patch
+          # - yarn-lock.patch
           - no-update-check.patch
           - strip-python-formatter.patch
           - strip-type-checking-deps.patch
-          - time-crate-version.patch
+          # - time-crate-version.patch
           - xdg-mime-strip.patch
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
