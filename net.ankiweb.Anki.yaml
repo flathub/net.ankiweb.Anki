@@ -37,6 +37,8 @@ finish-args:
   - --env=PATH=/app/bin:/usr/bin:/app/texlive/bin/x86_64-linux:/app/texlive/bin/aarch64-linux
   # QtWebEngineProcess from baseapp
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+  # Fix for fractional scaling fonts on wayland
+  - --env=QT_SCALE_FACTOR_ROUNDING_POLICY=round
 cleanup:
   - '*.a'
   - '*.la'
