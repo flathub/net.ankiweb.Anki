@@ -66,8 +66,8 @@ modules:
       - -Dmanpage-build=disabled
     sources:
       - type: archive
-        url: https://github.com/mpv-player/mpv/archive/v0.38.0.tar.gz
-        sha256: 86d9ef40b6058732f67b46d0bbda24a074fae860b3eaae05bab3145041303066
+        url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.39.0.tar.gz
+        sha256: 2ca92437affb62c2b559b4419ea4785c70d023590500e8a52e95ea3ab4554683
         x-checker-data:
           type: anitya
           project-id: 5348
@@ -116,8 +116,8 @@ modules:
               - /bin
             sources:
               - type: archive
-                url: https://github.com/KhronosGroup/glslang/archive/14.3.0.tar.gz
-                sha256: be6339048e20280938d9cb399fcdd06e04f8654d43e170e8cce5a56c9a754284
+                url: https://github.com/KhronosGroup/glslang/archive/15.0.0.tar.gz
+                sha256: c31c8c2e89af907507c0631273989526ee7d5cdf7df95ececd628fd7b811e064
                 x-checker-data:
                   type: anitya
                   project-id: 205796
@@ -221,7 +221,8 @@ modules:
         x-checker-data:
           type: git
           stable-only: true
-          tag-pattern: "^([\\d.]+)$"
+          tag-pattern: ^([\d.]+)$
+        commit: d678e39350a2d243242a69f4e22f5192b04398f2
       - type: patch
         paths:
           - dprint-update-for-musl-aarch64.patch
