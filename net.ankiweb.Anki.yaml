@@ -230,6 +230,7 @@ modules:
           - strip-python-formatter.patch
           - strip-type-checking-deps.patch
           - xdg-mime-strip.patch
+          - desktop-file-name.patch
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
