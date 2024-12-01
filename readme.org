@@ -12,3 +12,22 @@ flatpak install --user net.ankiweb.Anki
 Optional:
 - mpv is already bundled together with the package for audio and video support
 - Install =org.freedesktop.Sdk.Extension.texlive//23.08= if you want to use TeX
+
+*** Known issues and troubleshooting
+#+begin_html
+<details>
+<summary>X11: Fractional scaling does not work, only scales by whole numbers</summary>
+Try running the app as follows: <code>flatpak run --env=QT_SCALE_FACTOR_ROUNDING_POLICY=passthrough net.ankiweb.Anki</code>. If scaling works properly, add an override with <code>flatpak override --env=QT_SCALE_FACTOR_ROUNDING_POLICY=passthrough net.ankiweb.Anki</code> or with Flatseal.
+</details>
+#+end_html
+
+#+begin_html
+<details>
+<summary>X11: Menus in toolbar do not show up properly on theme change</summary>
+Theme changes do not appear to not hot-load properly on X11. Restart the application after changing the theme.
+</details>
+#+end_html
+
+#+html: <hr/>
+
+Please report any issues in the issue tracker. Try to ensure your issues are specific to the flatpak, otherwise you will be redirected to the main Anki repo.
