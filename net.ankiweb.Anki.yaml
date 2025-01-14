@@ -162,8 +162,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://download.samba.org/pub/rsync/src/rsync-3.3.0.tar.gz
-        sha256: 7399e9a6708c32d678a72a63219e96f23be0be2336e50fd1348498d07041df90
+        url: https://download.samba.org/pub/rsync/src/rsync-3.4.0.tar.gz
+        sha256: 8e942f95a44226a012fe822faffa6c7fc38c34047add3a0c941e9bc8b8b93aa4
         x-checker-data:
           type: anitya
           project-id: 4217
