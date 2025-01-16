@@ -11,7 +11,7 @@ flatpak install --user net.ankiweb.Anki
 
 Optional:
 - mpv is already bundled together with the package for audio and video support
-- Install =org.freedesktop.Sdk.Extension.texlive//23.08= if you want to use TeX
+- Install =org.freedesktop.Sdk.Extension.texlive//24.08= if you want to use TeX
 
 *** Known issues and troubleshooting
 #+begin_html
@@ -24,7 +24,7 @@ Try running the app as follows: <code>flatpak run --env=QT_SCALE_FACTOR_ROUNDING
 #+begin_html
 <details>
 <summary>X11: Menus in toolbar do not show up properly on theme change</summary>
-Theme changes do not appear to not hot-load properly on X11. Restart the application after changing the theme.
+Theme changes do not appear to hot-load properly on X11. Restart the application after changing the theme.
 </details>
 #+end_html
 
