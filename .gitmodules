@@ -1,3 +1,0 @@
-[submodule "flatpak-builder-tools"]
-	path = flatpak-builder-tools
-	url = https://github.com/Oppzippy/flatpak-builder-tools.git
