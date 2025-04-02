@@ -129,7 +129,9 @@ modules:
         RELEASE: '2'
         PYTHON_BINARY: /usr/bin/python
         NODE_BINARY: /usr/lib/sdk/node22/bin/node
-        YARN_BINARY: /usr/lib/sdk/node22/bin/yarn
+        ANKI_YARN_BINARY: /run/build/anki/yarn.cjs
+        YARN_GLOBAL_FOLDER: /run/build/anki/flatpak-node/yarn-mirror/global
+        YARN_ENABLE_NETWORK: '0'
         PROTOC_BINARY: /run/build/anki/protoc
         CARGO_HOME: /run/build/anki/cargo
         XDG_CACHE_HOME: /run/build/anki/flatpak-node/cache
@@ -137,9 +139,15 @@ modules:
       - mkdir -p out/pyenv/bin
       - ln -s $PYTHON_BINARY out/pyenv/bin/python
       - cargo fetch --manifest-path ./Cargo.toml
-      - HOME=$PWD yarn config --offline set yarn-offline-mirror $FLATPAK_BUILDER_BUILDDIR/flatpak-node/yarn-mirror
-      - yarn --offline install --modules-folder out/node_modules --ignore-scripts
+      - mkdir out/node_modules
       - ln -sf out/node_modules ./
+      - chmod +x yarn.cjs
+      # yarn 4 removed lockfileFilename, so hardcode it until it's fixed in flatpak-builder-tools
+      - sed --in-place 's/configuration.get(`lockfileFilename`)/"yarn.lock"/g' $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
+      - ./yarn.cjs config
+      - ./yarn.cjs plugin import $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
+      - ./yarn.cjs convertToZip ./yarn.cjs
+      - ./yarn.cjs install
       - ./ninja wheels
       - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
       - cp /app/bin/anki ./qt/bundle/lin
@@ -162,10 +170,14 @@ modules:
         sha256: 0ad949f04a6a174da83cdcbdb36dee0a4925272a5b6d83f79a6bf9852076d53f
         only-arches:
           - x86_64
+      - type: file
+        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.6.0/packages/yarnpkg-cli/bin/yarn.js
+        sha256: eaf1eeabc164a44ca0b65dbdccd54af7e55f3ff9294b3ff318d5aaec92f2b20b
+        dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: '24.11'
-        commit: 87ccd24efd0ea635558b1679614b6763e4f514eb
+        tag: '25.02'
+        commit: 038d85b1d9e1896e93a3e4a26f600c79ddc33611
         x-checker-data:
           type: git
           stable-only: true
@@ -177,6 +189,7 @@ modules:
           - strip-type-checking-deps.patch
           - xdg-mime-strip.patch
           - desktop-file-name.patch
+          - yarn-4-fixes.patch
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
