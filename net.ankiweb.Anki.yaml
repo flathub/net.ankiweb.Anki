@@ -161,13 +161,13 @@ modules:
       - cargo-sources.json
       - yarn-sources.json
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v30.2/protoc-30.2-linux-aarch_64.zip
-        sha256: a3173ea338ef91b1605b88c4f8120d6c8ccf36f744d9081991d595d0d4352996
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v28.3/protoc-28.3-linux-aarch_64.zip
+        sha256: 1de522032a8b194002fe35cab86d747848238b5e4de4f99648372079f5b46f9a
         only-arches:
           - aarch64
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v30.2/protoc-30.2-linux-x86_64.zip
-        sha256: 327e9397c6fb3ea2a542513a3221334c6f76f7aa524a7d2561142b67b312a01f
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v28.3/protoc-28.3-linux-x86_64.zip
+        sha256: 0ad949f04a6a174da83cdcbdb36dee0a4925272a5b6d83f79a6bf9852076d53f
         only-arches:
           - x86_64
       - type: file
