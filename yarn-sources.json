@@ -1528,6 +1528,13 @@
     },
     {
         "type": "file",
+        "url": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.7.tgz",
+        "sha512": "49c68f767d5d41cce06e5d101537933a65471542eddfde17260390368c95859eabdaf2e730b25f04f779dd2079d93ff71b7e95235fe0d8c65a5f47300ee5ec7f",
+        "dest-filename": "trusted-types-QHR5cGVzL3RydXN0ZWQtdHlwZXNAbnBtOjIuMC43-4c4855f10d.tgz",
+        "dest": "flatpak-node/yarn-mirror/global/cache/locator"
+    },
+    {
+        "type": "file",
         "url": "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.62.0.tgz",
         "sha512": "4e26730522636bf2db84d3ef93ac9cd09ad7f57aa143485d87a336b2f61fb0719e8da28520019df4c43e11120cccb1a537f919a18220771155d0fba58d32976a",
         "dest-filename": "eslint-plugin-QHR5cGVzY3JpcHQtZXNsaW50L2VzbGludC1wbHVnaW5AbnBtOjUuNjIuMA==-3f40cb6bab.tgz",
@@ -2553,6 +2560,13 @@
         "url": "https://registry.npmjs.org/domhandler/-/domhandler-5.0.3.tgz",
         "sha512": "720c25bffd621508859d4f7a5d78113a1f314de7adb272620ec4dced36022c577dfbf58d908a8f4f188cffca5277c548ae15c64dfd4dcb5ab586ab95a83241e7",
         "dest-filename": "domhandler-ZG9taGFuZGxlckBucG06NS4wLjM=-bba1e5932b.tgz",
+        "dest": "flatpak-node/yarn-mirror/global/cache/locator"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.2.5.tgz",
+        "sha512": "98b3dddbdba845ef47a6fc0fd93c42946401cc65de102ff07bfabe6c59663cf9a3da9d94825debe804eefd4535bfbec35cd71e862060f73b2bd5d444c80fdd25",
+        "dest-filename": "dompurify-ZG9tcHVyaWZ5QG5wbTozLjIuNQ==-b564167cc5.tgz",
         "dest": "flatpak-node/yarn-mirror/global/cache/locator"
     },
     {
