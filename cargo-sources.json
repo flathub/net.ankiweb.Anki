@@ -1366,14 +1366,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/crossbeam-channel/crossbeam-channel-0.5.13.crate",
-        "sha256": "33480d6946193aa8033910124896ca395333cae7e2d1113d1fef6c3272217df2",
-        "dest": "cargo/vendor/crossbeam-channel-0.5.13"
+        "url": "https://static.crates.io/crates/crossbeam-channel/crossbeam-channel-0.5.15.crate",
+        "sha256": "82b8f8f868b36967f9606790d1903570de9ceaf870a7bf9fbbd3016d636a2cb2",
+        "dest": "cargo/vendor/crossbeam-channel-0.5.15"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"33480d6946193aa8033910124896ca395333cae7e2d1113d1fef6c3272217df2\", \"files\": {}}",
-        "dest": "cargo/vendor/crossbeam-channel-0.5.13",
+        "contents": "{\"package\": \"82b8f8f868b36967f9606790d1903570de9ceaf870a7bf9fbbd3016d636a2cb2\", \"files\": {}}",
+        "dest": "cargo/vendor/crossbeam-channel-0.5.15",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -4777,14 +4777,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/openssl/openssl-0.10.70.crate",
-        "sha256": "61cfb4e166a8bb8c9b55c500bc2308550148ece889be90f609377e58140f42c6",
-        "dest": "cargo/vendor/openssl-0.10.70"
+        "url": "https://static.crates.io/crates/openssl/openssl-0.10.72.crate",
+        "sha256": "fedfea7d58a1f73118430a55da6a286e7b044961736ce96a16a17068ea25e5da",
+        "dest": "cargo/vendor/openssl-0.10.72"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"61cfb4e166a8bb8c9b55c500bc2308550148ece889be90f609377e58140f42c6\", \"files\": {}}",
-        "dest": "cargo/vendor/openssl-0.10.70",
+        "contents": "{\"package\": \"fedfea7d58a1f73118430a55da6a286e7b044961736ce96a16a17068ea25e5da\", \"files\": {}}",
+        "dest": "cargo/vendor/openssl-0.10.72",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -4816,14 +4816,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/openssl-sys/openssl-sys-0.9.105.crate",
-        "sha256": "8b22d5b84be05a8d6947c7cb71f7c849aa0f112acd4bf51c2a7c1c988ac0a9dc",
-        "dest": "cargo/vendor/openssl-sys-0.9.105"
+        "url": "https://static.crates.io/crates/openssl-sys/openssl-sys-0.9.107.crate",
+        "sha256": "8288979acd84749c744a9014b4382d42b8f7b2592847b5afb2ed29e5d16ede07",
+        "dest": "cargo/vendor/openssl-sys-0.9.107"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"8b22d5b84be05a8d6947c7cb71f7c849aa0f112acd4bf51c2a7c1c988ac0a9dc\", \"files\": {}}",
-        "dest": "cargo/vendor/openssl-sys-0.9.105",
+        "contents": "{\"package\": \"8288979acd84749c744a9014b4382d42b8f7b2592847b5afb2ed29e5d16ede07\", \"files\": {}}",
+        "dest": "cargo/vendor/openssl-sys-0.9.107",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -5601,66 +5601,66 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/pyo3/pyo3-0.23.4.crate",
-        "sha256": "57fe09249128b3173d092de9523eaa75136bf7ba85e0d69eca241c7939c933cc",
-        "dest": "cargo/vendor/pyo3-0.23.4"
+        "url": "https://static.crates.io/crates/pyo3/pyo3-0.24.1.crate",
+        "sha256": "17da310086b068fbdcefbba30aeb3721d5bb9af8db4987d6735b2183ca567229",
+        "dest": "cargo/vendor/pyo3-0.24.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"57fe09249128b3173d092de9523eaa75136bf7ba85e0d69eca241c7939c933cc\", \"files\": {}}",
-        "dest": "cargo/vendor/pyo3-0.23.4",
+        "contents": "{\"package\": \"17da310086b068fbdcefbba30aeb3721d5bb9af8db4987d6735b2183ca567229\", \"files\": {}}",
+        "dest": "cargo/vendor/pyo3-0.24.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/pyo3-build-config/pyo3-build-config-0.23.4.crate",
-        "sha256": "1cd3927b5a78757a0d71aa9dff669f903b1eb64b54142a9bd9f757f8fde65fd7",
-        "dest": "cargo/vendor/pyo3-build-config-0.23.4"
+        "url": "https://static.crates.io/crates/pyo3-build-config/pyo3-build-config-0.24.1.crate",
+        "sha256": "e27165889bd793000a098bb966adc4300c312497ea25cf7a690a9f0ac5aa5fc1",
+        "dest": "cargo/vendor/pyo3-build-config-0.24.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"1cd3927b5a78757a0d71aa9dff669f903b1eb64b54142a9bd9f757f8fde65fd7\", \"files\": {}}",
-        "dest": "cargo/vendor/pyo3-build-config-0.23.4",
+        "contents": "{\"package\": \"e27165889bd793000a098bb966adc4300c312497ea25cf7a690a9f0ac5aa5fc1\", \"files\": {}}",
+        "dest": "cargo/vendor/pyo3-build-config-0.24.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/pyo3-ffi/pyo3-ffi-0.23.4.crate",
-        "sha256": "dab6bb2102bd8f991e7749f130a70d05dd557613e39ed2deeee8e9ca0c4d548d",
-        "dest": "cargo/vendor/pyo3-ffi-0.23.4"
+        "url": "https://static.crates.io/crates/pyo3-ffi/pyo3-ffi-0.24.1.crate",
+        "sha256": "05280526e1dbf6b420062f3ef228b78c0c54ba94e157f5cb724a609d0f2faabc",
+        "dest": "cargo/vendor/pyo3-ffi-0.24.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"dab6bb2102bd8f991e7749f130a70d05dd557613e39ed2deeee8e9ca0c4d548d\", \"files\": {}}",
-        "dest": "cargo/vendor/pyo3-ffi-0.23.4",
+        "contents": "{\"package\": \"05280526e1dbf6b420062f3ef228b78c0c54ba94e157f5cb724a609d0f2faabc\", \"files\": {}}",
+        "dest": "cargo/vendor/pyo3-ffi-0.24.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/pyo3-macros/pyo3-macros-0.23.4.crate",
-        "sha256": "91871864b353fd5ffcb3f91f2f703a22a9797c91b9ab497b1acac7b07ae509c7",
-        "dest": "cargo/vendor/pyo3-macros-0.23.4"
+        "url": "https://static.crates.io/crates/pyo3-macros/pyo3-macros-0.24.1.crate",
+        "sha256": "5c3ce5686aa4d3f63359a5100c62a127c9f15e8398e5fdeb5deef1fed5cd5f44",
+        "dest": "cargo/vendor/pyo3-macros-0.24.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"91871864b353fd5ffcb3f91f2f703a22a9797c91b9ab497b1acac7b07ae509c7\", \"files\": {}}",
-        "dest": "cargo/vendor/pyo3-macros-0.23.4",
+        "contents": "{\"package\": \"5c3ce5686aa4d3f63359a5100c62a127c9f15e8398e5fdeb5deef1fed5cd5f44\", \"files\": {}}",
+        "dest": "cargo/vendor/pyo3-macros-0.24.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/pyo3-macros-backend/pyo3-macros-backend-0.23.4.crate",
-        "sha256": "43abc3b80bc20f3facd86cd3c60beed58c3e2aa26213f3cda368de39c60a27e4",
-        "dest": "cargo/vendor/pyo3-macros-backend-0.23.4"
+        "url": "https://static.crates.io/crates/pyo3-macros-backend/pyo3-macros-backend-0.24.1.crate",
+        "sha256": "f4cf6faa0cbfb0ed08e89beb8103ae9724eb4750e3a78084ba4017cbe94f3855",
+        "dest": "cargo/vendor/pyo3-macros-backend-0.24.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"43abc3b80bc20f3facd86cd3c60beed58c3e2aa26213f3cda368de39c60a27e4\", \"files\": {}}",
-        "dest": "cargo/vendor/pyo3-macros-backend-0.23.4",
+        "contents": "{\"package\": \"f4cf6faa0cbfb0ed08e89beb8103ae9724eb4750e3a78084ba4017cbe94f3855\", \"files\": {}}",
+        "dest": "cargo/vendor/pyo3-macros-backend-0.24.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -7122,14 +7122,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/target-lexicon/target-lexicon-0.12.16.crate",
-        "sha256": "61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1",
-        "dest": "cargo/vendor/target-lexicon-0.12.16"
+        "url": "https://static.crates.io/crates/target-lexicon/target-lexicon-0.13.2.crate",
+        "sha256": "e502f78cdbb8ba4718f566c418c52bc729126ffd16baee5baa718cf25dd5a69a",
+        "dest": "cargo/vendor/target-lexicon-0.13.2"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1\", \"files\": {}}",
-        "dest": "cargo/vendor/target-lexicon-0.12.16",
+        "contents": "{\"package\": \"e502f78cdbb8ba4718f566c418c52bc729126ffd16baee5baa718cf25dd5a69a\", \"files\": {}}",
+        "dest": "cargo/vendor/target-lexicon-0.13.2",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -7369,27 +7369,27 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/tokio/tokio-1.40.0.crate",
-        "sha256": "e2b070231665d27ad9ec9b8df639893f46727666c6767db40317fbe920a5d998",
-        "dest": "cargo/vendor/tokio-1.40.0"
+        "url": "https://static.crates.io/crates/tokio/tokio-1.44.2.crate",
+        "sha256": "e6b88822cbe49de4185e3a4cbf8321dd487cf5fe0c5c65695fef6346371e9c48",
+        "dest": "cargo/vendor/tokio-1.44.2"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"e2b070231665d27ad9ec9b8df639893f46727666c6767db40317fbe920a5d998\", \"files\": {}}",
-        "dest": "cargo/vendor/tokio-1.40.0",
+        "contents": "{\"package\": \"e6b88822cbe49de4185e3a4cbf8321dd487cf5fe0c5c65695fef6346371e9c48\", \"files\": {}}",
+        "dest": "cargo/vendor/tokio-1.44.2",
         "dest-filename": ".cargo-checksum.json"
     },
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/tokio-macros/tokio-macros-2.4.0.crate",
-        "sha256": "693d596312e88961bc67d7f1f97af8a70227d9f90c31bba5806eec004978d752",
-        "dest": "cargo/vendor/tokio-macros-2.4.0"
+        "url": "https://static.crates.io/crates/tokio-macros/tokio-macros-2.5.0.crate",
+        "sha256": "6e06d43f1345a3bcd39f6a56dbb7dcab2ba47e68e8ac134855e7e2bdbaf8cab8",
+        "dest": "cargo/vendor/tokio-macros-2.5.0"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"693d596312e88961bc67d7f1f97af8a70227d9f90c31bba5806eec004978d752\", \"files\": {}}",
-        "dest": "cargo/vendor/tokio-macros-2.4.0",
+        "contents": "{\"package\": \"6e06d43f1345a3bcd39f6a56dbb7dcab2ba47e68e8ac134855e7e2bdbaf8cab8\", \"files\": {}}",
+        "dest": "cargo/vendor/tokio-macros-2.5.0",
         "dest-filename": ".cargo-checksum.json"
     },
     {
