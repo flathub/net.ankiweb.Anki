@@ -176,8 +176,8 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.02.1
-        commit: fa1d6eae8480e3fd600c99e3a88eb8cd707729d9
+        tag: 25.02.3
+        commit: 4e83c9b82d500702ccbe045cf4792c1501ed51b5
         x-checker-data:
           type: git
           stable-only: true
