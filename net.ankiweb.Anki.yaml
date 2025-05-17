@@ -176,12 +176,12 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.02.4
-        commit: a5c33ad07de95640994cefd70c5a9a89ed5a0c62
+        tag: 25.02.5
+        commit: 29192d156ae60d6ce35e80ccf815a8331c9db724
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
-          tag-query: ".tag_name"
+          tag-query: .tag_name
       - type: patch
         paths:
           - no-update-check.patch
