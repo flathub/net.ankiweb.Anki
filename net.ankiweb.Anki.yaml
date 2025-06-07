@@ -86,8 +86,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/haasn/libplacebo.git
-            tag: v7.349.0
-            commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+            tag: v7.351.0
+            commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
@@ -96,8 +96,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
-            sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
+            url: https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
+            sha256: 78f1179b838d025e9c26e8fef33f8092f65611444ffa1bfc0cfac6a33511a05a
             x-checker-data:
               type: anitya
               project-id: 1560
@@ -176,12 +176,12 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.02.4
-        commit: a5c33ad07de95640994cefd70c5a9a89ed5a0c62
+        tag: 25.02.6
+        commit: 6381f1845ff2e79f4a424e6978c2a3e9bbb91735
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
-          tag-query: ".tag_name"
+          tag-query: .tag_name
       - type: patch
         paths:
           - no-update-check.patch
