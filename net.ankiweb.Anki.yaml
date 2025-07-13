@@ -121,6 +121,22 @@ modules:
             <: '4.0'
           url-template: https://download.samba.org/pub/rsync/src/rsync-$version.tar.gz
 
+  - name: uv
+    buildsystem: simple
+    build-options:
+      env:
+        CARGO_HOME: /run/build/uv/cargo
+    build-commands:
+      - cargo --offline fetch --manifest-path Cargo.toml
+      - cargo --offline build --profile fast-build --package uv
+      - install -Dm755 target/fast-build/uv /app/uv
+    sources:
+      - type: git
+        url: https://github.com/astral-sh/uv.git
+        tag: 0.7.20
+        commit: 2514203964449fcd3a5cac3320963aa57383e6b6
+      - cargo-sources-uv.json
+
   - name: anki
     buildsystem: simple
     build-options:
@@ -135,6 +151,8 @@ modules:
         PROTOC_BINARY: /run/build/anki/protoc
         CARGO_HOME: /run/build/anki/cargo
         XDG_CACHE_HOME: /run/build/anki/flatpak-node/cache
+        UV_BINARY: /app/uv
+        UV_PYTHON: /usr/bin/python
     build-commands:
       - mkdir -p out/pyenv/bin
       - ln -s $PYTHON_BINARY out/pyenv/bin/python
@@ -176,8 +194,8 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.02.4
-        commit: a5c33ad07de95640994cefd70c5a9a89ed5a0c62
+        tag: 25.07.2
+        commit: 3adcf05ca6d00b32938f439b3e5fc71786b21c26
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest

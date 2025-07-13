@@ -1,5 +1,5 @@
---- a/qt/bundle/lin/install.sh
-+++ b/qt/bundle/lin/install.sh
+--- a/qt/launcher/lin/install.sh
++++ b/qt/launcher/lin/install.sh
 @@ -26,11 +26,6 @@ mv -Z anki.xpm anki.png "$PREFIX"/share/pixmaps/;\
  mv -Z anki.desktop "$PREFIX"/share/applications/;\
  mv -Z anki.1 "$PREFIX"/share/man/man1/)
