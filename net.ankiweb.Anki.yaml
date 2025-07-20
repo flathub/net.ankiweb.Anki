@@ -79,8 +79,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/haasn/libplacebo.git
-            tag: v7.349.0
-            commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+            tag: v7.351.0
+            commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
@@ -89,8 +89,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
-            sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
+            url: https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
+            sha256: 78f1179b838d025e9c26e8fef33f8092f65611444ffa1bfc0cfac6a33511a05a
             x-checker-data:
               type: anitya
               project-id: 1560
@@ -118,7 +118,8 @@ modules:
   - name: anki
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} anki --no-build-isolation
+      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+        --prefix=${FLATPAK_DEST} anki --no-build-isolation
     cleanup:
       - /share/pixmaps
     sources:
@@ -136,7 +137,8 @@ modules:
   - name: aqt # bundling module, includes anki executable
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} aqt --no-build-isolation
+      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD}
+        --prefix=${FLATPAK_DEST} aqt --no-build-isolation
     post-install:
       - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
       - install -Dm644 -t /app/share/applications anki.desktop
