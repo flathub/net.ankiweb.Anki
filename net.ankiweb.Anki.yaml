@@ -13,6 +13,8 @@ add-extensions:
     add-ld-path: lib
     no-autodownload: true
 command: anki
+rename-desktop-file: anki.desktop
+rename-icon: anki
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -137,8 +139,8 @@ modules:
       - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} aqt --no-build-isolation
     post-install:
       - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
-      - install -Dm644 -t /app/share/applications net.ankiweb.Anki.desktop
-      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg
+      - install -Dm644 -t /app/share/applications anki.desktop
+      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/83/0b/51bf1a1f623fe52a590050087dcdfdaeab72025a2dd02bb6e5d3627de4e2/aqt-25.7.2-py3-none-any.whl
@@ -146,6 +148,6 @@ modules:
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
-        path: net.ankiweb.Anki.desktop
+        path: anki.desktop
       - type: file
-        path: net.ankiweb.Anki.svg
+        path: anki.svg
