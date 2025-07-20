@@ -2,17 +2,14 @@ app-id: net.ankiweb.Anki
 runtime: org.kde.Platform
 runtime-version: '6.9'
 sdk: org.kde.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node22
+# sdk-extensions:
+#   - org.freedesktop.Sdk.Extension.rust-stable
 base: com.riverbankcomputing.PyQt.BaseApp
 base-version: '6.9'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
-build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node22/bin
-  env:
-    npm_config_nodedir: /usr/lib/sdk/node22
+# build-options:
+#   append-path: /usr/lib/sdk/rust-stable/bin
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
     version: '24.08'
@@ -20,8 +17,6 @@ add-extensions:
     add-ld-path: lib
     no-autodownload: true
 command: anki
-rename-desktop-file: anki.desktop
-rename-icon: anki
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -104,9 +99,6 @@ modules:
               stable-only: true
               url-template: https://github.com/libass/libass/releases/download/$version/libass-$version.tar.xz
 
-  - python3-modules.json # stringcase beautifulsoup4 waitress requests decorator markdown protobuf pysocks distro send2trash certifi flask-cors jsonschema orjson
-  # manual: maturin
-
   - name: rsync
     cleanup:
       - /share
@@ -121,76 +113,43 @@ modules:
             <: '4.0'
           url-template: https://download.samba.org/pub/rsync/src/rsync-$version.tar.gz
 
+  - python3-modules.json
+  # pysocks certifi charset_normalizer decorator distro idna orjson protobuf requests typing_extensions urllib3 beautifulsoup4 flask flask-cors jsonschema pip-system-certs send2trash waitress
+  # manual arch-dependent wheels: orjson, rpds_py
+
   - name: anki
     buildsystem: simple
-    build-options:
-      env:
-        OFFLINE_BUILD: '1'
-        RELEASE: '2'
-        PYTHON_BINARY: /usr/bin/python
-        NODE_BINARY: /usr/lib/sdk/node22/bin/node
-        ANKI_YARN_BINARY: /run/build/anki/yarn.cjs
-        YARN_GLOBAL_FOLDER: /run/build/anki/flatpak-node/yarn-mirror/global
-        YARN_ENABLE_NETWORK: '0'
-        PROTOC_BINARY: /run/build/anki/protoc
-        CARGO_HOME: /run/build/anki/cargo
-        XDG_CACHE_HOME: /run/build/anki/flatpak-node/cache
     build-commands:
-      - mkdir -p out/pyenv/bin
-      - ln -s $PYTHON_BINARY out/pyenv/bin/python
-      - cargo fetch --manifest-path ./Cargo.toml
-      - mkdir out/node_modules
-      - ln -sf out/node_modules ./
-      - chmod +x yarn.cjs
-      # yarn 4 removed lockfileFilename, so hardcode it until it's fixed in flatpak-builder-tools
-      - sed --in-place 's/configuration.get(`lockfileFilename`)/"yarn.lock"/g' $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
-      - ./yarn.cjs config
-      - ./yarn.cjs plugin import $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
-      - ./yarn.cjs convertToZip ./yarn.cjs
-      - ./yarn.cjs install
-      - ./ninja wheels
-      - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
-      - cp /app/bin/anki ./qt/bundle/lin
-      - env --chdir=./qt/bundle/lin - PREFIX=/app ./install.sh
-      - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
-      - install -Dm644 ./qt/bundle/lin/anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
-      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
+      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} anki --no-build-isolation
     cleanup:
       - /share/pixmaps
     sources:
-      - cargo-sources.json
-      - yarn-sources.json
-      - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v30.2/protoc-30.2-linux-aarch_64.zip
-        sha256: a3173ea338ef91b1605b88c4f8120d6c8ccf36f744d9081991d595d0d4352996
+      - type: file
+        url: https://files.pythonhosted.org/packages/ed/0a/6f07edb9b60c0aa5e5ea2546ffb2f9cf079dd6b7b5b90f0d31852978c3b9/anki-25.7.2-cp39-abi3-manylinux_2_36_aarch64.whl
+        sha256: b631d1f9cebbb7f3aae90d954bbef3e1d162a9f2475b58eebdfe359f93c442fb
         only-arches:
           - aarch64
-      - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v30.2/protoc-30.2-linux-x86_64.zip
-        sha256: 327e9397c6fb3ea2a542513a3221334c6f76f7aa524a7d2561142b67b312a01f
+      - type: file
+        url: https://files.pythonhosted.org/packages/bf/05/3f3e0e890408cd8bf590bb00029de1623d85a09f2bc40545f87f4fa5e0f8/anki-25.7.2-cp39-abi3-manylinux_2_36_x86_64.whl
+        sha256: 72e4ffc762b0d44940f1749e9f435347d7f39591e8e443ed547480baf8f16cf0
         only-arches:
           - x86_64
+
+  - name: aqt # bundling module, includes anki executable
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links=file://${PWD} --prefix=${FLATPAK_DEST} aqt --no-build-isolation
+    post-install:
+      - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
+      - install -Dm644 -t /app/share/applications net.ankiweb.Anki.desktop
+      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps net.ankiweb.Anki.svg
+    sources:
       - type: file
-        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.6.0/packages/yarnpkg-cli/bin/yarn.js
-        sha256: eaf1eeabc164a44ca0b65dbdccd54af7e55f3ff9294b3ff318d5aaec92f2b20b
-        dest-filename: yarn.cjs
-      - type: git
-        url: https://github.com/ankitects/anki.git
-        tag: 25.02.4
-        commit: a5c33ad07de95640994cefd70c5a9a89ed5a0c62
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/ankitects/anki/releases/latest
-          tag-query: ".tag_name"
-      - type: patch
-        paths:
-          - no-update-check.patch
-          - strip-python-formatter.patch
-          - strip-type-checking-deps.patch
-          - xdg-mime-strip.patch
-          - desktop-file-name.patch
-          - yarn-4-fixes.patch
+        url: https://files.pythonhosted.org/packages/83/0b/51bf1a1f623fe52a590050087dcdfdaeab72025a2dd02bb6e5d3627de4e2/aqt-25.7.2-py3-none-any.whl
+        sha256: 51045a8f80482dd60a6749818d4ed11e83f421519430582cd28e3d9278832442
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
-        path: anki.svg
+        path: net.ankiweb.Anki.desktop
+      - type: file
+        path: net.ankiweb.Anki.svg
