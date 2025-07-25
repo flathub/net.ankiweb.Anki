@@ -147,6 +147,10 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/5e/e6/4c36d3c1ed0e2a6e4bf95eb919d603078d935b5c75950c7627e79340f25a/aqt-25.7.5-py3-none-any.whl
         sha256: e3a6eebd8f6ffd320d2cf55d557dfeb2be4da69f9aaa2198b1783bb380d6c0ba
+        x-checker-data:
+          type: pypi
+          name: aqt
+          packagetype: bdist_wheel
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
