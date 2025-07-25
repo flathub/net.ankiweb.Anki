@@ -124,13 +124,13 @@ modules:
       - /share/pixmaps
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/8b/a6/54e42b834d96dade5372c8c96f5eff98d81f362c34bd38cc826c67524eec/anki-25.7.3-cp39-abi3-manylinux_2_36_aarch64.whl
-        sha256: 024db54f2e7d4c5d0524c17c1e0f392edfdab61deb773bf376f0935889319bda
+        url: https://files.pythonhosted.org/packages/29/75/81eb12d43381f5150a2fb1acc2757d25741af5bf0635f40faab61eefcb44/anki-25.7.5-cp39-abi3-manylinux_2_36_aarch64.whl
+        sha256: 3481df9f8fc7b89d805f5d051dde3def97e49716f280630e7aeee548a0fe45e5
         only-arches:
           - aarch64
       - type: file
-        url: https://files.pythonhosted.org/packages/0c/f7/465de8d65f7c5c37a7c5d28529a430d21cbd6a1587059be3c71c1a305502/anki-25.7.3-cp39-abi3-manylinux_2_36_x86_64.whl
-        sha256: 8d7a2ff454f0f82260f3ab32a97e11d94e746d25026647fb38829fba2215c9bd
+        url: https://files.pythonhosted.org/packages/a3/86/c1c459a06466ffc3a205de9852875a922c378a7bfb9fb1310bea019dacd1/anki-25.7.5-cp39-abi3-manylinux_2_36_x86_64.whl
+        sha256: a3d2472e9aa6b1ecc7c05a56f3e9a5a3271155af7613e34ead0268180b18b981
         only-arches:
           - x86_64
 
@@ -145,8 +145,8 @@ modules:
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/1c/72/f3ab92491fd080d0f60b462fd8e3e09ccc394ca1142939c7f4a65d35637d/aqt-25.7.3-py3-none-any.whl
-        sha256: bfe2cb4f2b41f322cc5d579db0099d4785bf5f3c003dbe8d88f8f8f486d7042b
+        url: https://files.pythonhosted.org/packages/5e/e6/4c36d3c1ed0e2a6e4bf95eb919d603078d935b5c75950c7627e79340f25a/aqt-25.7.5-py3-none-any.whl
+        sha256: e3a6eebd8f6ffd320d2cf55d557dfeb2be4da69f9aaa2198b1783bb380d6c0ba
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
