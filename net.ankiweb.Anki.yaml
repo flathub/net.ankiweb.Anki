@@ -4,15 +4,15 @@ runtime-version: '6.9'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.node24
 base: com.riverbankcomputing.PyQt.BaseApp
 base-version: '6.9'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node22/bin
+  append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node24/bin
   env:
-    npm_config_nodedir: /usr/lib/sdk/node22
+    npm_config_nodedir: /usr/lib/sdk/node24
 add-extensions:
   org.freedesktop.Sdk.Extension.texlive:
     version: '24.08'
@@ -86,8 +86,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/haasn/libplacebo.git
-            tag: v7.349.0
-            commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+            tag: v7.351.0
+            commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
@@ -96,16 +96,13 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
-            sha256: eae425da50f0015c21f7b3a9c7262a910f0218af469e22e2931462fed3c50959
+            url: https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
+            sha256: 78f1179b838d025e9c26e8fef33f8092f65611444ffa1bfc0cfac6a33511a05a
             x-checker-data:
               type: anitya
               project-id: 1560
               stable-only: true
               url-template: https://github.com/libass/libass/releases/download/$version/libass-$version.tar.xz
-
-  - python3-modules.json # stringcase beautifulsoup4 waitress requests decorator markdown protobuf pysocks distro send2trash certifi flask-cors jsonschema orjson
-  # manual: maturin
 
   - name: rsync
     cleanup:
@@ -121,6 +118,131 @@ modules:
             <: '4.0'
           url-template: https://download.samba.org/pub/rsync/src/rsync-$version.tar.gz
 
+  - name: python3-maturin
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/rust-stable/bin
+      env:
+        CARGO_HOME: /run/build/python3-maturin/cargo
+        CARGO_NET_OFFLINE: 'true'
+    build-commands:
+      - cargo --offline fetch --manifest-path ./Cargo.toml
+      - cargo --offline build --release
+      - install -Dm755 target/release/maturin -t ${FLATPAK_DEST}/bin
+      - install -Dm644 maturin/__init__.py -t ${FLATPAK_DEST}/lib/python$(python -c 'import sys; print("%s.%s" %sys.version_info[0:2])')/site-packages/maturin/
+    sources:
+      - cargo-sources-maturin.json
+      - type: git
+        url: https://github.com/PyO3/maturin
+        tag: "v1.9.2"
+
+  - name: uv-bin
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "uv" --no-build-isolation'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/42/e2/5cf11c85fb48276b49979ea06e92c1e95524e1e4c5bccbd591a334c8de68/uv-0.8.4-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: f9cd287982f62419f98ca7182fbbc2fd0fad1a04008b956a88eb85ce1d522611
+        only-arches:
+          - x86_64
+      - type: file
+        url: https://files.pythonhosted.org/packages/1c/b1/773dcd5ef4947a5bd7c183f1cc8afb9e761488ff1b48b46cb0d95bc5c8cf/uv-0.8.4-py3-none-manylinux_2_28_aarch64.whl
+        sha256: e6fa3754a2b965dceecfce8c38cacf7cd6b76a2787b9e189cf33acdb64a7472a
+        only-arches:
+          - aarch64
+
+  - name: python3-pycparser-bin
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pycparser" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl
+        sha256: c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc
+        x-checker-data:
+          type: pypi
+          name: pycparser
+          packagetype: bdist_wheel
+
+  - name: python3-cffi
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "." --no-build-isolation
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz
+        sha256: 1c39c6016c32bc48dd54561950ebd6836e1670f2ae46128f67cf49e789c52824
+        x-checker-data:
+          type: pypi
+          name: cffi
+
+  - name: python3-asn1crypto-bin
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "asn1crypto" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/c9/7f/09065fd9e27da0eda08b4d6897f1c13535066174cc023af248fc2a8d5e5a/asn1crypto-1.5.1-py2.py3-none-any.whl
+        sha256: db4e40728b728508912cbb3d44f19ce188f218e9eba635821bb4b68564f8fd67
+        x-checker-data:
+          type: pypi
+          name: asn1crypto
+          packagetype: bdist_wheel
+
+  - name: python3-idna-bin
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "idna" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl
+        sha256: 946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3
+        x-checker-data:
+          type: pypi
+          name: idna
+          packagetype: bdist_wheel
+
+  - name: python3-cryptography-bin
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "cryptography" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/3e/6a/cb8b5c8bb82fafffa23aeff8d3a39822593cee6e2f16c5ca5c2ecca344f7/cryptography-45.0.5-cp37-abi3-manylinux_2_28_aarch64.whl
+        sha256: 9b4cf6318915dccfe218e69bbec417fdd7c7185aa7aab139a2c0beb7468c89f0
+        only-arches:
+          - aarch64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/cryptography/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="cryptography-"
+            + $version + "-cp37-abi3-manylinux_2_28_aarch64.whl") | .url
+          name: cryptography
+          packagetype: bdist_wheel
+      - type: file
+        url: https://files.pythonhosted.org/packages/82/c7/f0ea40f016de72f81288e9fe8d1f6748036cb5ba6118774317a3ffc6022d/cryptography-45.0.5-cp37-abi3-manylinux_2_28_x86_64.whl
+        sha256: 0027d566d65a38497bc37e0dd7c2f8ceda73597d2ac9ba93810204f56f52ebc7
+        only-arches:
+          - x86_64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/cryptography/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="cryptography-"
+            + $version + "-cp37-abi3-manylinux_2_28_x86_64.whl") | .url
+          name: cryptography
+          packagetype: bdist_wheel
+
+  - python3-modules.json # beautifulsoup4 flask flask_cors jsonschema requests send2trash waitress pip-system-certs hatch
+  - python3-runtime-modules.json # protobuf decorator orjson markdown typing_extensions distro
+
   - name: anki
     buildsystem: simple
     build-options:
@@ -128,32 +250,38 @@ modules:
         OFFLINE_BUILD: '1'
         RELEASE: '2'
         PYTHON_BINARY: /usr/bin/python
-        NODE_BINARY: /usr/lib/sdk/node22/bin/node
+        NODE_BINARY: /usr/lib/sdk/node24/bin/node
+        # ANKI_YARN_BINARY: /usr/lib/sdk/node24/bin/yarn
         ANKI_YARN_BINARY: /run/build/anki/yarn.cjs
         YARN_GLOBAL_FOLDER: /run/build/anki/flatpak-node/yarn-mirror/global
+        YARN_ENABLE_GLOBAL_CACHE: '0'
         YARN_ENABLE_NETWORK: '0'
         PROTOC_BINARY: /run/build/anki/protoc
         CARGO_HOME: /run/build/anki/cargo
         XDG_CACHE_HOME: /run/build/anki/flatpak-node/cache
+        UV_BINARY: /app/bin/uv
+        UV_PYTHON: /usr/bin/python
+        UV_OFFLINE: '1'
     build-commands:
       - mkdir -p out/pyenv/bin
       - ln -s $PYTHON_BINARY out/pyenv/bin/python
       - cargo fetch --manifest-path ./Cargo.toml
       - mkdir out/node_modules
       - ln -sf out/node_modules ./
-      - chmod +x yarn.cjs
-      # yarn 4 removed lockfileFilename, so hardcode it until it's fixed in flatpak-builder-tools
       - sed --in-place 's/configuration.get(`lockfileFilename`)/"yarn.lock"/g' $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
+      - 'sed --in-place ''s/"type": "module",/"type": "module"/'' package.json'
+      - sed --in-place '/packageManager/d' package.json
+      - chmod +x yarn.cjs
+      - pwd
       - ./yarn.cjs config
       - ./yarn.cjs plugin import $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
       - ./yarn.cjs convertToZip ./yarn.cjs
       - ./yarn.cjs install
       - ./ninja wheels
       - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
-      - cp /app/bin/anki ./qt/bundle/lin
-      - env --chdir=./qt/bundle/lin - PREFIX=/app ./install.sh
-      - install -Dm644 -t /app/share/metainfo net.ankiweb.Anki.metainfo.xml
-      - install -Dm644 ./qt/bundle/lin/anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
+      - install -Dm644 ./qt/launcher/lin/anki.desktop /app/share/applications
+      - install -Dm644 net.ankiweb.Anki.metainfo.xml /app/share/metainfo 
+      - install -Dm644 ./qt/launcher/lin/anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
     cleanup:
       - /share/pixmaps
@@ -171,25 +299,53 @@ modules:
         only-arches:
           - x86_64
       - type: file
-        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.6.0/packages/yarnpkg-cli/bin/yarn.js
-        sha256: eaf1eeabc164a44ca0b65dbdccd54af7e55f3ff9294b3ff318d5aaec92f2b20b
+        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.9.2/packages/yarnpkg-cli/bin/yarn.js
+        sha256: ca4310f8ba997b4643a000ce512d9772e01c1485df35511114b325315960acb7
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.02.4
-        commit: a5c33ad07de95640994cefd70c5a9a89ed5a0c62
+        tag: 25.07.5
+        commit: 7172b2d26684c7ef9d10e249bd43dc5bf73ae00c
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
-          tag-query: ".tag_name"
+          tag-query: .tag_name
       - type: patch
         paths:
           - no-update-check.patch
           - strip-python-formatter.patch
-          - strip-type-checking-deps.patch
-          - xdg-mime-strip.patch
+          - python-build-fixes.patch
           - desktop-file-name.patch
           - yarn-4-fixes.patch
+          - strip-mpv-ytdl.patch
+      # temp fix for hatching resolution in offline uv
+      - type: inline
+        contents: |
+          hatchling @ ./hatchling-1.27.0-py3-none-any.whl
+          packaging @ ./packaging-25.0-py3-none-any.whl
+          pathspec @ ./pathspec-0.12.1-py3-none-any.whl
+          pluggy @ ./pluggy-1.6.0-py3-none-any.whl
+          tomli @ ./tomli_w-1.2.0-py3-none-any.whl
+          trove-classifiers @ ./trove_classifiers-2025.5.9.12-py3-none-any.whl
+        dest-filename: uv-constraints.txt
+      - type: file
+        url: https://files.pythonhosted.org/packages/08/e7/ae38d7a6dfba0533684e0b2136817d667588ae3ec984c1a4e5df5eb88482/hatchling-1.27.0-py3-none-any.whl
+        sha256: d3a2f3567c4f926ea39849cdf924c7e99e6686c9c8e288ae1037c8fa2a5d937b
+      - type: file
+        url: https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl
+        sha256: 29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484
+      - type: file
+        url: https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl
+        sha256: a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08
+      - type: file
+        url: https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl
+        sha256: e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746
+      - type: file
+        url: https://files.pythonhosted.org/packages/c7/18/c86eb8e0202e32dd3df50d43d7ff9854f8e0603945ff398974c1d91ac1ef/tomli_w-1.2.0-py3-none-any.whl
+        sha256: 188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90
+      - type: file
+        url: https://files.pythonhosted.org/packages/92/ef/c6deb083748be3bcad6f471b6ae983950c161890bf5ae1b2af80cc56c530/trove_classifiers-2025.5.9.12-py3-none-any.whl
+        sha256: e381c05537adac78881c8fa345fd0e9970159f4e4a04fcc42cfd3129cca640ce
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file

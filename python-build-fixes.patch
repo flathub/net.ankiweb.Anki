@@ -1,9 +1,8 @@
-We don't do type checking (via mypy and related) downstream.
-Mypy-protobuf generates mypy stub files from protobuf specs and should
-therefore be stripped.
+diff --git a/build/configure/src/python.rs b/build/configure/src/python.rs
+index e43bceeb3..d2675fdb3 100644
 --- a/build/configure/src/python.rs
 +++ b/build/configure/src/python.rs
-@@ -90,9 +90,7 @@ pub struct GenPythonProto {
+@@ -81,9 +81,7 @@ pub struct GenPythonProto {
  impl BuildAction for GenPythonProto {
      fn command(&self) -> &str {
          "$protoc $
@@ -13,7 +12,7 @@ therefore be stripped.
          -Iproto $in"
      }
  
-@@ -110,7 +108,6 @@ impl BuildAction for GenPythonProto {
+@@ -101,7 +99,6 @@ impl BuildAction for GenPythonProto {
              .collect();
          build.add_inputs("in", &self.proto_files);
          build.add_inputs("protoc", inputs![":protoc_binary"]);
@@ -21,3 +20,12 @@ therefore be stripped.
          build.add_outputs("", python_outputs);
      }
  
+@@ -119,7 +116,7 @@ pub struct BuildWheel {
+ 
+ impl BuildAction for BuildWheel {
+     fn command(&self) -> &str {
+-        "$uv build --wheel --out-dir=$out_dir --project=$project_dir"
++        "$uv build --wheel --out-dir=$out_dir --project=$project_dir --build-constraint /run/build/anki/uv-constraints.txt"
+     }
+ 
+     fn files(&mut self, build: &mut impl FilesHandle) {

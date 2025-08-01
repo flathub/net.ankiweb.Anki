@@ -1,0 +1,14 @@
+diff --git a/qt/aqt/mpv.py b/qt/aqt/mpv.py
+index 2586d024a..6c2d56b5b 100644
+--- a/qt/aqt/mpv.py
++++ b/qt/aqt/mpv.py
+@@ -94,9 +94,6 @@ class MPVBase:
+ 
+     if is_win:
+         default_argv += ["--af-add=lavfi=[apad=pad_dur=0.150]"]
+-    if not is_mac or platform.machine() != "arm64":
+-        # our arm64 mpv build doesn't support this option (compiled out)
+-        default_argv += ["--no-ytdl"]
+ 
+     def __init__(self, window_id=None, debug=False):
+         self.window_id = window_id
