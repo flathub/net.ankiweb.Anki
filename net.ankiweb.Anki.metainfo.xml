@@ -29,13 +29,7 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="25.02.4" date="2025-04-24">
-      <description></description>
-    </release>
-    <release version="25.02.1" date="2025-04-21">
-      <description/>
-    </release>
-    <release version="25.02" date="2025-02-11">
+    <release version="25.07.5" date="2025-07-25">
       <description>
         <ul>
           <li>Anki official changelog: github.com/ankitects/anki/releases</li>
