@@ -1,21 +1,3 @@
-diff --git a/build/ninja_gen/src/node.rs b/build/ninja_gen/src/node.rs
-index dde6fa1c4..61b24f67b 100644
---- a/build/ninja_gen/src/node.rs
-+++ b/build/ninja_gen/src/node.rs
-@@ -131,11 +131,11 @@ pub fn setup_node(
-     };
-     build.add_dependency("node_binary", node_binary);
- 
--    match std::env::var("YARN_BINARY") {
-+    match std::env::var("ANKI_YARN_BINARY") {
-         Ok(path) => {
-             assert!(
-                 Utf8Path::new(&path).is_absolute(),
--                "YARN_BINARY must be absolute"
-+                "ANKI_YARN_BINARY must be absolute"
-             );
-             build.add_dependency("yarn:bin", inputs![path]);
-         }
 diff --git a/build/runner/src/yarn.rs b/build/runner/src/yarn.rs
 index 9e1bd5b58..8b145df82 100644
 --- a/build/runner/src/yarn.rs
@@ -40,3 +22,34 @@ index 9e1bd5b58..8b145df82 100644
  
      std::fs::write(args.stamp, b"").unwrap();
  }
+diff --git a/build/ninja_gen/src/node.rs b/build/ninja_gen/src/node.rs
+index b7b66225b..5d21a2a7b 100644
+--- a/build/ninja_gen/src/node.rs
++++ b/build/ninja_gen/src/node.rs
+@@ -49,11 +49,7 @@ pub struct YarnSetup {}
+ 
+ impl BuildAction for YarnSetup {
+     fn command(&self) -> &str {
+-        if cfg!(windows) {
+-            "corepack.cmd enable yarn"
+-        } else {
+-            "corepack enable yarn"
+-        }
++        return "true"
+     }
+ 
+     fn files(&mut self, build: &mut impl build::FilesHandle) {
+@@ -135,11 +131,11 @@ pub fn setup_node(
+     };
+     build.add_dependency("node_binary", node_binary);
+ 
+-    match std::env::var("YARN_BINARY") {
++    match std::env::var("ANKI_YARN_BINARY") {
+         Ok(path) => {
+             assert!(
+                 Utf8Path::new(&path).is_absolute(),
+-                "YARN_BINARY must be absolute"
++                "ANKI_YARN_BINARY must be absolute"
+             );
+             build.add_dependency("yarn:bin", inputs![path]);
+         }
