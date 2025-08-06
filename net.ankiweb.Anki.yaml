@@ -274,7 +274,6 @@ modules:
       - "sed --in-place 's/\"type\": \"module\",/\"type\": \"module\"/' package.json"
       - sed --in-place '/packageManager/d' package.json
       - chmod +x yarn.cjs
-      - pwd
       - ./yarn.cjs config
       - ./yarn.cjs plugin import $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
       - ./yarn.cjs convertToZip ./yarn.cjs
@@ -284,7 +283,7 @@ modules:
       - install -Dm644 ./qt/launcher/lin/anki.desktop /app/share/applications
       - install -Dm644 net.ankiweb.Anki.metainfo.xml /app/share/metainfo
       - install -Dm644 ./qt/launcher/lin/anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
-      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps anki.svg
+      - install -Dm644 anki.svg /app/share/icons/hicolor/scalable/apps
     cleanup:
       - /share/pixmaps
     sources:
