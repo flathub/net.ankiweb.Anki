@@ -216,8 +216,8 @@ modules:
         --prefix=${FLATPAK_DEST} "cryptography" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/f7/6e/286894f6f71926bc0da67408c853dd9ba953f662dcb70993a59fd499f111/cryptography-45.0.6-cp37-abi3-manylinux_2_28_aarch64.whl
-        sha256: 20ae4906a13716139d6d762ceb3e0e7e110f7955f3bc3876e3a07f5daadec5f3
+        url: https://files.pythonhosted.org/packages/b8/56/d4f07ea21434bf891faa088a6ac15d6d98093a66e75e30ad08e88aa2b9ba/cryptography-45.0.7-cp37-abi3-manylinux_2_28_aarch64.whl
+        sha256: dad43797959a74103cb59c5dac71409f9c27d34c8a05921341fb64ea8ccb1dd4
         only-arches:
           - aarch64
         x-checker-data:
@@ -229,8 +229,8 @@ modules:
           name: cryptography
           packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/f9/b9/c6d32edbcba0cd9f5df90f29ed46a65c4631c4fbe11187feb9169c6ff506/cryptography-45.0.6-cp37-abi3-manylinux_2_28_x86_64.whl
-        sha256: 18f878a34b90d688982e43f4b700408b478102dd58b3e39de21b5ebf6509c301
+        url: https://files.pythonhosted.org/packages/83/dc/4dab2ff0a871cc2d81d3ae6d780991c0192b259c35e4d83fe1de18b20c70/cryptography-45.0.7-cp37-abi3-manylinux_2_28_x86_64.whl
+        sha256: b04f85ac3a90c227b6e5890acb0edbaf3140938dbecf07bff618bf3638578cf1
         only-arches:
           - x86_64
         x-checker-data:
