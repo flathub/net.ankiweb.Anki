@@ -135,7 +135,7 @@ modules:
       - cargo-sources-maturin.json
       - type: git
         url: https://github.com/PyO3/maturin
-        tag: v1.9.2
+        tag: v1.9.4
 
   - name: uv-bin
     buildsystem: simple
@@ -144,13 +144,13 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/42/e2/5cf11c85fb48276b49979ea06e92c1e95524e1e4c5bccbd591a334c8de68/uv-0.8.4-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: f9cd287982f62419f98ca7182fbbc2fd0fad1a04008b956a88eb85ce1d522611
+        url: https://files.pythonhosted.org/packages/13/fc/e0da45ee179367dcc1e1040ad00ed8a99b78355d43024b0b5fc2edf5c389/uv-0.8.15-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 07765f99fd5fd3b257d7e210e8d0844c0a8fd111612e31fcca66a85656cc728e
         only-arches:
           - x86_64
       - type: file
-        url: https://files.pythonhosted.org/packages/1c/b1/773dcd5ef4947a5bd7c183f1cc8afb9e761488ff1b48b46cb0d95bc5c8cf/uv-0.8.4-py3-none-manylinux_2_28_aarch64.whl
-        sha256: e6fa3754a2b965dceecfce8c38cacf7cd6b76a2787b9e189cf33acdb64a7472a
+        url: https://files.pythonhosted.org/packages/ce/5d/180904fa7ed49081b27f00e86f7220ca62cc098d7ef6459f0c69a8ae8f74/uv-0.8.15-py3-none-manylinux_2_28_aarch64.whl
+        sha256: c4868e6a4e1a8c777a5ba3cff452c405837318fb0b272ff203bfda0e1b8fc54d
         only-arches:
           - aarch64
 
@@ -242,8 +242,25 @@ modules:
           name: cryptography
           packagetype: bdist_wheel
 
+  - name: python3-rpds_py-bin
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "rpds_py" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ed/7b/8f4fee9ba1fb5ec856eb22d725a4efa3deb47f769597c809e03578b0f9d9/rpds_py-0.27.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 466bfe65bd932da36ff279ddd92de56b042f2266d752719beb97b08526268ec5
+        only_arches:
+          - x86_64
+      - type: file
+        url: https://files.pythonhosted.org/packages/6f/0e/e650e1b81922847a09cca820237b0edee69416a01268b7754d506ade11ad/rpds_py-0.27.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+        sha256: 16323f674c089b0360674a4abd28d5042947d54ba620f72514d69be4ff64845e
+        only_arches:
+          - aarch64
+
   - python3-modules.json # beautifulsoup4 flask flask_cors jsonschema requests send2trash waitress pip-system-certs hatch
-  - python3-runtime-modules.json # protobuf decorator orjson markdown typing_extensions distro
+  - python3-pylib-modules.json # protobuf decorator orjson markdown typing_extensions distro
 
   - name: anki
     buildsystem: simple
@@ -305,8 +322,8 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.07.5
-        commit: 7172b2d26684c7ef9d10e249bd43dc5bf73ae00c
+        tag: '25.09'
+        commit: 539054c34dccf8b89ca7ea9c9c40ecaf172de759
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
@@ -319,7 +336,7 @@ modules:
           - desktop-file-name.patch
           - yarn-4-fixes.patch
           - strip-mpv-ytdl.patch
-      # temp fix for hatching resolution in offline uv
+      # temp fix for hatchling resolution in offline uv
       - type: inline
         contents: |
           hatchling @ ./hatchling-1.27.0-py3-none-any.whl
@@ -327,7 +344,7 @@ modules:
           pathspec @ ./pathspec-0.12.1-py3-none-any.whl
           pluggy @ ./pluggy-1.6.0-py3-none-any.whl
           tomli @ ./tomli_w-1.2.0-py3-none-any.whl
-          trove-classifiers @ ./trove_classifiers-2025.5.9.12-py3-none-any.whl
+          trove-classifiers @ ./trove_classifiers-2025.8.26.11-py3-none-any.whl
         dest-filename: uv-constraints.txt
       - type: file
         url: https://files.pythonhosted.org/packages/08/e7/ae38d7a6dfba0533684e0b2136817d667588ae3ec984c1a4e5df5eb88482/hatchling-1.27.0-py3-none-any.whl
@@ -345,8 +362,8 @@ modules:
         url: https://files.pythonhosted.org/packages/c7/18/c86eb8e0202e32dd3df50d43d7ff9854f8e0603945ff398974c1d91ac1ef/tomli_w-1.2.0-py3-none-any.whl
         sha256: 188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90
       - type: file
-        url: https://files.pythonhosted.org/packages/92/ef/c6deb083748be3bcad6f471b6ae983950c161890bf5ae1b2af80cc56c530/trove_classifiers-2025.5.9.12-py3-none-any.whl
-        sha256: e381c05537adac78881c8fa345fd0e9970159f4e4a04fcc42cfd3129cca640ce
+        url: https://files.pythonhosted.org/packages/4a/40/d54944eeb5646fb4b1c98d4601fe5e0812dd2e7c0aa94d53fc46457effc8/trove_classifiers-2025.8.26.11-py3-none-any.whl
+        sha256: 887fb0a402bdbecd4415a52c06e6728f8bdaa506a7143372d2b893e2c5e2d859
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file
