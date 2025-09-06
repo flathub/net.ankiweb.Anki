@@ -34,7 +34,7 @@ Theme changes do not appear to hot-load properly on X11. Restart the application
 MPV is bundled with the app, but some people want to disable this due to issues with mpv (not the anki app). Here is how:
 
 <ol>
-<li>Find the addon directory (usually <code>.var/app/net.ankiweb.Anki/data/Anki2/addons</code>), <code>cd</code> to it.</li>
+<li>Find the addon directory (usually <code>~/.var/app/net.ankiweb.Anki/data/Anki2/addons</code>), <code>cd</code> to it.</li>
 <li><code>mkdir nompv</code>, then <code>cd nompv</code></li>
 <li>Add the contents of the following to  <code>__init.py__</code>: https://gist.github.com/rayes0/5fd3a629011846bd17d93fa9276080c7
 </li>
