@@ -22,8 +22,9 @@ index 9e1bd5b58..8b145df82 100644
  
      std::fs::write(args.stamp, b"").unwrap();
  }
+
 diff --git a/build/ninja_gen/src/node.rs b/build/ninja_gen/src/node.rs
-index b7b66225b..5d21a2a7b 100644
+index 38baa8f62..3bdcc5f20 100644
 --- a/build/ninja_gen/src/node.rs
 +++ b/build/ninja_gen/src/node.rs
 @@ -49,11 +49,7 @@ pub struct YarnSetup {}

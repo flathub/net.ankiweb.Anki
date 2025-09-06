@@ -2363,9 +2363,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.npmjs.org/devalue/-/devalue-5.1.1.tgz",
-        "sha512": "99ab9ae4a5226a9bc4c221007be5e7959dd1874183faa23527f9dbf6fac97379ae3d7bdc17ff205d84d617bebee4302a1f20d4b4e208984ba8d18284f66b2157",
-        "dest-filename": "devalue-ZGV2YWx1ZUBucG06NS4xLjE=-f6717a856f.tgz",
+        "url": "https://registry.npmjs.org/devalue/-/devalue-5.3.2.tgz",
+        "sha512": "503b2351ba509fd92f9baf2c967aecfa67f1c059087e53a191a9e6c9a6d9f3339893c48c1086c9dd32bef3c83bd214887b2b6ee32d7c7f4cff8581cc4eb5c85b",
+        "dest-filename": "devalue-ZGV2YWx1ZUBucG06NS4zLjI=-2dab403779.tgz",
         "dest": "flatpak-node/yarn-mirror/global/cache/locator"
     },
     {
