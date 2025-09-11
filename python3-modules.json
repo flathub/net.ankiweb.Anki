@@ -381,8 +381,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/54/24/b4293291fa1dd830f353d2cb163295742fa87f179fcc8a20a306a81978b7/SecretStorage-3.3.3-py3-none-any.whl",
-                    "sha256": "f356e6628222568e3af06f2eba8df495efa13b3b63081dafd4f7d9a7b7bc9f99",
+                    "url": "https://files.pythonhosted.org/packages/91/ff/2e2eed29e02c14a5cb6c57f09b2d5b40e65d6cc71f45b52e0be295ccbc2f/secretstorage-3.4.0-py3-none-any.whl",
+                    "sha256": "0e3b6265c2c63509fb7415717607e4b2c9ab767b7f344a57473b779ca13bd02e",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "secretstorage",
@@ -669,8 +669,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/13/a3/a812df4e2dd5696d1f351d58b8fe16a405b234ad2886a0dab9183fb78109/pycparser-2.22-py3-none-any.whl",
-                    "sha256": "c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc",
+                    "url": "https://files.pythonhosted.org/packages/a0/e3/59cd50310fc9b59512193629e1984c1f95e5c8ae6e5d8c69532ccc65a7fe/pycparser-2.23-py3-none-any.whl",
+                    "sha256": "e5c6e8d3fbad53479cab09ac03729e0a9faf2bee3db8208a550daf5af81a5934",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "pycparser",
@@ -729,8 +729,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/2a/7a/77c26691f16056708551a85884e871dddf75f3fdafa2a4051030ef9e1aa8/trove_classifiers-2025.9.8.13-py3-none-any.whl",
-                    "sha256": "f784db2f859ee1ffa168adaf0868006c20dee5e673a3ff813a2cd51ef2c465f9",
+                    "url": "https://files.pythonhosted.org/packages/15/05/618f6a55cced5402364af0d7629cbfd04e9852d464193bde9bd03c85b56a/trove_classifiers-2025.9.9.12-py3-none-any.whl",
+                    "sha256": "d449bd9d4715105657732d6dd1f46aa1595278d01ef1716ca164b35867135a4f",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "trove_classifiers",
@@ -749,8 +749,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/4f/7c/ab905b0425f88842f3d8e5da50491524f45a231b7a3dc9c988608162adb2/uv-0.8.15.tar.gz",
-                    "sha256": "8ea57b78be9f0911a2a50b6814d15aec7d1f8aa6517059dc8250b1414156f93a",
+                    "url": "https://files.pythonhosted.org/packages/6f/4c/c270c6b8ed3e8c7fe38ea0b99df9eff09c332421b93d55a158371f75220e/uv-0.8.17.tar.gz",
+                    "sha256": "2afd4525a53c8ab3a11a5a15093c503d27da67e76257a649b05e4f0bc2ebb5ae",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
