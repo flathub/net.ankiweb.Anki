@@ -153,6 +153,8 @@ modules:
         sha256: c4868e6a4e1a8c777a5ba3cff452c405837318fb0b272ff203bfda0e1b8fc54d
         only-arches:
           - aarch64
+    cleanup:
+      - '*'
 
   - name: python3-pycparser-bin
     buildsystem: simple
