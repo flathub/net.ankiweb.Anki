@@ -768,8 +768,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/09/1b/c20b2ef1d987627765dcd5bf1dadb8ef6564f00a87972635099bb76b7a05/zstandard-0.24.0.tar.gz",
-                    "sha256": "fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f",
+                    "url": "https://files.pythonhosted.org/packages/fd/aa/3e0508d5a5dd96529cdc5a97011299056e14c6505b678fd58938792794b1/zstandard-0.25.0.tar.gz",
+                    "sha256": "7713e1179d162cf5c7906da876ec2ccb9c3a9dcbdffef0cc7f70c3667a205f0b",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "zstandard"
