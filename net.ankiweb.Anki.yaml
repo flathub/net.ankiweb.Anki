@@ -324,8 +324,8 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: '25.09'
-        commit: 539054c34dccf8b89ca7ea9c9c40ecaf172de759
+        tag: 25.09.2
+        commit: 3890e12c9e48c028c3f12aa58cb64bd9f8895e30
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
