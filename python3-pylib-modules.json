@@ -1,5 +1,5 @@
 {
-    "name": "python3-pylib-modules.json",
+    "name": "python3-pylib-modules",
     "buildsystem": "simple",
     "build-commands": [],
     "modules": [

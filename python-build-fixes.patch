@@ -29,3 +29,4 @@ index e43bceeb3..d2675fdb3 100644
      }
  
      fn files(&mut self, build: &mut impl FilesHandle) {
+ 

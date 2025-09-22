@@ -5002,9 +5002,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.npmjs.org/vite/-/vite-6.3.5.tgz",
-        "sha512": "7199fa343144ef0753a48360b3ef99278378f56daf469f0b08aae7dce6f591836d3a8db5bdf0e8695e46cc17cb538328bd2001f2e3519b88e0cd5419fa60733d",
-        "dest-filename": "vite-dml0ZUBucG06Ni4zLjU=-df70201659.tgz",
+        "url": "https://registry.npmjs.org/vite/-/vite-6.3.6.tgz",
+        "sha512": "d26b0454724449c41b8646d54dbff888765d27a497a7f02fc4bdac8f061015f06a95e1ed9c2aafd49dec6bdcdb5b3ffa916d66f537f39fddaf5be919d5657a40",
+        "dest-filename": "vite-dml0ZUBucG06Ni4zLjY=-add701f1e7.tgz",
         "dest": "flatpak-node/yarn-mirror/global/cache/locator"
     },
     {
