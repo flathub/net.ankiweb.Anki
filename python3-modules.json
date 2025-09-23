@@ -758,8 +758,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/bc/97/fe818d33597b69746da89c7fecf1d5047f44eaadc464ad35157a546a4a77/uv-0.8.19.tar.gz",
-                    "sha256": "8250d61be8ad7da952dff476d9855b2d0b3b5737819cc12ecd94ae6665aab322",
+                    "url": "https://files.pythonhosted.org/packages/78/5c/285626e2fa4f89d3111aba48dd1a3b940a7fc21b3e0b0595c90fd15bc216/uv-0.8.20.tar.gz",
+                    "sha256": "9560b87a25b05a2487a2a97ba944df22e565d7c0c8586f78152b867970fa1329",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
