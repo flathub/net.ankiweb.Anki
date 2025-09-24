@@ -390,8 +390,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/6f/12/e5e0282d673bb9746bacfb6e2dba8719989d3660cdb2ea79aee9a9651afb/anyio-4.10.0-py3-none-any.whl",
-                    "sha256": "60e474ac86736bbfd6f210f7a61218939c318f43f9972497381f1c5e930ed3d1",
+                    "url": "https://files.pythonhosted.org/packages/15/b3/9b1a8074496371342ec1e796a96f99c82c945a339cd81a8e73de28b4cf9e/anyio-4.11.0-py3-none-any.whl",
+                    "sha256": "0287e96f4d26d4149305414d4e3bc32f0dcd0862365a4bddea19d7a1ec38c4fc",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "anyio",
@@ -468,8 +468,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a5/40/19c0935bf9f25808541a0e3144ac459de696c5b6b6d4511a98d456c69604/hatch-1.14.1-py3-none-any.whl",
-                    "sha256": "39cdaa59e47ce0c5505d88a951f4324a9c5aafa17e4a877e2fde79b36ab66c21",
+                    "url": "https://files.pythonhosted.org/packages/75/7e/7b04e626210ff7d3f2c5b5a2e0972e13028d15692f3b880f2930022f51c8/hatch-1.14.2-py3-none-any.whl",
+                    "sha256": "d2d3c9cfcd60838db3202a2aaa6e48e8119885ffe6590f165a8511f3843c5af3",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "hatch",
@@ -758,8 +758,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/bc/97/fe818d33597b69746da89c7fecf1d5047f44eaadc464ad35157a546a4a77/uv-0.8.19.tar.gz",
-                    "sha256": "8250d61be8ad7da952dff476d9855b2d0b3b5737819cc12ecd94ae6665aab322",
+                    "url": "https://files.pythonhosted.org/packages/a6/39/231e123458d50dd497cf6d27b592f5d3bc3e2e50f496b56859865a7b22e3/uv-0.8.22.tar.gz",
+                    "sha256": "e6e1289c411d43e0ca245f46e76457f3807de646d90b656591b6cf46348bed5c",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
