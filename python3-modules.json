@@ -390,8 +390,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/6f/12/e5e0282d673bb9746bacfb6e2dba8719989d3660cdb2ea79aee9a9651afb/anyio-4.10.0-py3-none-any.whl",
-                    "sha256": "60e474ac86736bbfd6f210f7a61218939c318f43f9972497381f1c5e930ed3d1",
+                    "url": "https://files.pythonhosted.org/packages/15/b3/9b1a8074496371342ec1e796a96f99c82c945a339cd81a8e73de28b4cf9e/anyio-4.11.0-py3-none-any.whl",
+                    "sha256": "0287e96f4d26d4149305414d4e3bc32f0dcd0862365a4bddea19d7a1ec38c4fc",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "anyio",
@@ -758,8 +758,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/bc/97/fe818d33597b69746da89c7fecf1d5047f44eaadc464ad35157a546a4a77/uv-0.8.19.tar.gz",
-                    "sha256": "8250d61be8ad7da952dff476d9855b2d0b3b5737819cc12ecd94ae6665aab322",
+                    "url": "https://files.pythonhosted.org/packages/a6/39/231e123458d50dd497cf6d27b592f5d3bc3e2e50f496b56859865a7b22e3/uv-0.8.22.tar.gz",
+                    "sha256": "e6e1289c411d43e0ca245f46e76457f3807de646d90b656591b6cf46348bed5c",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
