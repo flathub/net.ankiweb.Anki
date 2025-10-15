@@ -204,8 +204,8 @@ modules:
         --prefix=${FLATPAK_DEST} "idna" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl
-        sha256: 946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3
+        url: https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl
+        sha256: 771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea
         x-checker-data:
           type: pypi
           name: idna
@@ -324,7 +324,7 @@ modules:
         dest-filename: yarn.cjs
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: '25.09.2'
+        tag: 25.09.2
         commit: 3890e12c9e48c028c3f12aa58cb64bd9f8895e30
         x-checker-data:
           type: json
