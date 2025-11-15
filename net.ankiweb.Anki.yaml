@@ -158,11 +158,23 @@ modules:
         sha256: afdd00ddc25e12ed756e069090011ca55f127753e1192e51f45fa288a024f3df
         only-arches:
           - x86_64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/uv/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="uv-"
+            + $version + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/15/04/b22cd0716369f63265c76ab254e98573cb65e2ee7908f5ffa90e1c2e18fc/uv-0.9.9-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-        sha256: 036e8d38f87ffbebcd478e6b61a2c4f8733f77fbdf34140b78e0f5ab238810cf
+        url: https://files.pythonhosted.org/packages/3a/97/9925ec558b9b7435d8646e74f8831aa10165e8768b6d9b0c702655b164fb/uv-0.9.9-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 4f2e2a818ce64b917aada5a752a92bc5665ed90f3ac1348689c4d92abe4af3f5
         only-arches:
           - aarch64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/uv/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="uv-"
+            + $version + "-py3-none-manylinux_2_28_aarch64.whl") | .url
     cleanup:
       - '*'
 
@@ -238,8 +250,6 @@ modules:
           version-query: .info.version
           url-query: .releases | .[$version][] | select(.filename=="cryptography-"
             + $version + "-cp311-abi3-manylinux_2_34_aarch64.whl") | .url
-          name: cryptography
-          packagetype: bdist_wheel
       - type: file
         url: https://files.pythonhosted.org/packages/8f/29/798fc4ec461a1c9e9f735f2fc58741b0daae30688f41b2497dcbc9ed1355/cryptography-46.0.3-cp311-abi3-manylinux_2_34_x86_64.whl
         sha256: 10b01676fc208c3e6feeb25a8b83d81767e8059e1fe86e1dc62d10a3018fa926
@@ -251,8 +261,6 @@ modules:
           version-query: .info.version
           url-query: .releases | .[$version][] | select(.filename=="cryptography-"
             + $version + "-cp311-abi3-manylinux_2_34_x86_64.whl") | .url
-          name: cryptography
-          packagetype: bdist_wheel
 
   - name: python3-rpds_py-bin
     buildsystem: simple
@@ -265,11 +273,23 @@ modules:
         sha256: b8e1e9be4fa6305a16be628959188e4fd5cd6f1b0e724d63c6d8b2a8adf74ea6
         only_arches:
           - x86_64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/rpds_py/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="rpds_py-"
+            + $version + "-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
         url: https://files.pythonhosted.org/packages/fc/00/ed1e28616848c61c493a067779633ebf4b569eccaacf9ccbdc0e7cba2b9d/rpds_py-0.28.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
         sha256: 85beb8b3f45e4e32f6802fb6cd6b17f615ef6c6a52f265371fb916fae02814aa
         only_arches:
           - aarch64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/rpds_py/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="rpds_py-"
+            + $version + "-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl") | .url
 
   - python3-modules.json # beautifulsoup4 flask flask_cors jsonschema requests send2trash waitress pip-system-certs hatch
   - python3-pylib-modules.json # protobuf decorator orjson markdown typing_extensions distro
@@ -323,11 +343,19 @@ modules:
         sha256: 6018147740548e0e0f764408c87f4cd040e6e1c1203e13aeacaf811892b604f3
         only-arches:
           - aarch64
+        x-checker-data:
+          type: anitya
+          project-id: 3715
+          url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-aarch_64.zip
       - type: archive
         url: https://github.com/protocolbuffers/protobuf/releases/download/v33.1/protoc-33.1-linux-x86_64.zip
         sha256: f3340e28a83d1c637d8bafdeed92b9f7db6a384c26bca880a6e5217b40a4328b
         only-arches:
           - x86_64
+        x-checker-data:
+          type: anitya
+          project-id: 3715
+          url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-x86_64.zip
       - type: file
         url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.9.2/packages/yarnpkg-cli/bin/yarn.js
         sha256: ca4310f8ba997b4643a000ce512d9772e01c1485df35511114b325315960acb7
