@@ -118,25 +118,34 @@ modules:
             <: '4.0'
           url-template: https://download.samba.org/pub/rsync/src/rsync-$version.tar.gz
 
-  - name: python3-maturin
+  - name: maturin-bin
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/rust-stable/bin
-      env:
-        CARGO_HOME: /run/build/python3-maturin/cargo
-        CARGO_NET_OFFLINE: 'true'
     build-commands:
-      - cargo --offline fetch --manifest-path ./Cargo.toml
-      - cargo --offline build --release
-      - install -Dm755 target/release/maturin -t ${FLATPAK_DEST}/bin
-      - install -Dm644 maturin/__init__.py -t ${FLATPAK_DEST}/lib/python$(python -c
-        'import sys; print("%s.%s" %sys.version_info[0:2])')/site-packages/maturin/
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "maturin" --no-build-isolation
     sources:
-      - cargo-sources-maturin.json
-      - type: git
-        url: https://github.com/PyO3/maturin
-        tag: v1.10.1
-        commit: bc2cfef691d513eb487dc35d8ab8c9301187a78b
+      - type: file
+        url: https://files.pythonhosted.org/packages/f7/da/1cd0257a33904d2d0d9949aaaa67a8f4a7c37cf029ad199336680118a582/maturin-1.10.1-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+        sha256: 9475a6ac15339fc0be5d3f1cdc6e1a50711ea75bd41f49ba50b52b1a46191dde
+        only-arches:
+          - x86_64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/maturin/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="maturin-"
+            + $version + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl") | .url
+      - type: file
+        url: https://files.pythonhosted.org/packages/7f/90/c29527e05df7c148571ee3bddb1877731f16db192d31b52f896e0d9b9ea9/maturin-1.10.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        sha256: fdbe5b43e1aefa8925ab19f727ddb3732c2c53fd6ac6b1c1de63983c37527101
+        only-arches:
+          - aarch64
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/maturin/json
+          version-query: .info.version
+          url-query: .releases | .[$version][] | select(.filename=="maturin-"
+            + $version + "-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl") | .url
 
   - name: uv-bin
     buildsystem: simple
