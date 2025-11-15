@@ -12,8 +12,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/fa/a4/cc17347aa2897568beece2e674674359f911d6fe21b0b8d6268cd42727ac/protobuf-6.32.1.tar.gz",
-                    "sha256": "ee2469e4a021474ab9baafea6cd070e5bf27c7d29433504ddea1a4ee5850f68d",
+                    "url": "https://files.pythonhosted.org/packages/0a/03/a1440979a3f74f16cab3b75b0da1a1a7f922d56a8ddea96092391998edc0/protobuf-6.33.1.tar.gz",
+                    "sha256": "97f65757e8d09870de6fd973aeddb92f85435607235d20b2dfed93405d00c85b",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "protobuf"
@@ -49,8 +49,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/be/4d/8df5f83256a809c22c4d6792ce8d43bb503be0fb7a8e4da9025754b09658/orjson-3.11.3.tar.gz",
-                    "sha256": "1c0603b1d2ffcd43a411d64797a19556ef76958aef1c182f22dc30860152a98a",
+                    "url": "https://files.pythonhosted.org/packages/c6/fe/ed708782d6709cc60eb4c2d8a361a440661f74134675c72990f2c48c785f/orjson-3.11.4.tar.gz",
+                    "sha256": "39485f4ab4c9b30a3943cfe99e1a213c4776fb69e8abd68f66b83d5a0b0fdc6d",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "orjson"
