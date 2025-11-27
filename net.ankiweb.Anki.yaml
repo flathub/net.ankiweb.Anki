@@ -125,27 +125,29 @@ modules:
         --prefix=${FLATPAK_DEST} "maturin" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/f7/da/1cd0257a33904d2d0d9949aaaa67a8f4a7c37cf029ad199336680118a582/maturin-1.10.1-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-        sha256: 9475a6ac15339fc0be5d3f1cdc6e1a50711ea75bd41f49ba50b52b1a46191dde
+        url: https://files.pythonhosted.org/packages/46/8d/753148c0d0472acd31a297f6d11c3263cd2668d38278ed29d523625f7290/maturin-1.10.2-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+        sha256: efcd496a3202ffe0d0489df1f83d08b91399782fb2dd545d5a1e7bf6fd81af39
         only-arches:
           - x86_64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/maturin/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="maturin-"
-            + $version + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="maturin-" + $version
+            + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl")
+            | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/7f/90/c29527e05df7c148571ee3bddb1877731f16db192d31b52f896e0d9b9ea9/maturin-1.10.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-        sha256: fdbe5b43e1aefa8925ab19f727ddb3732c2c53fd6ac6b1c1de63983c37527101
+        url: https://files.pythonhosted.org/packages/b9/f9/f5ca9fe8cad70cac6f3b6008598cc708f8a74dd619baced99784a6253f23/maturin-1.10.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        sha256: a41ec70d99e27c05377be90f8e3c3def2a7bae4d0d9d5ea874aaf2d1da625d5c
         only-arches:
           - aarch64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/maturin/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="maturin-"
-            + $version + "-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="maturin-" + $version
+            + "-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl")
+            | .url
 
   - name: uv-bin
     buildsystem: simple
@@ -154,27 +156,27 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/4c/4a/d5357825bb47ff73762d247b1a553a966fef6802e3ab829fe60934cbf339/uv-0.9.9-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: afdd00ddc25e12ed756e069090011ca55f127753e1192e51f45fa288a024f3df
+        url: https://files.pythonhosted.org/packages/da/e5/148ab5edb339f5833d04f0bcb8380a53e8b19bd5f091ae67222ed188b393/uv-0.9.13-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 6627d0abbaf58f9ff6e07e3f8522d65421230969aa2d7b10421339f0cb30dec4
         only-arches:
           - x86_64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/uv/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="uv-"
-            + $version + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
+            + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/3a/97/9925ec558b9b7435d8646e74f8831aa10165e8768b6d9b0c702655b164fb/uv-0.9.9-py3-none-manylinux_2_28_aarch64.whl
-        sha256: 4f2e2a818ce64b917aada5a752a92bc5665ed90f3ac1348689c4d92abe4af3f5
+        url: https://files.pythonhosted.org/packages/eb/d8/a77587e4608af6efc5a72d3a937573eb5d08052550a3f248821b50898626/uv-0.9.13-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 6cca7671efacf6e2950eb86273ecce4a9a3f8bfa6ac04e8a17be9499bb3bb882
         only-arches:
           - aarch64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/uv/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="uv-"
-            + $version + "-py3-none-manylinux_2_28_aarch64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
+            + "-py3-none-manylinux_2_28_aarch64.whl") | .url
     cleanup:
       - '*'
 
@@ -269,27 +271,27 @@ modules:
         --prefix=${FLATPAK_DEST} "rpds_py" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ca/ee/a324d3198da151820a326c1f988caaa4f37fc27955148a76fff7a2d787a9/rpds_py-0.28.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: b8e1e9be4fa6305a16be628959188e4fd5cd6f1b0e724d63c6d8b2a8adf74ea6
+        url: https://files.pythonhosted.org/packages/b9/42/555b4ee17508beafac135c8b450816ace5a96194ce97fefc49d58e5652ea/rpds_py-0.29.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: de73e40ebc04dd5d9556f50180395322193a78ec247e637e741c1b954810f295
         only_arches:
           - x86_64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/rpds_py/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="rpds_py-"
-            + $version + "-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="rpds_py-" + $version
+            + "-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/fc/00/ed1e28616848c61c493a067779633ebf4b569eccaacf9ccbdc0e7cba2b9d/rpds_py-0.28.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-        sha256: 85beb8b3f45e4e32f6802fb6cd6b17f615ef6c6a52f265371fb916fae02814aa
+        url: https://files.pythonhosted.org/packages/92/8a/a18c2f4a61b3407e56175f6aab6deacdf9d360191a3d6f38566e1eaf7266/rpds_py-0.29.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+        sha256: 0a8896986efaa243ab713c69e6491a4138410f0fe36f2f4c71e18bd5501e8014
         only_arches:
           - aarch64
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/rpds_py/json
           version-query: .info.version
-          url-query: .releases | .[$version][] | select(.filename=="rpds_py-"
-            + $version + "-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl") | .url
+          url-query: .releases | .[$version][] | select(.filename=="rpds_py-" + $version
+            + "-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl") | .url
 
   - python3-modules.json # beautifulsoup4 flask flask_cors jsonschema requests send2trash waitress pip-system-certs hatch
   - python3-pylib-modules.json # protobuf decorator orjson markdown typing_extensions distro
