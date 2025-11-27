@@ -793,6 +793,15 @@
                         "type": "pypi",
                         "name": "zstandard"
                     }
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/ee/76/403d81c1b9264f6ee1c25b2f2ce892ed9930d1a0a1939ef26a01a95e644d/backports_zstd-1.1.0.tar.gz",
+                    "sha256": "8ce84125e3094ddefbaa25306e8949965ce092b400a1fd63b5e6a5e932d2994f",
+                    "x-checker-data": {
+                        "type": "pypi",
+                        "name": "backports_zstd"
+                    }
                 }
             ]
         }
