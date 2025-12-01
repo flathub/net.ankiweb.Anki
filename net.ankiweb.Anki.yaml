@@ -156,8 +156,8 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/da/e5/148ab5edb339f5833d04f0bcb8380a53e8b19bd5f091ae67222ed188b393/uv-0.9.13-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: 6627d0abbaf58f9ff6e07e3f8522d65421230969aa2d7b10421339f0cb30dec4
+        url: https://files.pythonhosted.org/packages/38/9e/0ddb21e94fc7fd67547e74aa0cbb042d57f52fe283f3d517d1a8c9e5df66/uv-0.9.14-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 4b5a27f528af437d9cd7bd85905095f166d0c37bdf3404a8a900948068e03d6b
         only-arches:
           - x86_64
         x-checker-data:
@@ -167,8 +167,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
             + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/eb/d8/a77587e4608af6efc5a72d3a937573eb5d08052550a3f248821b50898626/uv-0.9.13-py3-none-manylinux_2_28_aarch64.whl
-        sha256: 6cca7671efacf6e2950eb86273ecce4a9a3f8bfa6ac04e8a17be9499bb3bb882
+        url: https://files.pythonhosted.org/packages/17/35/44a7aeafc1cc9b1ec55ab433bed0211c34ca77f230853735c6c8d8683783/uv-0.9.14-py3-none-manylinux_2_28_aarch64.whl
+        sha256: cbf18113f0e07898af804f6f4a9ef521eb181865a94b7d162431dcae5b55f8fa
         only-arches:
           - aarch64
         x-checker-data:
@@ -271,8 +271,8 @@ modules:
         --prefix=${FLATPAK_DEST} "rpds_py" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/b9/42/555b4ee17508beafac135c8b450816ace5a96194ce97fefc49d58e5652ea/rpds_py-0.29.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: de73e40ebc04dd5d9556f50180395322193a78ec247e637e741c1b954810f295
+        url: https://files.pythonhosted.org/packages/b7/de/f7192e12b21b9e9a68a6d0f249b4af3fdcdff8418be0767a627564afa1f1/rpds_py-0.30.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 9027da1ce107104c50c81383cae773ef5c24d296dd11c99e2629dbd7967a20c6
         only_arches:
           - x86_64
         x-checker-data:
@@ -282,8 +282,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="rpds_py-" + $version
             + "-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/92/8a/a18c2f4a61b3407e56175f6aab6deacdf9d360191a3d6f38566e1eaf7266/rpds_py-0.29.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-        sha256: 0a8896986efaa243ab713c69e6491a4138410f0fe36f2f4c71e18bd5501e8014
+        url: https://files.pythonhosted.org/packages/58/70/faed8186300e3b9bdd138d0273109784eea2396c68458ed580f885dfe7ad/rpds_py-0.30.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+        sha256: 2771c6c15973347f50fece41fc447c054b7ac2ae0502388ce3b6738cd366e3d4
         only_arches:
           - aarch64
         x-checker-data:
