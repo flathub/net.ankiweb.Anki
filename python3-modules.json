@@ -12,8 +12,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/94/fe/3aed5d0be4d404d12d36ab97e2f1791424d9ca39c2f754a6285d59a3b01d/beautifulsoup4-4.14.2-py3-none-any.whl",
-                    "sha256": "5ef6fa3a8cbece8488d66985560f97ed091e22bbc4e9c2338508a9d5de6d4515",
+                    "url": "https://files.pythonhosted.org/packages/1a/39/47f9197bdd44df24d67ac8893641e16f386c984a0619ef2ee4c51fbbc019/beautifulsoup4-4.14.3-py3-none-any.whl",
+                    "sha256": "0918bfe44902e6ad8d57732ba310582e98da931428d231a5ecb9e7c703a735bb",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "beautifulsoup4",
@@ -110,8 +110,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/52/24/ab44c871b0f07f491e5d2ad12c9bd7358e527510618cb1b803a88e986db1/werkzeug-3.1.3-py3-none-any.whl",
-                    "sha256": "54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e",
+                    "url": "https://files.pythonhosted.org/packages/2f/f9/9e082990c2585c744734f85bec79b5dae5df9c974ffee58fe421652c8e91/werkzeug-3.1.4-py3-none-any.whl",
+                    "sha256": "2ad50fb9ed09cc3af22c54698351027ace879a0b60a3b5edf5730b2f7d876905",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "werkzeug",
@@ -198,8 +198,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/52/24/ab44c871b0f07f491e5d2ad12c9bd7358e527510618cb1b803a88e986db1/werkzeug-3.1.3-py3-none-any.whl",
-                    "sha256": "54b78bf3716d19a65be4fceccc0d1d7b89e608834989dfae50ea87564639213e",
+                    "url": "https://files.pythonhosted.org/packages/2f/f9/9e082990c2585c744734f85bec79b5dae5df9c974ffee58fe421652c8e91/werkzeug-3.1.4-py3-none-any.whl",
+                    "sha256": "2ad50fb9ed09cc3af22c54698351027ace879a0b60a3b5edf5730b2f7d876905",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "werkzeug",
@@ -257,8 +257,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/98/33/23b3b3419b6a3e0f559c7c0d2ca8fc1b9448382b25245033788785921332/rpds_py-0.29.0.tar.gz",
-                    "sha256": "fe55fe686908f50154d1dc599232016e50c243b438c3b7432f24e2895b0e5359",
+                    "url": "https://files.pythonhosted.org/packages/20/af/3f2f423103f1113b36230496629986e0ef7e199d2aa8392452b484b38ced/rpds_py-0.30.0.tar.gz",
+                    "sha256": "dd8ff7cf90014af0c0f787eea34794ebf6415242ee1d6fa91eaba725cc441e84",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "rpds_py"
@@ -314,8 +314,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a7/c2/fe1e52489ae3122415c51f387e221dd0773709bad6c6cdaa599e8a2c5185/urllib3-2.5.0-py3-none-any.whl",
-                    "sha256": "e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc",
+                    "url": "https://files.pythonhosted.org/packages/56/1a/9ffe814d317c5224166b23e7c47f606d6e473712a2fad0f704ea9b99f246/urllib3-2.6.0-py3-none-any.whl",
+                    "sha256": "c90f7a39f716c572c4e3e58509581ebd83f9b59cced005b7db7ad2d22b0db99f",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "urllib3",
@@ -390,8 +390,8 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/15/b3/9b1a8074496371342ec1e796a96f99c82c945a339cd81a8e73de28b4cf9e/anyio-4.11.0-py3-none-any.whl",
-                    "sha256": "0287e96f4d26d4149305414d4e3bc32f0dcd0862365a4bddea19d7a1ec38c4fc",
+                    "url": "https://files.pythonhosted.org/packages/7f/9c/36c5c37947ebfb8c7f22e0eb6e4d188ee2d53aa3880f3f2744fb894f0cb1/anyio-4.12.0-py3-none-any.whl",
+                    "sha256": "dad2376a628f98eeca4881fc56cd06affd18f659b17a747d3ff0307ced94b1bb",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "anyio",
@@ -468,8 +468,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/7e/b8/58fd4f4b0c371421f703707058d34e11f9458becda77cc294b7bd8c1a4d3/hatch-1.16.0-py3-none-any.whl",
-                    "sha256": "d7adc16b02991169774d9644822fb65a0f7946b61f0439e85d97b9b819fc8d25",
+                    "url": "https://files.pythonhosted.org/packages/b6/39/42d25fed23c4fd4eb3c4ff3f0a7f547ed0d4ad6a1efb0105da0f43768141/hatch-1.16.1-py3-none-any.whl",
+                    "sha256": "c7c90d122f8fca602d10c9f2176027f935cc6071710d4aec2d94490f6c5ef697",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "hatch",
@@ -638,8 +638,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/73/cb/ac7874b3e5d58441674fb70742e6c374b28b0c7cb988d37d991cde47166c/platformdirs-4.5.0-py3-none-any.whl",
-                    "sha256": "e578a81bb873cbb89a41fcc904c7ef523cc18284b7e3b3ccf06aca1403b7ebd3",
+                    "url": "https://files.pythonhosted.org/packages/cb/28/3bfe2fa5a7b9c46fe7e13c97bda14c895fb10fa2ebf1d0abb90e0cea7ee1/platformdirs-4.5.1-py3-none-any.whl",
+                    "sha256": "d03afa3963c806a9bed9d5125c8f4cb2fdaf74a55ab60e5d59b3fde758104d31",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "platformdirs",
@@ -748,8 +748,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/49/f6/73c4aa003d1237ee9bea8a46f49dc38c45dfe95af4f0da7e60678d388011/trove_classifiers-2025.11.14.15-py3-none-any.whl",
-                    "sha256": "d1dac259c1e908939862e3331177931c6df0a37af2c1a8debcc603d9115fcdd9",
+                    "url": "https://files.pythonhosted.org/packages/4f/7e/bc19996fa86cad8801e8ffe6f1bba5836ca0160df76d0410d27432193712/trove_classifiers-2025.12.1.14-py3-none-any.whl",
+                    "sha256": "a8206978ede95937b9959c3aff3eb258bbf7b07dff391ddd4ea7e61f316635ab",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "trove_classifiers",
@@ -768,8 +768,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/f2/10/ad3dc22d0cabe7c335a1d7fc079ceda73236c0984da8d8446de3d2d30c9b/uv-0.9.13.tar.gz",
-                    "sha256": "105a6f4ff91480425d1b61917e89ac5635b8e58a79267e2be103338ab448ccd6",
+                    "url": "https://files.pythonhosted.org/packages/d0/b8/63e4ad24d7ef24ef1de10cb2db9ff0f74b2cceb4bd71c4b3909297d40967/uv-0.9.15.tar.gz",
+                    "sha256": "241a57d8ce90273d0ad8460897e1b2250bd4aa6bafe72fd8be07fbc3a7662f3d",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
