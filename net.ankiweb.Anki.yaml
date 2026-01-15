@@ -125,8 +125,8 @@ modules:
         --prefix=${FLATPAK_DEST} "maturin" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/46/8d/753148c0d0472acd31a297f6d11c3263cd2668d38278ed29d523625f7290/maturin-1.10.2-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-        sha256: efcd496a3202ffe0d0489df1f83d08b91399782fb2dd545d5a1e7bf6fd81af39
+        url: https://files.pythonhosted.org/packages/58/e0/c8fa042daf0608cc2e9a59b6df3a9e287bfc7f229136f17727f4118bac2d/maturin-1.11.5-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+        sha256: ffe7418834ff3b4a6c987187b7abb85ba033f4733e089d77d84e2de87057b4e7
         only-arches:
           - x86_64
         x-checker-data:
@@ -137,8 +137,8 @@ modules:
             + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl")
             | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/b9/f9/f5ca9fe8cad70cac6f3b6008598cc708f8a74dd619baced99784a6253f23/maturin-1.10.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-        sha256: a41ec70d99e27c05377be90f8e3c3def2a7bae4d0d9d5ea874aaf2d1da625d5c
+        url: https://files.pythonhosted.org/packages/99/af/9d3edc8375efc8d435d5f24794bc4de234d4e743447592da970d53b31361/maturin-1.11.5-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        sha256: c739b243d012386902f112ea63a54a94848932b70ae3565fa5e121fd1c0200e0
         only-arches:
           - aarch64
         x-checker-data:
@@ -156,8 +156,8 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/31/91/1042d0966a30e937df500daed63e1f61018714406ce4023c8a6e6d2dcf7c/uv-0.9.18-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: 3332188fd8d96a68e5001409a52156dced910bf1bc41ec3066534cffcd46eb68
+        url: https://files.pythonhosted.org/packages/bb/ce/909feee469647b7929967397dcb1b6b317cfca07dc3fc0699b3cab700daf/uv-0.9.25-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 642f993d8c74ecd52b192d5f3168433c4efa81b8bb19c5ac97c25f27a44557cb
         only-arches:
           - x86_64
         x-checker-data:
@@ -167,8 +167,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
             + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/5a/1f/0a4a979bb2bf6e1292cc57882955bf1d7757cad40b1862d524c59c2a2ad8/uv-0.9.18-py3-none-manylinux_2_28_aarch64.whl
-        sha256: b7295e6d505f1fd61c54b1219e3b18e11907396333a9fa61cefe489c08fc7995
+        url: https://files.pythonhosted.org/packages/82/be/ac7cd3c45c6baf0d5181133d3bda13f843f76799809374095b6fc7122a96/uv-0.9.25-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 564b5db5e148670fdbcfd962ee8292c0764c1be0c765f63b620600a3c81087d1
         only-arches:
           - aarch64
         x-checker-data:
@@ -341,8 +341,8 @@ modules:
       - cargo-sources.json
       - yarn-sources.json
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.2/protoc-33.2-linux-aarch_64.zip
-        sha256: 706662a332683aa2fffe1c4ea61588279d31679cd42d91c7d60a69651768edb8
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.4/protoc-33.4-linux-aarch_64.zip
+        sha256: 15aa988f4a6090636525ec236a8e4b3aab41eef402751bd5bb2df6afd9b7b5a5
         only-arches:
           - aarch64
         x-checker-data:
@@ -350,8 +350,8 @@ modules:
           project-id: 3715
           url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-aarch_64.zip
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.2/protoc-33.2-linux-x86_64.zip
-        sha256: b24b53f87c151bfd48b112fe4c3a6e6574e5198874f38036aff41df3456b8caf
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.4/protoc-33.4-linux-x86_64.zip
+        sha256: c0040ea9aef08fdeb2c74ca609b18d5fdbfc44ea0042fcfbfb38860d35f7dd66
         only-arches:
           - x86_64
         x-checker-data:
