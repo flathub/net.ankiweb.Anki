@@ -22,8 +22,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/48/f3/b67d6ea49ca9154453b6d70b34ea22f3996b9fa55da105a79d8732227adc/soupsieve-2.8.1-py3-none-any.whl",
-                    "sha256": "a11fe2a6f3d76ab3cf2de04eb339c1be5b506a8a47f2ceb6d139803177f85434",
+                    "url": "https://files.pythonhosted.org/packages/a6/9a/b4450ccce353e2430621b3bb571899ffe1033d5cd72c9e065110f95b1a63/soupsieve-2.8.2-py3-none-any.whl",
+                    "sha256": "0f4c2f6b5a5fb97a641cf69c0bd163670a0e45e6d6c01a2107f93a6a6f93c51a",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "soupsieve",
@@ -768,8 +768,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/41/b3/c2a6afd3d8f8f9f5d9c65fcdff1b80fb5bdaba21c8b0e99dd196e71d311f/uv-0.9.25.tar.gz",
-                    "sha256": "8625de8f40e7b669713e293ab4f7044bca9aa7f7c739f17dc1fd0cb765e69f28",
+                    "url": "https://files.pythonhosted.org/packages/ff/6a/ef4ea19097ecdfd7df6e608f93874536af045c68fd70aa628c667815c458/uv-0.9.26.tar.gz",
+                    "sha256": "8b7017a01cc48847a7ae26733383a2456dd060fc50d21d58de5ee14f6b6984d7",
                     "x-checker-data": {
                         "type": "pypi",
                         "name": "uv"
