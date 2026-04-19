@@ -64,6 +64,7 @@ modules:
       - -Dbuild-date=false
       - -Dlibmpv=false
       - -Dmanpage-build=disabled
+      - -Dx11=enabled
     sources:
       - type: archive
         url: https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz
@@ -103,6 +104,12 @@ modules:
               project-id: 1560
               stable-only: true
               url-template: https://github.com/libass/libass/releases/download/$version/libass-$version.tar.xz
+      - name: libxpresent
+        buildsystem: autotools
+        sources:
+          - type: archive
+            url: https://xorg.freedesktop.org/releases/individual/lib/libXpresent-1.0.2.tar.xz
+            sha256: 4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602
 
   - name: rsync
     cleanup:
