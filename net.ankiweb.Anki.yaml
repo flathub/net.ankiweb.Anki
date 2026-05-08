@@ -85,13 +85,11 @@ modules:
         sources:
           - type: git
             url: https://github.com/haasn/libplacebo.git
-            tag: v7.351.0
-            commit: 3188549fba13bbdf3a5a98de2a38c2e71f04e21e
+            tag: v7.360.1
+            commit: cee9b076f2c63104ccfd497fa79c39a867293ec4
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
-          - type: patch
-            path: libplacebo-vulkan-python-xml.patch
       - name: libass
         config-opts:
           - --disable-static
@@ -116,8 +114,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://download.samba.org/pub/rsync/src/rsync-3.4.1.tar.gz
-        sha256: 2924bcb3a1ed8b551fc101f740b9f0fe0a202b115027647cf69850d65fd88c52
+        url: https://download.samba.org/pub/rsync/src/rsync-3.4.2.tar.gz
+        sha256: ff10aa2c151cd4b2dbbe6135126dbc854046113d2dfb49572a348233267eb315
         x-checker-data:
           type: anitya
           project-id: 4217
@@ -132,8 +130,8 @@ modules:
         --prefix=${FLATPAK_DEST} "maturin" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/58/e0/c8fa042daf0608cc2e9a59b6df3a9e287bfc7f229136f17727f4118bac2d/maturin-1.11.5-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-        sha256: ffe7418834ff3b4a6c987187b7abb85ba033f4733e089d77d84e2de87057b4e7
+        url: https://files.pythonhosted.org/packages/00/94/69391af5396c6aab723932240803f49e5f3de3dd7c57d32f02d237a0ce32/maturin-1.13.1-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+        sha256: 6b1e5916a253243e8f5f9e847b62bbc98420eec48c9ce2e2e8724c6da89d359b
         only-arches:
           - x86_64
         x-checker-data:
@@ -144,8 +142,8 @@ modules:
             + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl")
             | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/99/af/9d3edc8375efc8d435d5f24794bc4de234d4e743447592da970d53b31361/maturin-1.11.5-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-        sha256: c739b243d012386902f112ea63a54a94848932b70ae3565fa5e121fd1c0200e0
+        url: https://files.pythonhosted.org/packages/9e/bf/4edac2667b49e3733438062ae416413b8fc8d42e1bd499ba15e1fb02fc55/maturin-1.13.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        sha256: dc91031e0619c1e28730279ef9ee5f106c9b9ec806b013f888676b242f892eb7
         only-arches:
           - aarch64
         x-checker-data:
@@ -163,8 +161,8 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/bb/ce/909feee469647b7929967397dcb1b6b317cfca07dc3fc0699b3cab700daf/uv-0.9.25-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: 642f993d8c74ecd52b192d5f3168433c4efa81b8bb19c5ac97c25f27a44557cb
+        url: https://files.pythonhosted.org/packages/4c/f8/a5d5bac297b1379719050788c6b852c6b3eefcb1e82d8465ed22c10cede7/uv-0.11.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: d5b9f31dab557b5ee4257d8c6ba2608a63c7278537cb0cd102cf6fc518e3fb5c
         only-arches:
           - x86_64
         x-checker-data:
@@ -174,8 +172,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
             + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/82/be/ac7cd3c45c6baf0d5181133d3bda13f843f76799809374095b6fc7122a96/uv-0.9.25-py3-none-manylinux_2_28_aarch64.whl
-        sha256: 564b5db5e148670fdbcfd962ee8292c0764c1be0c765f63b620600a3c81087d1
+        url: https://files.pythonhosted.org/packages/ee/d5/f3be167a43192062f1409fd6b857a612665d331174293b4ffc73218872e1/uv-0.11.11-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 8e8faf2e5b3517155fd18e509b19b21135247d43b7fb9a8d61a44a53118d5ab7
         only-arches:
           - aarch64
         x-checker-data:
@@ -194,8 +192,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pycparser" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/a0/e3/59cd50310fc9b59512193629e1984c1f95e5c8ae6e5d8c69532ccc65a7fe/pycparser-2.23-py3-none-any.whl
-        sha256: e5c6e8d3fbad53479cab09ac03729e0a9faf2bee3db8208a550daf5af81a5934
+        url: https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl
+        sha256: b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992
         x-checker-data:
           type: pypi
           name: pycparser
@@ -235,8 +233,8 @@ modules:
         --prefix=${FLATPAK_DEST} "idna" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl
-        sha256: 771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea
+        url: https://files.pythonhosted.org/packages/5d/13/ad7d7ca3808a898b4612b6fe93cde56b53f3034dcde235acb1f0e1df24c6/idna-3.13-py3-none-any.whl
+        sha256: 892ea0cde124a99ce773decba204c5552b69c3c67ffd5f232eb7696135bc8bb3
         x-checker-data:
           type: pypi
           name: idna
@@ -249,8 +247,8 @@ modules:
         --prefix=${FLATPAK_DEST} "cryptography" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/78/f6/50736d40d97e8483172f1bb6e698895b92a223dba513b0ca6f06b2365339/cryptography-46.0.3-cp311-abi3-manylinux_2_34_aarch64.whl
-        sha256: 549e234ff32571b1f4076ac269fcce7a808d3bf98b76c8dd560e42dbc66d7d91
+        url: https://files.pythonhosted.org/packages/84/9e/500463e87abb7a0a0f9f256ec21123ecde0a7b5541a15e840ea54551fd81/cryptography-48.0.0-cp311-abi3-manylinux_2_34_aarch64.whl
+        sha256: 7e8eac43dfca5c4cccc6dad9a80504436fca53bb9bc3100a2386d730fbe6b602
         only-arches:
           - aarch64
         x-checker-data:
@@ -260,8 +258,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="cryptography-"
             + $version + "-cp311-abi3-manylinux_2_34_aarch64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/8f/29/798fc4ec461a1c9e9f735f2fc58741b0daae30688f41b2497dcbc9ed1355/cryptography-46.0.3-cp311-abi3-manylinux_2_34_x86_64.whl
-        sha256: 10b01676fc208c3e6feeb25a8b83d81767e8059e1fe86e1dc62d10a3018fa926
+        url: https://files.pythonhosted.org/packages/d0/c0/7101d3b7215edcdc90c45da544961fd8ed2d6448f77577460fa75a8443f7/cryptography-48.0.0-cp311-abi3-manylinux_2_34_x86_64.whl
+        sha256: bd72e68b06bb1e96913f97dd4901119bc17f39d4586a5adf2d3e47bc2b9d58b5
         only-arches:
           - x86_64
         x-checker-data:
@@ -313,9 +311,10 @@ modules:
         NODE_BINARY: /usr/lib/sdk/node24/bin/node
         # ANKI_YARN_BINARY: /usr/lib/sdk/node24/bin/yarn
         ANKI_YARN_BINARY: /run/build/anki/yarn.cjs
-        YARN_GLOBAL_FOLDER: /run/build/anki/flatpak-node/yarn-mirror/global
+        YARN_GLOBAL_FOLDER: /run/build/anki/flatpak-node/yarn-berry
         YARN_ENABLE_GLOBAL_CACHE: '0'
         YARN_ENABLE_NETWORK: '0'
+        # YARN_CACHE_FOLDER: /run/build/anki/flatpak-node/yarn-berry/cache
         PROTOC_BINARY: /run/build/anki/protoc
         CARGO_HOME: /run/build/anki/cargo
         XDG_CACHE_HOME: /run/build/anki/flatpak-node/cache
@@ -348,8 +347,8 @@ modules:
       - cargo-sources.json
       - yarn-sources.json
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.4/protoc-33.4-linux-aarch_64.zip
-        sha256: 15aa988f4a6090636525ec236a8e4b3aab41eef402751bd5bb2df6afd9b7b5a5
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-aarch_64.zip
+        sha256: 31c5e9e3c7bf013cf41fb97765ee255c140024a6b175b6cc9b64beddd7c23ba7
         only-arches:
           - aarch64
         x-checker-data:
@@ -357,8 +356,8 @@ modules:
           project-id: 3715
           url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-aarch_64.zip
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v33.4/protoc-33.4-linux-x86_64.zip
-        sha256: c0040ea9aef08fdeb2c74ca609b18d5fdbfc44ea0042fcfbfb38860d35f7dd66
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-x86_64.zip
+        sha256: af27ea66cd26938fe48587804ca7d4817457a08350021a1c6e23a27ccc8c6904
         only-arches:
           - x86_64
         x-checker-data:
@@ -369,10 +368,13 @@ modules:
         url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.9.2/packages/yarnpkg-cli/bin/yarn.js
         sha256: ca4310f8ba997b4643a000ce512d9772e01c1485df35511114b325315960acb7
         dest-filename: yarn.cjs
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.09.2
-        commit: 3890e12c9e48c028c3f12aa58cb64bd9f8895e30
+        tag: 25.09.3
+        commit: 5d89b44bdd3d0d0e97bd50431b9451ee8ed32c10
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
@@ -388,31 +390,55 @@ modules:
       # temp fix for hatchling resolution in offline uv
       - type: inline
         contents: |
-          hatchling @ ./hatchling-1.27.0-py3-none-any.whl
-          packaging @ ./packaging-25.0-py3-none-any.whl
-          pathspec @ ./pathspec-0.12.1-py3-none-any.whl
+          hatchling @ ./hatchling-1.29.0-py3-none-any.whl
+          packaging @ ./packaging-26.2-py3-none-any.whl
+          pathspec @ ./pathspec-1.1.1-py3-none-any.whl
           pluggy @ ./pluggy-1.6.0-py3-none-any.whl
-          tomli @ ./tomli_w-1.2.0-py3-none-any.whl
-          trove-classifiers @ ./trove_classifiers-2025.11.14.15-py3-none-any.whl
+          tomli @ ./tomli-2.4.1-py3-none-any.whl
+          trove-classifiers @ ./trove_classifiers-2026.5.7.17-py3-none-any.whl
         dest-filename: uv-constraints.txt
       - type: file
-        url: https://files.pythonhosted.org/packages/08/e7/ae38d7a6dfba0533684e0b2136817d667588ae3ec984c1a4e5df5eb88482/hatchling-1.27.0-py3-none-any.whl
-        sha256: d3a2f3567c4f926ea39849cdf924c7e99e6686c9c8e288ae1037c8fa2a5d937b
+        url: https://files.pythonhosted.org/packages/d3/8a/44032265776062a89171285ede55a0bdaadc8ac00f27f0512a71a9e3e1c8/hatchling-1.29.0-py3-none-any.whl
+        sha256: 50af9343281f34785fab12da82e445ed987a6efb34fd8c2fc0f6e6630dbcc1b0
+        x-checker-data:
+          type: pypi
+          name: hatchling
+          packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl
-        sha256: 29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484
+        url: https://files.pythonhosted.org/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl
+        sha256: 5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e
+        x-checker-data:
+          type: pypi
+          name: packaging
+          packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl
-        sha256: a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08
+        url: https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl
+        sha256: a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189
+        x-checker-data:
+          type: pypi
+          name: pathspec
+          packagetype: bdist_wheel
       - type: file
         url: https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl
         sha256: e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746
+        x-checker-data:
+          type: pypi
+          name: pluggy
+          packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/c7/18/c86eb8e0202e32dd3df50d43d7ff9854f8e0603945ff398974c1d91ac1ef/tomli_w-1.2.0-py3-none-any.whl
-        sha256: 188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90
+        url: https://files.pythonhosted.org/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl
+        sha256: 0d85819802132122da43cb86656f8d1f8c6587d54ae7dcaf30e90533028b49fe
+        x-checker-data:
+          type: pypi
+          name: tomli
+          packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/49/f6/73c4aa003d1237ee9bea8a46f49dc38c45dfe95af4f0da7e60678d388011/trove_classifiers-2025.11.14.15-py3-none-any.whl
-        sha256: d1dac259c1e908939862e3331177931c6df0a37af2c1a8debcc603d9115fcdd9
+        url: https://files.pythonhosted.org/packages/7b/e3/d81b065a2d866a33a541ac63a2a4cc5737e03ce2379ac3191c98bb8867e3/trove_classifiers-2026.5.7.17-py3-none-any.whl
+        sha256: 5ec0800de5e2ddbd7c663cb4c0c15328f132dc168813897c18866c5c7b93db33
+        x-checker-data:
+          type: pypi
+          name: trove_classifiers
+          packagetype: bdist_wheel
       - type: file
         path: net.ankiweb.Anki.metainfo.xml
       - type: file

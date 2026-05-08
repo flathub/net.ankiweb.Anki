@@ -1,5 +1,5 @@
 diff --git a/qt/aqt/mpv.py b/qt/aqt/mpv.py
-index 2586d024a..6c2d56b5b 100644
+index e596f9647..c13977096 100644
 --- a/qt/aqt/mpv.py
 +++ b/qt/aqt/mpv.py
 @@ -94,9 +94,6 @@ class MPVBase:

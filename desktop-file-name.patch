@@ -1,8 +1,8 @@
 diff --git a/qt/aqt/__init__.py b/qt/aqt/__init__.py
-index 53bdc3c92..747e90951 100644
+index 718e56a6b..c1f61ebea 100644
 --- a/qt/aqt/__init__.py
 +++ b/qt/aqt/__init__.py
-@@ -667,7 +667,7 @@ def _run(argv: list[str] | None = None, exec: bool = True) -> AnkiApp | None:
+@@ -685,7 +685,7 @@ def _run(argv: list[str] | None = None, exec: bool = True) -> AnkiApp | None:
  
      # create the app
      QCoreApplication.setApplicationName("Anki")

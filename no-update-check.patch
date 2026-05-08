@@ -1,8 +1,8 @@
 diff --git a/qt/aqt/update.py b/qt/aqt/update.py
-index e5794eead..41ba7d842 100644
+index 00b618aa9..14397ca90 100644
 --- a/qt/aqt/update.py
 +++ b/qt/aqt/update.py
-@@ -19,6 +19,8 @@ from aqt.utils import openLink, show_warning, showText, tr
+@@ -24,6 +24,8 @@ from aqt.utils import openLink, show_warning, showText, tr
  
  
  def check_for_update() -> None:
