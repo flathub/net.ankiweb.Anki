@@ -331,6 +331,7 @@ modules:
       - "sed --in-place 's/\"type\": \"module\",/\"type\": \"module\"/' package.json"
       - sed --in-place '/packageManager/d' package.json
       - chmod +x yarn.cjs
+      - sed --in-place '/npmMinimalAgeGate/d' .yarnrc.yml
       - ./yarn.cjs config
       - ./yarn.cjs plugin import $FLATPAK_BUILDER_BUILDDIR/flatpak-node/flatpak-yarn.js
       - ./yarn.cjs convertToZip ./yarn.cjs
@@ -390,12 +391,12 @@ modules:
       # temp fix for hatchling resolution in offline uv
       - type: inline
         contents: |
-          hatchling @ ./hatchling-1.29.0-py3-none-any.whl
+          hatchling @ ./hatchling-1.30.1-py3-none-any.whl
           packaging @ ./packaging-26.2-py3-none-any.whl
           pathspec @ ./pathspec-1.1.1-py3-none-any.whl
           pluggy @ ./pluggy-1.6.0-py3-none-any.whl
           tomli @ ./tomli-2.4.1-py3-none-any.whl
-          trove-classifiers @ ./trove_classifiers-2026.5.7.17-py3-none-any.whl
+          trove-classifiers @ ./trove_classifiers-2026.6.1.19-py3-none-any.whl
         dest-filename: uv-constraints.txt
       - type: file
         url: https://files.pythonhosted.org/packages/56/49/2797ec0ef88008a653a8867bb8d1e5c223cd2df8e40390dd5c6a0279cbc5/hatchling-1.30.1-py3-none-any.whl
