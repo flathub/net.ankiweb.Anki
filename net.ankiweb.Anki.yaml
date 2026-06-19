@@ -114,8 +114,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://download.samba.org/pub/rsync/src/rsync-3.4.2.tar.gz
-        sha256: ff10aa2c151cd4b2dbbe6135126dbc854046113d2dfb49572a348233267eb315
+        url: https://download.samba.org/pub/rsync/src/rsync-3.4.4.tar.gz
+        sha256: bd88cf82fa653da32314fb229136407c5c90f80d1758d8f4b091767877d8fa96
         x-checker-data:
           type: anitya
           project-id: 4217
@@ -130,8 +130,8 @@ modules:
         --prefix=${FLATPAK_DEST} "maturin" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/00/94/69391af5396c6aab723932240803f49e5f3de3dd7c57d32f02d237a0ce32/maturin-1.13.1-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
-        sha256: 6b1e5916a253243e8f5f9e847b62bbc98420eec48c9ce2e2e8724c6da89d359b
+        url: https://files.pythonhosted.org/packages/40/79/15957eb4e055597f217e6310963a9c1371372e63c5b4a3e30803365addd2/maturin-1.14.0-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl
+        sha256: 75bcd4468a7fe597652cc2980c6bb16ce4bb8c411e3eb85dac2c4418cef0e95a
         only-arches:
           - x86_64
         x-checker-data:
@@ -142,8 +142,8 @@ modules:
             + "-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.musllinux_1_1_x86_64.whl")
             | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/9e/bf/4edac2667b49e3733438062ae416413b8fc8d42e1bd499ba15e1fb02fc55/maturin-1.13.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
-        sha256: dc91031e0619c1e28730279ef9ee5f106c9b9ec806b013f888676b242f892eb7
+        url: https://files.pythonhosted.org/packages/3e/4b/d1822f88cd5e855640f0e10ee00c39b9be614c1ef2f827e9792332d94b9f/maturin-1.14.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl
+        sha256: 2d123337e817f8dfe23755d6760139c01104137bb63e9e20c289c547e25ec857
         only-arches:
           - aarch64
         x-checker-data:
@@ -161,8 +161,8 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/4c/f8/a5d5bac297b1379719050788c6b852c6b3eefcb1e82d8465ed22c10cede7/uv-0.11.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: d5b9f31dab557b5ee4257d8c6ba2608a63c7278537cb0cd102cf6fc518e3fb5c
+        url: https://files.pythonhosted.org/packages/d2/dc/4eeb6d05aa5e4507dfbe4784e1c5ecd96cb317dfe2e141f36231c3db1758/uv-0.11.22-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: daaa65c5246e70e934df970aee04454c120f11bab09ce2634c5184bf1f16fe61
         only-arches:
           - x86_64
         x-checker-data:
@@ -172,8 +172,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
             + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/ee/d5/f3be167a43192062f1409fd6b857a612665d331174293b4ffc73218872e1/uv-0.11.11-py3-none-manylinux_2_28_aarch64.whl
-        sha256: 8e8faf2e5b3517155fd18e509b19b21135247d43b7fb9a8d61a44a53118d5ab7
+        url: https://files.pythonhosted.org/packages/03/ec/6663d99bb2cd94bba816769dcb4e784b9742ef62ca377d3b15db27fc0408/uv-0.11.22-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 5ec90d63a9f5f9894a8334612365daa2aba185f80ef530696afce23c1a18b711
         only-arches:
           - aarch64
         x-checker-data:
@@ -233,8 +233,8 @@ modules:
         --prefix=${FLATPAK_DEST} "idna" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/5d/13/ad7d7ca3808a898b4612b6fe93cde56b53f3034dcde235acb1f0e1df24c6/idna-3.13-py3-none-any.whl
-        sha256: 892ea0cde124a99ce773decba204c5552b69c3c67ffd5f232eb7696135bc8bb3
+        url: https://files.pythonhosted.org/packages/1e/5e/d4e9f1a599fb8e573b7b87160658329fbf28d19eac2718f51fc3def3aa5a/idna-3.18-py3-none-any.whl
+        sha256: 7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2
         x-checker-data:
           type: pypi
           name: idna
@@ -247,8 +247,8 @@ modules:
         --prefix=${FLATPAK_DEST} "cryptography" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/84/9e/500463e87abb7a0a0f9f256ec21123ecde0a7b5541a15e840ea54551fd81/cryptography-48.0.0-cp311-abi3-manylinux_2_34_aarch64.whl
-        sha256: 7e8eac43dfca5c4cccc6dad9a80504436fca53bb9bc3100a2386d730fbe6b602
+        url: https://files.pythonhosted.org/packages/6d/88/05563c7fe2e914e87d1a536d06fe83e66b4e1d95cb593e05aea375531da8/cryptography-49.0.0-cp311-abi3-manylinux_2_34_aarch64.whl
+        sha256: ccac2bfebc306b862133e3bb71f3f6ee8bb525240089b2d952e4144b3a6d5da7
         only-arches:
           - aarch64
         x-checker-data:
@@ -258,8 +258,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="cryptography-"
             + $version + "-cp311-abi3-manylinux_2_34_aarch64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/d0/c0/7101d3b7215edcdc90c45da544961fd8ed2d6448f77577460fa75a8443f7/cryptography-48.0.0-cp311-abi3-manylinux_2_34_x86_64.whl
-        sha256: bd72e68b06bb1e96913f97dd4901119bc17f39d4586a5adf2d3e47bc2b9d58b5
+        url: https://files.pythonhosted.org/packages/a9/3c/f3ad17eecc1a57b0ba236dc01f90e783c51f4a2f35f64777cc4f47a184b2/cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl
+        sha256: cbc77da8c523d5abd028635ba850a6966fcee2c82e2bf65a41d1d8afe0f98be9
         only-arches:
           - x86_64
         x-checker-data:
@@ -276,8 +276,8 @@ modules:
         --prefix=${FLATPAK_DEST} "rpds_py" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/b7/de/f7192e12b21b9e9a68a6d0f249b4af3fdcdff8418be0767a627564afa1f1/rpds_py-0.30.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: 9027da1ce107104c50c81383cae773ef5c24d296dd11c99e2629dbd7967a20c6
+        url: https://files.pythonhosted.org/packages/4b/25/05678d97fc25e2622df14dc530fb82023174ecfff6733991ed0d78f167bd/rpds_py-2026.5.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: b1b964e3ab599e718dc46c018d104b1ebc007cbc6567d827c94a687fca56d77e
         only_arches:
           - x86_64
         x-checker-data:
@@ -287,8 +287,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="rpds_py-" + $version
             + "-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/58/70/faed8186300e3b9bdd138d0273109784eea2396c68458ed580f885dfe7ad/rpds_py-0.30.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-        sha256: 2771c6c15973347f50fece41fc447c054b7ac2ae0502388ce3b6738cd366e3d4
+        url: https://files.pythonhosted.org/packages/7c/46/d84105f062e626a1b233f863907288a4708c2d833b8b4c6fb2764bc080c0/rpds_py-2026.5.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+        sha256: b5c30f3f04eef4fbd362226a6f31d7c8895ca4fbb6e0b790f6890a98d8da8559
         only_arches:
           - aarch64
         x-checker-data:
@@ -347,8 +347,8 @@ modules:
       - cargo-sources.json
       - yarn-sources.json
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-aarch_64.zip
-        sha256: 31c5e9e3c7bf013cf41fb97765ee255c140024a6b175b6cc9b64beddd7c23ba7
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v35.1/protoc-35.1-linux-aarch_64.zip
+        sha256: 01bf9d08808c7f96678b63f4bd8efa559bb4f83d5a7a270d5edaf507f9d5d9cf
         only-arches:
           - aarch64
         x-checker-data:
@@ -356,8 +356,8 @@ modules:
           project-id: 3715
           url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-aarch_64.zip
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-x86_64.zip
-        sha256: af27ea66cd26938fe48587804ca7d4817457a08350021a1c6e23a27ccc8c6904
+        url: https://github.com/protocolbuffers/protobuf/releases/download/v35.1/protoc-35.1-linux-x86_64.zip
+        sha256: 6930ebf62bd4ea607b98fff052596c6ee564b9835b4ce172c75a3f53ae9d91b7
         only-arches:
           - x86_64
         x-checker-data:
@@ -373,8 +373,8 @@ modules:
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: 25.09.4
-        commit: d52ca669f6deac5966b1c5035bc2dc77c78d3260
+        tag: '26.05'
+        commit: e64c6b1aee3e8d668fb8bbe084beada8e070d985
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
@@ -398,8 +398,8 @@ modules:
           trove-classifiers @ ./trove_classifiers-2026.5.7.17-py3-none-any.whl
         dest-filename: uv-constraints.txt
       - type: file
-        url: https://files.pythonhosted.org/packages/d3/8a/44032265776062a89171285ede55a0bdaadc8ac00f27f0512a71a9e3e1c8/hatchling-1.29.0-py3-none-any.whl
-        sha256: 50af9343281f34785fab12da82e445ed987a6efb34fd8c2fc0f6e6630dbcc1b0
+        url: https://files.pythonhosted.org/packages/56/49/2797ec0ef88008a653a8867bb8d1e5c223cd2df8e40390dd5c6a0279cbc5/hatchling-1.30.1-py3-none-any.whl
+        sha256: 161eacafb3c6f91526e92116d21426369f2c36e98c36a864f11a96345ad4ee31
         x-checker-data:
           type: pypi
           name: hatchling
@@ -433,8 +433,8 @@ modules:
           name: tomli
           packagetype: bdist_wheel
       - type: file
-        url: https://files.pythonhosted.org/packages/7b/e3/d81b065a2d866a33a541ac63a2a4cc5737e03ce2379ac3191c98bb8867e3/trove_classifiers-2026.5.7.17-py3-none-any.whl
-        sha256: 5ec0800de5e2ddbd7c663cb4c0c15328f132dc168813897c18866c5c7b93db33
+        url: https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl
+        sha256: ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3
         x-checker-data:
           type: pypi
           name: trove_classifiers

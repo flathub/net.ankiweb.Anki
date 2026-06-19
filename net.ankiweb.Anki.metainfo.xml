@@ -28,9 +28,12 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="2026.6.1.19" date="2026-06-01">
+      <description></description>
+    </release>
     <release version="25.09.04" date="2026-05-08">
       <description>
-        <p>This is a security release. Please upgrade as soon as possible using Tools > Upgrade/Downgrade.</p>
+        <p>This is a security release. Please upgrade as soon as possible using Tools &gt; Upgrade/Downgrade.</p>
         <p>Importing untrusted decks (.apkg files) had the ability to read local files. This has now been fixed.</p>
         <p>Other fixes and new features will follow in the next beta release.</p>
         <p>Many thanks to @Bankde for the excellent report and to @abdnh, @dae, and @fernandolins for the fix! 🙏🏻</p>
