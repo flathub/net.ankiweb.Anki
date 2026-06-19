@@ -28,12 +28,233 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="25.09.04" date="2026-05-08">
+    <release version="2026.6.1.19" date="2026-06-01">
+      <description></description>
+    </release>
+    <release version="25.09.05" date="2026-06-16">
       <description>
-        <p>This is a security release. Please upgrade as soon as possible using Tools > Upgrade/Downgrade.</p>
-        <p>Importing untrusted decks (.apkg files) had the ability to read local files. This has now been fixed.</p>
-        <p>Other fixes and new features will follow in the next beta release.</p>
-        <p>Many thanks to @Bankde for the excellent report and to @abdnh, @dae, and @fernandolins for the fix! 🙏🏻</p>
+        <p>What's Changed</p>
+        <p>New Installer</p>
+        <p>This release replaces the terminal-based launcher introduced in 25.07 with a more standard installation process:</p>
+        <ul>
+          <li>Anki no longer shows a terminal on installation/update.</li>
+          <li>Installation no longer requires network access.</li>
+          <li>Updates can be installed using _Tools&gt;Check For Updates_.</li>
+          <li>A standard MSI installer is provided for Windows.</li>
+          <li>A Windows ARM64 build is available.</li>
+          <li>The macOS builds require macOS 13 or later.</li>
+          <li>The Linux x86_64 build requires glibc 2.35+.</li>
+          <li>The Linux aarch64 build requires glibc 2.39+.</li>
+          <li>The minimum supported Python version is now 3.10 (The official builds still ship Python 3.13).</li>
+          <li>Qt has been updated to 6.11</li>
+        </ul>
+        <p>_Note_: The _Tools&gt;Upgrade/Downgrade_ option in 25.07+ cannot be used to upgrade to this version due to packaging changes.</p>
+        <p>_By @abdnh @andrewsanchez @fernandolins @Luc-Mcgrady @iamllama in https://github.com/ankitects/anki/pull/4629_</p>
+        <p>Documentation Improvements</p>
+        <ul>
+          <li>All user/developer documentation is now unified under a single website deployed from the main repo. The different docs repos will be archived and existing issues moved soon. By @andrewsanchez @Luc-Mcgrady @abdnh in https://github.com/ankitects/anki/pull/4882</li>
+          <li>Python API docs can now be viewed in dev-docs.ankiweb.net. By @andrewsanchez in https://github.com/ankitects/anki/pull/4579</li>
+        </ul>
+        <p>FSRS/Scheduling Changes</p>
+        <ul>
+          <li>Rework the efficiency ratio graph in FSRS Help Me Decide by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4452</li>
+          <li>Require three left-clicks to unlock FSRS parameter editing by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4372</li>
+          <li>Speed up FSRS memory state updates by batching calculations by @DanielPechersky in https://github.com/ankitects/anki/pull/4335</li>
+          <li>Improve performance of <code>reviews_for_fsrs</code> function by @L-M-Sherlock in https://github.com/ankitects/anki/pull/4339</li>
+          <li>Fix/first and latest review dates should only consider entries with a rating. by @L-M-Sherlock in https://github.com/ankitects/anki/pull/4360</li>
+          <li>Fix/Ensure fuzz doesn't go backward during rescheduling by @user1823 in https://github.com/ankitects/anki/pull/4364</li>
+          <li>Fix/Per deck retention not used when card is moved to filtered deck by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4413</li>
+          <li>Restore retrievability SQL fix that was accidentally reverted by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4424</li>
+          <li>Fix/rounded corners on FSRS Simulator modal by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4535</li>
+          <li>Fix FSRS short-term schedule being ignored when using default parameters by @L-M-Sherlock in https://github.com/ankitects/anki/pull/4412</li>
+          <li>Use quantiles for FSRS retrievability stat ranges by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4425</li>
+          <li>Make descending retrievability a pure R sort by @user1823 in https://github.com/ankitects/anki/pull/4400</li>
+          <li>Don't reschedule suspended cards by @L-M-Sherlock in https://github.com/ankitects/anki/pull/4453</li>
+          <li>Apply deck-specific load balancer settings to filtered deck study by @MoamenAbdelsattar in https://github.com/ankitects/anki/pull/4574</li>
+          <li>Prioritize previously-attempted cards in the intraday learning queue by @user1823 in https://github.com/ankitects/anki/pull/4393</li>
+          <li>Improve sibling dispersal in the load balancer, including across presets by @jakeprobst in https://github.com/ankitects/anki/pull/4640</li>
+          <li>Fix desired retention not refreshing when switching deck option presets by @barisayyildiz in https://github.com/ankitects/anki/pull/4610</li>
+          <li>Improve FSRS invalid parameters error message with FAQ link by @AmandaSternberg-creator in https://github.com/ankitects/anki/pull/4342</li>
+          <li>Clarify ambiguous "this value" wording in desired retention tooltip by @Expertium in https://github.com/ankitects/anki/pull/4647</li>
+          <li>Expose <code>setParameterUnlockClickTimeoutMs</code> for FSRS parameter unlock timeout by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4810</li>
+          <li>Export last_interval to Python by @user1823 in https://github.com/ankitects/anki/pull/4365</li>
+          <li>Expose card decay and desired retention to the custom scheduler by @user1823 in https://github.com/ankitects/anki/pull/4880</li>
+          <li>Remove broken retention rate help link in stats by @Hannanilsenn in https://github.com/ankitects/anki/pull/4329</li>
+        </ul>
+        <p>Other Notable Changes</p>
+        <ul>
+          <li>Show saved custom colours in the image-occlusion fill tool colour picker on mobile by @iamllama in https://github.com/ankitects/anki/pull/4348</li>
+          <li>Add support for <code>tag:nc:...</code> (case-insensitive) tag searches by @iamllama in https://github.com/ankitects/anki/pull/4344</li>
+          <li>Treat newlines as term breaks in search queries by @eliasjlara in https://github.com/ankitects/anki/pull/4336</li>
+          <li>Add syntax for multi-card cloze deletions by @tfpgh in https://github.com/ankitects/anki/pull/4333</li>
+          <li>Remember image-occlusion translucency toggle between sessions by @dspilleb in https://github.com/ankitects/anki/pull/4366</li>
+          <li>Fix "Restore to Default" picking the wrong template for basic notetype variants by @arold0 in https://github.com/ankitects/anki/pull/4382</li>
+          <li>Let the "Limit to" spin box grow with its content in the filtered deck dialog by @jcznk in https://github.com/ankitects/anki/pull/4398</li>
+          <li>Fix unescaped HTML in correct type-in answers by @Eltaurus-Lt in https://github.com/ankitects/anki/pull/4407</li>
+          <li>Always show text boxes on image-occlusion cards during review by @jariji in https://github.com/ankitects/anki/pull/4387</li>
+          <li>Fix FindDuplicates dialog size exceeding screen bounds by @Nechaiter in https://github.com/ankitects/anki/pull/4426</li>
+          <li>Fall back to Apple Samantha for TTS on macOS when no requested voice matches by @leedoughty in https://github.com/ankitects/anki/pull/4420</li>
+          <li>Allow variable field counts per row when CSV import uses a notetype column by @iamllama in https://github.com/ankitects/anki/pull/4421</li>
+          <li>Improve handling of media files differing only in letter case by @iamllama in #4355 #4851 #4860 #4861 #4852</li>
+          <li>Keep non-breaking spaces outside cloze deletions when wrapping text by @leedoughty in https://github.com/ankitects/anki/pull/4446</li>
+          <li>Start decoding images immediately by @SelfishPig in https://github.com/ankitects/anki/pull/4471</li>
+          <li>Revert ForceDarkMode change that interfered with Anki's native dark theme by @GithubAnon0000 in https://github.com/ankitects/anki/pull/4483</li>
+          <li>Apply the nightMode class to the editor in dark mode so custom HTML styles correctly by @leedoughty in https://github.com/ankitects/anki/pull/4473</li>
+          <li>Auto-select the relevant note type in the Manage Note Types dialog after add/rename by @Arthur-Milchior in https://github.com/ankitects/anki/pull/4479</li>
+          <li>Fix field rename by matching on the old name rather than field position by @Arthur-Milchior in https://github.com/ankitects/anki/pull/4488</li>
+          <li>Allow horizontal scrolling on the deck options screen so AnkiDroid handles large font sizes by @defkorean in https://github.com/ankitects/anki/pull/4501</li>
+          <li>Fix <code>{{#Tags}}</code> conditional not triggering card generation by @Yuukidiv in https://github.com/ankitects/anki/pull/4533</li>
+          <li>Silence console spam from image decoding errors during preload by @SelfishPig in https://github.com/ankitects/anki/pull/4534</li>
+          <li>Add note type and GUID column headers to deleted.txt for easier reimport by @hnvy in https://github.com/ankitects/anki/pull/4454</li>
+          <li>Apply Ctrl/Cmd+W window-closing shortcut globally to all dialogs by @beyondcompute in https://github.com/ankitects/anki/pull/4475</li>
+          <li>Fix overlapping date ranges in graphs when "all history" is selected by @JMannervik in https://github.com/ankitects/anki/pull/4430</li>
+          <li>Add a preference to disable the startup add-on update check by @SecretX33 in https://github.com/ankitects/anki/pull/4478</li>
+          <li>Add <code>dir="auto"</code> to cards so text direction no longer depends on the UI language by @MoamenAbdelsattar in https://github.com/ankitects/anki/pull/4428</li>
+          <li>Accept images with capitalized extensions in the Browse "Attach" dialog by @miggazElquez in https://github.com/ankitects/anki/pull/4474</li>
+          <li>Re-enable WindowsRT TTS player on Windows 11 by @abdnh in https://github.com/ankitects/anki/pull/4512</li>
+          <li>Fix HTML editor collapsing after toggling sticky fields and adding a note by @Yuukidiv in https://github.com/ankitects/anki/pull/4566</li>
+          <li>Fix image occlusion editor layout for right-to-left languages by @MoamenAbdelsattar in https://github.com/ankitects/anki/pull/4594</li>
+          <li>Speed up tag autocomplete by using the Rust backend's complete_tag() by @user1823 in https://github.com/ankitects/anki/pull/4626</li>
+          <li>Detect cloze fields nested inside conditionals during card generation by @maskady in https://github.com/ankitects/anki/pull/4651</li>
+          <li>Prompt to save unsaved changes when closing or switching debug console scripts by @Arthur-Milchior in https://github.com/ankitects/anki/pull/4625</li>
+          <li>Roll back the sidebar tag name when the backend rejects a rename by @chrislongros in https://github.com/ankitects/anki/pull/4718</li>
+          <li>Improve word wrapping on the Deck Options screen for narrow viewports by @defkorean in https://github.com/ankitects/anki/pull/4558</li>
+          <li>Update to mpv 0.41.0 by @abdnh in https://github.com/ankitects/anki/pull/4913</li>
+          <li>Bundle Fcitx plugin on Linux by @abdnh in https://github.com/ankitects/anki/pull/4886</li>
+          <li>Install required Linux system dependencies in install.sh by @abdnh in https://github.com/ankitects/anki/pull/4895</li>
+          <li>Render sync server messages as rich text by @timarnoldev in https://github.com/ankitects/anki/pull/4560</li>
+        </ul>
+        <p>Other Improvements</p>
+        <ul>
+          <li>Fix progress bar overflow crash when one-way uploads exceed 2 GB by @matbe766 in https://github.com/ankitects/anki/pull/4354</li>
+          <li>Fix fatal error from rapidly double-clicking the Add button by @arold0 in https://github.com/ankitects/anki/pull/4377</li>
+          <li>Use the native <code>crypto.randomUUID()</code> instead of a custom UUID implementation by @leedoughty in https://github.com/ankitects/anki/pull/4384</li>
+          <li>Credit Arabic translation contributor in the About window by @hnvy in https://github.com/ankitects/anki/pull/4720</li>
+          <li>Tighten <code>Collection.add_notes</code> type annotation so single-pass iterables aren't accepted by @jfly in https://github.com/ankitects/anki/pull/4758</li>
+          <li>Set a friendly process job name for mpv on Windows by @abdnh in https://github.com/ankitects/anki/pull/4438</li>
+          <li>Add Rust unit tests for the card-generation logic by @Yuukidiv in https://github.com/ankitects/anki/pull/4551</li>
+          <li>Add punctuation, convert raw URLs to markdown links in READMEs by @oliolioli in https://github.com/ankitects/anki/pull/4570</li>
+          <li>Reorder and comment .ftl files in UI order to help translators by @RolfMaster in https://github.com/ankitects/anki/pull/4514</li>
+          <li>Show tooltips for truncated sidebar items in the Browse window by @nav1s in https://github.com/ankitects/anki/pull/4385</li>
+          <li>Stop showing an error toast when saving an image-occlusion note twice on mobile by @iamllama in https://github.com/ankitects/anki/pull/4458</li>
+          <li>Render `</li>
+        </ul>
+        <p>` as a line break in card template error messages instead of literal text by @leedoughty in https://github.com/ankitects/anki/pull/4451</p>
+        <ul>
+          <li>Use a true minus sign instead of a hyphen in the deck browser by @GithubAnon0000 in https://github.com/ankitects/anki/pull/4437</li>
+          <li>Fix sync login dialog ignoring a freshly-set custom sync server URL by @ranjitodedra in https://github.com/ankitects/anki/pull/4396</li>
+          <li>Add plural forms to unit labels next to spin boxes in the Custom Study dialog by @RolfMaster in https://github.com/ankitects/anki/pull/4520</li>
+          <li>Don't expose collection.media.db2 over the API by @dae in https://github.com/ankitects/anki/pull/4653</li>
+          <li>Update media sync progress dialog correctly after an error occurs in https://github.com/ankitects/anki/pull/4486</li>
+          <li>Disable the Custom Study OK button when the selected deck is empty by @tunamayo04 in https://github.com/ankitects/anki/pull/4463</li>
+          <li>Warn the user when renaming a profile would exceed the OS path length limit in https://github.com/ankitects/anki/pull/4552</li>
+          <li>Fix regex error by @chiragjagga in https://github.com/ankitects/anki/pull/4837</li>
+          <li>Preserve browser focus after note export by @Tfc538 in https://github.com/ankitects/anki/pull/4845</li>
+          <li>Avoid loading unused cacert.pem by @abdnh in https://github.com/ankitects/anki/pull/4858</li>
+          <li>Strip HTML from note type names in Empty Cards dialog by @abdnh in https://github.com/ankitects/anki/pull/4902</li>
+          <li>Parameterize inputs of prop:cd* queries by @abdnh in https://github.com/ankitects/anki/pull/4905</li>
+          <li>Validate add-on zip entries by @abdnh in https://github.com/ankitects/anki/pull/4901</li>
+          <li>Repaint UI after answer reveal to reduce glitches on cards with images by @abdnh in https://github.com/ankitects/anki/pull/4970</li>
+        </ul>
+        <p>Developer Improvements</p>
+        <ul>
+          <li>The release build process is now fully automated using GitHub Actions. By @andrewsanchez @abdnh @fernandolins in https://github.com/ankitects/anki/pull/4632</li>
+          <li>Migrate CI from BuildKite to GitHub Actions. By @andrewsanchez @abdnh @fernandolins in https://github.com/ankitects/anki/pull/4593</li>
+          <li>Update to Rust 1.92 by @abdnh in https://github.com/ankitects/anki/pull/4461</li>
+          <li>Add Dependabot config with monthly grouped updates by @fernandolins in https://github.com/ankitects/anki/pull/4726</li>
+          <li>Update PyCharm docs by @abdnh in https://github.com/ankitects/anki/pull/4389</li>
+          <li>Update VS Code config by @abdnh in https://github.com/ankitects/anki/pull/4397</li>
+          <li>Treat proto/i18n's implicit outputs as inputs by @iamllama in https://github.com/ankitects/anki/pull/4439</li>
+          <li>Respect .python-version when generating pyenv by @iamllama in https://github.com/ankitects/anki/pull/4436</li>
+          <li>Add more required packages to Linux build guide by @user1823 in https://github.com/ankitects/anki/pull/4432</li>
+          <li>Only run cargo-deny if there are dependency changes by @abdnh in https://github.com/ankitects/anki/pull/4644</li>
+          <li>Remove old GPG public key by @dae in https://github.com/ankitects/anki/pull/4707</li>
+          <li>Raise dependabot open-pull-requests-limit to 3 by @fernandolins in https://github.com/ankitects/anki/pull/4746</li>
+          <li>Add release-age controls for uv and Yarn dependencies by @fernandolins in https://github.com/ankitects/anki/pull/4761</li>
+          <li>docs: add contributing guidelines for add-ons, linked issues, and AI-assisted PRs by @fernandolins in https://github.com/ankitects/anki/pull/4782</li>
+          <li>Add pre-commit for automated pre-push checks by @fernandolins in https://github.com/ankitects/anki/pull/4660</li>
+          <li>Add a standardized pull request template by @fernandolins in https://github.com/ankitects/anki/pull/4655</li>
+          <li>Exclude BackendFrontendService from write_python_interface by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4410</li>
+          <li>Add regression test for #1909 (media check long filenames) by @bds124 in https://github.com/ankitects/anki/pull/4476</li>
+          <li>Update docker build command for syncserver by @CYPHER0041 in https://github.com/ankitects/anki/pull/4562</li>
+          <li>Exclude more folders from build actions by @abdnh in https://github.com/ankitects/anki/pull/4561</li>
+          <li>Add Windows quick start guide for new contributors by @DaniSilvaCodes in https://github.com/ankitects/anki/pull/4466</li>
+          <li>Update Windows developer docs by @user1823 in https://github.com/ankitects/anki/pull/4662</li>
+          <li>Ignore Fluent message errors in TypeScript by @abdnh in https://github.com/ankitects/anki/pull/4494</li>
+          <li>Drop QDialog argument from grade_now() to make it add-on friendly by @abdnh in https://github.com/ankitects/anki/pull/4459</li>
+          <li>Wrap previewer type field syntax replacement in separate method by @DaedalusIndigo in https://github.com/ankitects/anki/pull/4563</li>
+          <li>Document that <code>add_deck</code> requires refetching the deck to see its new ID by @jfly in https://github.com/ankitects/anki/pull/4760</li>
+          <li>Update security.md by @andrewsanchez in https://github.com/ankitects/anki/pull/4790</li>
+          <li>Add missing PyPI metadata to anki package by @fernandolins in https://github.com/ankitects/anki/pull/4817</li>
+          <li>Fix beta/rc suffix handling in int_version() by @abdnh in https://github.com/ankitects/anki/pull/4828</li>
+          <li>Prevent Windows elevation errors when running ninja_gen's update binaries by @abdnh in https://github.com/ankitects/anki/pull/4848</li>
+          <li>Fix <code>atomic_rename</code> to work with single-component relative paths by @jfly in https://github.com/ankitects/anki/pull/4773</li>
+          <li>Add Python test coverage by @fernandolins in https://github.com/ankitects/anki/pull/4841</li>
+          <li>Add Rust test coverage by @fernandolins in https://github.com/ankitects/anki/pull/4842</li>
+          <li>Add TypeScript test coverage by @fernandolins in https://github.com/ankitects/anki/pull/4843</li>
+          <li>Add test coverage docs by @fernandolins in https://github.com/ankitects/anki/pull/4844</li>
+          <li>Add tests for build_installer.py by @abdnh in https://github.com/ankitects/anki/pull/4868</li>
+          <li>Add Playwright end-to-end test infrastructure by @fernandolins in https://github.com/ankitects/anki/pull/4864</li>
+          <li>Cache coverage baseline from main for regression checks by @fernandolins in https://github.com/ankitects/anki/pull/4875</li>
+          <li>Replace print() logging in pylib with Python logging by @davidsauerwein in https://github.com/ankitects/anki/pull/4666</li>
+          <li>Avoid broad warnings filter by @abdnh in https://github.com/ankitects/anki/pull/4900</li>
+          <li>Enforce linked issue requirement on PRs by @fernandolins in https://github.com/ankitects/anki/pull/4910</li>
+          <li>Fail PR if line coverage regresses by @fernandolins in https://github.com/ankitects/anki/pull/4876</li>
+          <li>Import some modules lazily by @abdnh in https://github.com/ankitects/anki/pull/4831</li>
+          <li>Add hash script for GitHub Actions by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4991</li>
+          <li>Add unit tests for CSV export and import-export service layer by @fernandolins in https://github.com/ankitects/anki/pull/4976</li>
+          <li>Add tests for attribute and tag stripping in HTML filter by @leedoughty in https://github.com/ankitects/anki/pull/4965</li>
+          <li>Add unit tests for learning and relearning state transitions by @fernandolins in https://github.com/ankitects/anki/pull/4963</li>
+          <li>Replace deprecated global map-get/map-merge with sass:map namespace by @fernandolins in https://github.com/ankitects/anki/pull/4955</li>
+          <li>Remove unused Bootstrap imports from _button-mixins.scss by @fernandolins in https://github.com/ankitects/anki/pull/4953</li>
+          <li>Integrate Complexipy for Python complexity analysis by @abdnh in https://github.com/ankitects/anki/pull/4942 and https://github.com/ankitects/anki/pull/4987</li>
+          <li>Consolidated security dependency updates (Dependabot batch) by @fernandolins in https://github.com/ankitects/anki/pull/4934</li>
+          <li>Add just recipes for run, web-watch, rebuild-web, and clean, and add AGENTS.md by @fernandolins in https://github.com/ankitects/anki/pull/4943</li>
+          <li>Expand contributing guide with PR process and test requirements by @fernandolins in https://github.com/ankitects/anki/pull/4946</li>
+          <li>Prevent duplicate 'missing linked issue' comments on PR edits by @fernandolins in https://github.com/ankitects/anki/pull/4937</li>
+          <li>Use commit SHAs for GitHub Actions dependencies by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/4916</li>
+          <li>Use PowerShell to run just commands on Windows by @abdnh in https://github.com/ankitects/anki/pull/4921</li>
+          <li>Exclude github-actions[bot] from contributor check by @abdnh in https://github.com/ankitects/anki/pull/4923</li>
+        </ul>
+        <p>New Contributors</p>
+        <ul>
+          <li>@Hannanilsenn made their first contribution in https://github.com/ankitects/anki/pull/4329</li>
+          <li>@eliasjlara made their first contribution in https://github.com/ankitects/anki/pull/4336</li>
+          <li>@tfpgh made their first contribution in https://github.com/ankitects/anki/pull/4333</li>
+          <li>@dspilleb made their first contribution in https://github.com/ankitects/anki/pull/4366</li>
+          <li>@matbe766 made their first contribution in https://github.com/ankitects/anki/pull/4354</li>
+          <li>@AmandaSternberg-creator made their first contribution in https://github.com/ankitects/anki/pull/4342</li>
+          <li>@arold0 made their first contribution in https://github.com/ankitects/anki/pull/4377</li>
+          <li>@nav1s made their first contribution in https://github.com/ankitects/anki/pull/4385</li>
+          <li>@ranjitodedra made their first contribution in https://github.com/ankitects/anki/pull/4396</li>
+          <li>@Eltaurus-Lt made their first contribution in https://github.com/ankitects/anki/pull/4407</li>
+          <li>@jariji made their first contribution in https://github.com/ankitects/anki/pull/4387</li>
+          <li>@Nechaiter made their first contribution in https://github.com/ankitects/anki/pull/4426</li>
+          <li>@SelfishPig made their first contribution in https://github.com/ankitects/anki/pull/4471</li>
+          <li>@bds124 made their first contribution in https://github.com/ankitects/anki/pull/4476</li>
+          <li>@tunamayo04 made their first contribution in https://github.com/ankitects/anki/pull/4463</li>
+          <li>@defkorean made their first contribution in https://github.com/ankitects/anki/pull/4501</li>
+          <li>@RolfMaster made their first contribution in https://github.com/ankitects/anki/pull/4514</li>
+          <li>@Yuukidiv made their first contribution in https://github.com/ankitects/anki/pull/4533</li>
+          <li>@JMannervik made their first contribution in https://github.com/ankitects/anki/pull/4430</li>
+          <li>@SecretX33 made their first contribution in https://github.com/ankitects/anki/pull/4478</li>
+          <li>@DanielPechersky made their first contribution in https://github.com/ankitects/anki/pull/4335</li>
+          <li>@MoamenAbdelsattar made their first contribution in https://github.com/ankitects/anki/pull/4428</li>
+          <li>@DaedalusIndigo made their first contribution in https://github.com/ankitects/anki/pull/4563</li>
+          <li>@miggazElquez made their first contribution in https://github.com/ankitects/anki/pull/4474</li>
+          <li>@oliolioli made their first contribution in https://github.com/ankitects/anki/pull/4570</li>
+          <li>@DaniSilvaCodes made their first contribution in https://github.com/ankitects/anki/pull/4466</li>
+          <li>@chrislongros made their first contribution in https://github.com/ankitects/anki/pull/4668</li>
+          <li>@CYPHER0041 made their first contribution in https://github.com/ankitects/anki/pull/4562</li>
+          <li>@maskady made their first contribution in https://github.com/ankitects/anki/pull/4651</li>
+          <li>@jfly made their first contribution in https://github.com/ankitects/anki/pull/4758</li>
+          <li>@barisayyildiz made their first contribution in https://github.com/ankitects/anki/pull/4610</li>
+          <li>@chiragjagga made their first contribution in https://github.com/ankitects/anki/pull/4837</li>
+          <li>@Tfc538 made their first contribution in https://github.com/ankitects/anki/pull/4845</li>
+          <li>@davidsauerwein made their first contribution in https://github.com/ankitects/anki/pull/4666</li>
+          <li>@timarnoldev made their first contribution in https://github.com/ankitects/anki/pull/4560</li>
+        </ul>
+        <p>Full Changelog: https://github.com/ankitects/anki/compare/25.09.4...26.05</p>
       </description>
     </release>
   </releases>
