@@ -177,3 +177,4 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         sys.exit("args: <Cargo.lock> <output.json>")
     main(sys.argv[1], sys.argv[2])
+

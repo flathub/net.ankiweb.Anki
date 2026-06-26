@@ -3,4 +3,6 @@ appdir
 repo
 builddir
 anki
+python-requirements.txt
+flatpak-builder-tools
 
