@@ -109,7 +109,7 @@ modules:
             url: https://xorg.freedesktop.org/releases/individual/lib/libXpresent-1.0.2.tar.xz
             sha256: 4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602
 
-  - name: rsync
+  - name: rsync-bin
     sources:
       - type: archive
         url: https://download.samba.org/pub/rsync/src/rsync-3.4.4.tar.gz
