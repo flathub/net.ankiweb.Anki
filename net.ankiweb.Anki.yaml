@@ -110,8 +110,6 @@ modules:
             sha256: 4e5b21b4812206a4b223013606ae31170502c1043038777a1ef8f70c09d37602
 
   - name: rsync
-    cleanup:
-      - /share
     sources:
       - type: archive
         url: https://download.samba.org/pub/rsync/src/rsync-3.4.4.tar.gz
@@ -122,6 +120,8 @@ modules:
           versions:
             <: '4.0'
           url-template: https://download.samba.org/pub/rsync/src/rsync-$version.tar.gz
+    cleanup:
+      - '*'
 
   - name: maturin-bin
     buildsystem: simple
@@ -153,6 +153,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="maturin-" + $version
             + "-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl")
             | .url
+    cleanup:
+      - '*'
 
   - name: uv-bin
     buildsystem: simple
@@ -395,7 +397,6 @@ modules:
           packaging @ ./packaging-26.2-py3-none-any.whl
           pathspec @ ./pathspec-1.1.1-py3-none-any.whl
           pluggy @ ./pluggy-1.6.0-py3-none-any.whl
-          tomli @ ./tomli-2.4.1-py3-none-any.whl
           trove-classifiers @ ./trove_classifiers-2026.6.1.19-py3-none-any.whl
         dest-filename: uv-constraints.txt
       - type: file
@@ -425,13 +426,6 @@ modules:
         x-checker-data:
           type: pypi
           name: pluggy
-          packagetype: bdist_wheel
-      - type: file
-        url: https://files.pythonhosted.org/packages/7b/61/cceae43728b7de99d9b847560c262873a1f6c98202171fd5ed62640b494b/tomli-2.4.1-py3-none-any.whl
-        sha256: 0d85819802132122da43cb86656f8d1f8c6587d54ae7dcaf30e90533028b49fe
-        x-checker-data:
-          type: pypi
-          name: tomli
           packagetype: bdist_wheel
       - type: file
         url: https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl
