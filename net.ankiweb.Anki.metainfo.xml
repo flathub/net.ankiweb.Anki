@@ -27,6 +27,10 @@
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1"/>
+  <branding>
+    <color type="primary" scheme_preference="light">#9dc3db</color>
+    <color type="primary" scheme_preference="dark">#5d90b2</color>
+  </branding>
   <releases>
     <release version="25.09.05" date="2026-06-16">
       <description>
