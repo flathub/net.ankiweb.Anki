@@ -9,9 +9,9 @@ distro; sys_platform != 'darwin' and sys_platform != 'win32'
 
 # aqt
 beautifulsoup4
-flask
-flask-cors
+flask[async]
 jsonschema
 send2trash
 waitress>=2.0.0
-pip-system-certs!=5.1
+truststore>=0.10.4
+packaging

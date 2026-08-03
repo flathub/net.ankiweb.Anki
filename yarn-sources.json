@@ -2069,16 +2069,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001714.tgz",
-        "sha512": "9ad81aa5dc032d24819c223726890733ba044012f188929546d835d00c4cd40c9e88a70cf7a7f43246ea7aafb501b882b6f31c1d1ba500010cbbaf7726b496aa",
-        "dest-filename": "caniuse-lite-Y2FuaXVzZS1saXRlQG5wbToxLjAuMzAwMDE3MTQ=-b0e3372f01.tgz",
-        "dest": "flatpak-node/yarn-berry/cache/locator"
-    },
-    {
-        "type": "file",
-        "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001792.tgz",
-        "sha512": "8552cc519160478249e800add6e1044af40dd7f74156a3c0298d2182b57bd1e377dfdd4aea3b807d38ca64b2af38cb31f0fc40ee0b18d7fb4b30c4dc7c52cba7",
-        "dest-filename": "caniuse-lite-Y2FuaXVzZS1saXRlQG5wbToxLjAuMzAwMDE3OTI=-03bab64b12.tgz",
+        "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001799.tgz",
+        "sha512": "846d5b45e57e39453e30ea8ae2dfd9588d2d64ecb3deba92f57ba1394cf570871bc012a33b224426ec3d111e49b8dcaac4d93cbbf25455b1a26c138bd72ae317",
+        "dest-filename": "caniuse-lite-Y2FuaXVzZS1saXRlQG5wbToxLjAuMzAwMDE3OTk=-f24f9834ed.tgz",
         "dest": "flatpak-node/yarn-berry/cache/locator"
     },
     {
