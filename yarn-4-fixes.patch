@@ -1,3 +1,34 @@
+diff --git a/build/ninja_gen/src/node.rs b/build/ninja_gen/src/node.rs
+index b6731e231..814bcf706 100644
+--- a/build/ninja_gen/src/node.rs
++++ b/build/ninja_gen/src/node.rs
+@@ -49,11 +49,7 @@ pub struct YarnSetup {}
+ 
+ impl BuildAction for YarnSetup {
+     fn command(&self) -> &str {
+-        if cfg!(windows) {
+-            "corepack.cmd enable yarn"
+-        } else {
+-            "corepack enable yarn"
+-        }
++        "true"
+     }
+ 
+     fn files(&mut self, build: &mut impl build::FilesHandle) {
+@@ -135,11 +131,11 @@ pub fn setup_node(
+     };
+     build.add_dependency("node_binary", node_binary);
+ 
+-    match std::env::var("YARN_BINARY") {
++    match std::env::var("ANKI_YARN_BINARY") {
+         Ok(path) => {
+             assert!(
+                 Utf8Path::new(&path).is_absolute(),
+-                "YARN_BINARY must be absolute"
++                "ANKI_YARN_BINARY must be absolute"
+             );
+             build.add_dependency("yarn:bin", inputs![path]);
+         }
 diff --git a/build/runner/src/yarn.rs b/build/runner/src/yarn.rs
 index 7724ed04a..8b145df82 100644
 --- a/build/runner/src/yarn.rs
@@ -26,34 +57,3 @@ index 7724ed04a..8b145df82 100644
  
      std::fs::write(args.stamp, b"").unwrap();
  }
-
-index 38baa8f62..3bdcc5f20 100644
---- a/build/ninja_gen/src/node.rs
-+++ b/build/ninja_gen/src/node.rs
-@@ -49,11 +49,7 @@ pub struct YarnSetup {}
- 
- impl BuildAction for YarnSetup {
-     fn command(&self) -> &str {
--        if cfg!(windows) {
--            "corepack.cmd enable yarn"
--        } else {
--            "corepack enable yarn"
--        }
-+        return "true"
-     }
- 
-     fn files(&mut self, build: &mut impl build::FilesHandle) {
-@@ -135,11 +131,11 @@ pub fn setup_node(
-     };
-     build.add_dependency("node_binary", node_binary);
- 
--    match std::env::var("YARN_BINARY") {
-+    match std::env::var("ANKI_YARN_BINARY") {
-         Ok(path) => {
-             assert!(
-                 Utf8Path::new(&path).is_absolute(),
--                "YARN_BINARY must be absolute"
-+                "ANKI_YARN_BINARY must be absolute"
-             );
-             build.add_dependency("yarn:bin", inputs![path]);
-         }

@@ -226,9 +226,9 @@ modules:
       - ./yarn.cjs install
       - ./ninja wheels
       - for f in out/wheels/*.whl; do python -m installer --prefix="/app" $f; done
-      - install -Dm644 ./qt/launcher/lin/anki.desktop /app/share/applications
+      - install -Dm644 "./qt/installer/linux-template/{{ cookiecutter.format }}/{{ cookiecutter.app_name }}/anki.desktop" /app/share/applications
       - install -Dm644 net.ankiweb.Anki.metainfo.xml /app/share/metainfo
-      - install -Dm644 ./qt/launcher/lin/anki.xml /app/share/mime/packages/net.ankiweb.Anki.xml
+      - install -Dm644 "./qt/installer/linux-template/{{ cookiecutter.format }}/{{ cookiecutter.app_name }}/anki.xml" /app/share/mime/packages/net.ankiweb.Anki.xml
       - install -Dm644 anki.svg /app/share/icons/hicolor/scalable/apps
     cleanup:
       - /share/pixmaps
@@ -254,16 +254,16 @@ modules:
           project-id: 3715
           url-template: https://github.com/protocolbuffers/protobuf/releases/download/v$version/protoc-$version-linux-x86_64.zip
       - type: file
-        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.9.2/packages/yarnpkg-cli/bin/yarn.js
-        sha256: ca4310f8ba997b4643a000ce512d9772e01c1485df35511114b325315960acb7
+        url: https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/%40yarnpkg/cli/4.11.0/packages/yarnpkg-cli/bin/yarn.js
+        sha256: b0efc6597348fab50c777d2ff4b09e814974058cf012c3d687c9e80bca824358
         dest-filename: yarn.cjs
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: '26.05'
-        commit: e64c6b1aee3e8d668fb8bbe084beada8e070d985
+        tag: '26.08'
+        commit: 666c2c64d4a1772c03948f5b667438da63ddaa76
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
