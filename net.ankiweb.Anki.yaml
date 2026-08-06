@@ -262,8 +262,8 @@ modules:
           tag-pattern: ^v([\d.]+)$
       - type: git
         url: https://github.com/ankitects/anki.git
-        tag: '26.08'
-        commit: 666c2c64d4a1772c03948f5b667438da63ddaa76
+        tag: '26.08.1'
+        commit: 39e4b0b48c5bb22e9c22ad87c64ff14e6a24dc20
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ankitects/anki/releases/latest
