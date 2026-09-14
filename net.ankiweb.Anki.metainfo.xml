@@ -32,13 +32,163 @@
     <color type="primary" scheme_preference="dark">#5d90b2</color>
   </branding>
   <releases>
-    <release version="26.08.1" date="2026-08-05">
+    <release version="26.09" date="2026-09-14">
       <description>
+        <p>Security Fixes</p>
+        <p><em>⚠️ This update contains important security fixes. Please upgrade as soon as possible</em>.</p>
         <ul>
-        <li>Fix broken custom study / unbury links in the congrats screen by @abdnh in https://github.com/ankitects/anki/pull/5278</li>
-        <li>Fix broken OK button in help modals by @abdnh in https://github.com/ankitects/anki/pull/5279</li>
+        <li>Notes had the ability to read local files when viewed in the editor. (Thanks to @caleblee789 for the report)</li>
+        <li>The "Open image" context menu action in the editor did not validate the file's extension, which allowed decks to execute dangerous files on some systems. (Thanks to @lappas-m for the report)</li>
         </ul>
-        <p><em>Full Changelog</em>: https://github.com/ankitects/anki/compare/26.08...26.08.1</p>
+        <p>Add-on Compatibility Note</p>
+        <p>The following legacy modules have been removed: <code>anki.importing</code> and <code>anki.exporting</code>. See the docs for alternatives.</p>
+        <p><em>Some compatibility wrappers were added but they were only tested with AnkiConnect add-on and will be removed in the future.</em></p>
+        <p>Notable Changes</p>
+        <ul>
+        <li>Fix audio playback in macOS 27 by @abdnh in https://github.com/ankitects/anki/pull/5363</li>
+        <li>Fix audio not being played automatically when attached in the editor by @JaksonSouza in https://github.com/ankitects/anki/pull/5320</li>
+        <li>Recompute FSRS data after changing deck by @user1823 in https://github.com/ankitects/anki/pull/5339</li>
+        <li>Update FSRS to 6.6.2 by @asukaminato0721 in https://github.com/ankitects/anki/pull/5494</li>
+        <li>Improve performance of reviewer initialization by lazy-loading MathJax by @BrayanDSO and @iamllama in https://github.com/ankitects/anki/pull/5171</li>
+        <li>Remove Python-based legacy importing/exporting handling by @chrislongros in https://github.com/ankitects/anki/pull/5153</li>
+        </ul>
+        <p>Other Fixes</p>
+        <ul>
+        <li>Fix HTML dropdowns/datepickers growing indefinitely with scaled UI on Windows by @abdnh in https://github.com/ankitects/anki/pull/5396</li>
+        <li>Fix macOS/Linux crashes when the SIGPIPE signal is triggered (reported in some add-ons) by @abdnh in https://github.com/ankitects/anki/pull/5545</li>
+        <li>Fix the deck selector in the Stats screen not refreshing graphs in some cases by @iamllama in https://github.com/ankitects/anki/pull/5486</li>
+        <li>Disallow future dates in "Ignore cards reviewed before" by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5294</li>
+        <li>Fix font size in the FSRS simulator graph by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5099</li>
+        <li>Improve display of error messages in the CSV import screen by @MendezCarl in https://github.com/ankitects/anki/pull/5484</li>
+        <li>Hide FSRS-only sort orders in filtered deck dialog when FSRS is disabled by @zaveshaa in https://github.com/ankitects/anki/pull/5407</li>
+        <li>Refresh the reviewer toolbar's background after theme changes by @jamesliuai in https://github.com/ankitects/anki/pull/5241</li>
+        <li>Add wrappers for the AnkiPackageImporter/AnkiPackageExporter APIs for compatibility with the AnkiConnect add-on by @abdnh in https://github.com/ankitects/anki/pull/5547</li>
+        <li>Relax CSP restrictions to allow iframes in decks to load CSS styles by @twwn in https://github.com/ankitects/anki/pull/5525</li>
+        <li>Update to Qt 6.11.2 by @abdnh in https://github.com/ankitects/anki/pull/5539</li>
+        <li>Write logs to crash.log in the base Anki folder after crashes by @abdnh in https://github.com/ankitects/anki/pull/5546</li>
+        <li>Fix audio copy &amp; paste handling in the experimental editor by @iamllama in https://github.com/ankitects/anki/pull/5337</li>
+        <li>Hide ease when FSRS is enabled but there is no memory state by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5277</li>
+        <li>Improve error reporting for the Tools&gt;Check for Updates feature by @abdnh in https://github.com/ankitects/anki/pull/5295</li>
+        <li>Update FSRS memory state when card info opened by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5326</li>
+        <li>Fix MSI install is blocked if uninstall.exe exists at a drive root by @abdnh in https://github.com/ankitects/anki/pull/5360</li>
+        <li>Fix MathJax lazy loading causing flickering in some templates by @iamllama in https://github.com/ankitects/anki/pull/5254</li>
+        <li>Fix Add/Edit screens not closing in the experimental editor on some systems by @iamllama in https://github.com/ankitects/anki/pull/5373</li>
+        <li>Treat $ literally in non-regex find&amp;replace replacements by @krMaynard in https://github.com/ankitects/anki/pull/5216</li>
+        <li>Fix experimental editor not playing pasted/dropped audio by @abdnh in https://github.com/ankitects/anki/pull/5329</li>
+        <li>Fix calendar graph year navigation buttons position in RTL layouts by @iDavi in https://github.com/ankitects/anki/pull/5103</li>
+        <li>Mirror help icon for arabic script rtl langs by @iDavi in https://github.com/ankitects/anki/pull/5105</li>
+        <li>Mirror toggle switches in RTL layouts by @iDavi in https://github.com/ankitects/anki/pull/5214</li>
+        <li>Apply RTL direction for some languages such as Uyghur in webview pages by @abdnh in https://github.com/ankitects/anki/pull/5274</li>
+        <li>Set webview font size to system font size in preferences menu by @GithubAnon0000 in https://github.com/ankitects/anki/pull/5174</li>
+        <li>Preserve scroll position after collapsing/expanding decks by @abdnh in https://github.com/ankitects/anki/pull/5378</li>
+        <li>Separate add-on entries in Tools menu with separator by @qais8r in https://github.com/ankitects/anki/pull/5124</li>
+        <li>Rename Markdown deck description checkbox to be clearer by @zaveshaa in https://github.com/ankitects/anki/pull/5489</li>
+        <li>Update redirected Browse Add-ons URL by @schmidhauser in https://github.com/ankitects/anki/pull/5290</li>
+        <li>Add a plural form for the tags field label in the editor by @Arthur-Milchior in https://github.com/ankitects/anki/pull/5305</li>
+        <li>Preserve pasted editor images and respect their format preference in the experimental editor by @praxish in https://github.com/ankitects/anki/pull/5568</li>
+        <li>Prefer packaged add-on name for AnkiWeb installs by @schmidhauser in https://github.com/ankitects/anki/pull/5362</li>
+        <li>Ensure editor is initialized before triggering browser hooks by @abdnh in https://github.com/ankitects/anki/pull/5348</li>
+        <li>Avoid KeyError on missing Content-type header in mediasrv by @fernandolins in https://github.com/ankitects/anki/pull/5366</li>
+        <li>Replace asserts inside except clauses with explicit error handling by @fernandolins in https://github.com/ankitects/anki/pull/5365</li>
+        <li>Use 'Add Media' string for the title of the media file picker in the editor by @abdnh in https://github.com/ankitects/anki/pull/5402</li>
+        </ul>
+        <p>Documentation Changes</p>
+        <ul>
+        <li>Add a script to convert documentation in the old mdBook format for inclusion in the new Mintlify-based website by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5483</li>
+        <li>Update Persian manual translation link by @MSadraShakouri in https://github.com/ankitects/anki/pull/5405</li>
+        <li>Document the import_anki_package and export_anki_package APIs by @roostwp07 in https://github.com/ankitects/anki/pull/5328</li>
+        <li>Add tip to disable "check on save" in Rust analyzer on low-end machines by @user1823 in https://github.com/ankitects/anki/pull/4489</li>
+        <li>Clarify docs license by @abdnh in https://github.com/ankitects/anki/pull/5292</li>
+        <li>Exclude docs contributions from BSD license check by @SzilvasiPeter in https://github.com/ankitects/anki/pull/5267</li>
+        <li>Fix typos in https://github.com/ankitects/anki/pull/5158</li>
+        <li>Sync post-migration manual updates by @MSadraShakouri in https://github.com/ankitects/anki/pull/5393</li>
+        <li>Replace docs/ with symlinks by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5031</li>
+        <li>Fix broken links in dev docs by @abdnh in https://github.com/ankitects/anki/pull/5410</li>
+        <li>Clarify Windows x64 and ARM64 installation requirements by @praxish in https://github.com/ankitects/anki/pull/5582</li>
+        </ul>
+        <p>Development Changes</p>
+        <ul>
+        <li>Add unit testing guidelines by @fernandolins in https://github.com/ankitects/anki/pull/5522</li>
+        <li>Reduce dependabot noise with quarterly schedule and major grouping by @fernandolins in https://github.com/ankitects/anki/pull/5280</li>
+        <li>Document dependabot update process by @fernandolins in https://github.com/ankitects/anki/pull/5370</li>
+        <li>Testing: Improve coverage of notes service by @abdnh in https://github.com/ankitects/anki/pull/5509</li>
+        <li>Testing: Cover the decks service layer by @fernandolins in https://github.com/ankitects/anki/pull/5514</li>
+        <li>Preserve FSRS unlock timeout across mounts by @caleblee789 in https://github.com/ankitects/anki/pull/5536</li>
+        <li>Update browser compatibility database to fix CI failure by @abdnh in https://github.com/ankitects/anki/pull/5520</li>
+        <li>Unhook AnkiWebView when destroyed by @iamllama in https://github.com/ankitects/anki/pull/5255</li>
+        <li>Fix legacy editor's media buttons not using the legacy routines by @abdnh in https://github.com/ankitects/anki/pull/5330</li>
+        <li>Update VS Code's settings.json by @abdnh in https://github.com/ankitects/anki/pull/5303</li>
+        <li>Configure mypy extension for VS Code by @abdnh in https://github.com/ankitects/anki/pull/5317</li>
+        <li>Add browse empty/error state i18n strings by @ianoff in https://github.com/ankitects/anki/pull/5263</li>
+        <li>Set CARGO_TARGET_DIR for coverage-rust scripts by @abdnh in https://github.com/ankitects/anki/pull/5266</li>
+        <li>Replace use of EmbarkStudios/cargo-deny-action by @iamllama in https://github.com/ankitects/anki/pull/5180</li>
+        <li>Update Python test coverage threshold by @abdnh in https://github.com/ankitects/anki/pull/5299</li>
+        <li>Replace prepare-release workflow with local script (closes #5273) by @roostwp07 in https://github.com/ankitects/anki/pull/5288</li>
+        <li>Use cargo-nextest for Rust coverage tests (closes #5162) by @roostwp07 in https://github.com/ankitects/anki/pull/5169</li>
+        <li>Add tests for FSRS simulator by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5150</li>
+        <li>Add tests for fixing incorrect last review time entries by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5146</li>
+        <li>Do not let ftl string copy/move land new strings in deprecated sections by @ianoff in https://github.com/ankitects/anki/pull/5332</li>
+        <li>Add portability fixes for FreeBSD by @chrislongros in https://github.com/ankitects/anki/pull/5300</li>
+        <li>Apply a consistent Cargo profile in CI by @abdnh in https://github.com/ankitects/anki/pull/5133</li>
+        <li>Fix missing issue bot does not allow url in linked issues by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5287</li>
+        <li>Move .github/scripts/*.py to tools/ by @abdnh in https://github.com/ankitects/anki/pull/5375</li>
+        <li>Get linked issues using the GitHub API by @abdnh in https://github.com/ankitects/anki/pull/5381</li>
+        <li>Update e2e testing docs by @abdnh in https://github.com/ankitects/anki/pull/5331</li>
+        <li>Fix minilints exclusion for docs changes is not working by @abdnh in https://github.com/ankitects/anki/pull/5315</li>
+        <li>Add <code>rust-analyzer</code> component to .rust-toolchain.toml by @abdnh in https://github.com/ankitects/anki/pull/5260</li>
+        <li>Set <code>strict_optional = True</code> for editor_legacy.py by @abdnh in https://github.com/ankitects/anki/pull/5367</li>
+        <li>Add missing dependencies to ninja's cog actions by @abdnh in https://github.com/ankitects/anki/pull/5341</li>
+        <li>Evaluate SonarCloud as a code quality and coverage tool by @fernandolins in https://github.com/ankitects/anki/pull/4996</li>
+        <li>Only attach handler to add-on's root logger to fix Windows permission errors by @danny900714 in https://github.com/ankitects/anki/pull/5497</li>
+        <li>Remove RELEASE_TOKEN GHA secret by @abdnh in https://github.com/ankitects/anki/pull/5372</li>
+        <li>Avoid setting default isLegacy in the editor by @abdnh in https://github.com/ankitects/anki/pull/5403</li>
+        <li>Improve test coverage of notes.py and tags.py by @abdnh in https://github.com/ankitects/anki/pull/5412</li>
+        <li>Prevent silent skip of PR coverage-regression check on evicted baseline by @fernandolins in https://github.com/ankitects/anki/pull/5480</li>
+        <li>Correct paginate mapFn in prune-coverage-cache workflow by @fernandolins in https://github.com/ankitects/anki/pull/5504</li>
+        <li>Document the <code>anki-audio</code> package by @abdnh in https://github.com/ankitects/anki/pull/5411</li>
+        <li>Docs: Revert "add redirect to english for missing translations" by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5559</li>
+        <li>Fix flaky MathJax loading test by @iamllama in https://github.com/ankitects/anki/pull/5560</li>
+        <li>Bump rust toolchain to 1.97.1 by @iamllama in https://github.com/ankitects/anki/pull/5316</li>
+        <li>Bump the actions group across 1 directory with 14 updates by @dependabot[bot] in https://github.com/ankitects/anki/pull/5272</li>
+        <li>Bump vitest from 3.2.4 to 3.2.6 by @dependabot[bot] in https://github.com/ankitects/anki/pull/4973</li>
+        <li>Bump tar from 7.5.7 to 7.5.22 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5239</li>
+        <li>Drop vulnerable h2 0.3.x, update h2 to 0.4.17 (RUSTSEC-2026-0258) by @fernandolins in https://github.com/ankitects/anki/pull/5376</li>
+        <li>Bump the python-minor-patch group across 1 directory with 14 updates by @dependabot[bot] in https://github.com/ankitects/anki/pull/5310</li>
+        <li>Bump the actions group with 3 updates by @dependabot[bot] in https://github.com/ankitects/anki/pull/5311</li>
+        <li>Bump anki-audio to 0.2.3 by @abdnh in https://github.com/ankitects/anki/pull/5409</li>
+        <li>Bump esbuild from 0.28.0 to 0.28.1 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5008</li>
+        <li>Bump vite from 6.4.2 to 6.4.3 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5026</li>
+        <li>Bump pip from 26.1 to 26.1.2 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5132</li>
+        <li>Bump brace-expansion from 1.1.12 to 1.1.16 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5179</li>
+        <li>Bump immutable from 5.1.5 to 5.1.9 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5191</li>
+        <li>Bump svgo from 3.3.3 to 3.3.4 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5195</li>
+        <li>Bump form-data from 4.0.4 to 4.0.6 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5200</li>
+        <li>Bump quinn-proto from 0.11.14 to 0.11.16 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5221</li>
+        <li>Bump ws from 8.20.1 to 8.21.0 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5027</li>
+        <li>Bump gitpython from 3.1.49 to 3.1.57 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5268</li>
+        <li>Bump postcss from 8.5.10 to 8.5.24 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5271</li>
+        <li>Bump urllib3 from 2.6.3 to 2.7.0 by @dependabot[bot] in https://github.com/ankitects/anki/pull/4989</li>
+        <li>Bump soupsieve from 2.7 to 2.8.4 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5139</li>
+        <li>Bump starlette from 1.0.0 to 1.3.1 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5194</li>
+        <li>Bump the npm-minor-patch group across 1 directory with 13 updates by @dependabot[bot] in https://github.com/ankitects/anki/pull/5309</li>
+        <li>Bump brace-expansion from 1.1.16 to 1.1.18 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5479</li>
+        <li>Bump browserslist from 4.24.2 to 4.28.8 by @dependabot[bot] in https://github.com/ankitects/anki/pull/5508</li>
+        </ul>
+        <p>New Contributors</p>
+        <ul>
+        <li>@qais8r made their first contribution in https://github.com/ankitects/anki/pull/5124</li>
+        <li>@schmidhauser made their first contribution in https://github.com/ankitects/anki/pull/5290</li>
+        <li>@SzilvasiPeter made their first contribution in https://github.com/ankitects/anki/pull/5267</li>
+        <li>@JaksonSouza made their first contribution in https://github.com/ankitects/anki/pull/5320</li>
+        <li>@MSadraShakouri made their first contribution in https://github.com/ankitects/anki/pull/5405</li>
+        <li>@danny900714 made their first contribution in https://github.com/ankitects/anki/pull/5497</li>
+        <li>@MendezCarl made their first contribution in https://github.com/ankitects/anki/pull/5484</li>
+        <li>@zaveshaa made their first contribution in https://github.com/ankitects/anki/pull/5407</li>
+        <li>@jamesliuai made their first contribution in https://github.com/ankitects/anki/pull/5241</li>
+        <li>@caleblee789 made their first contribution in https://github.com/ankitects/anki/pull/5536</li>
+        <li>@praxish made their first contribution in https://github.com/ankitects/anki/pull/5582</li>
+        </ul>
+        <p><em>Full Changelog</em>: https://github.com/ankitects/anki/compare/26.08.1...26.09</p>
       </description>
     </release>
   </releases>
