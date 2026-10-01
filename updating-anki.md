@@ -5,18 +5,21 @@ How to move this package from one Anki release to the next (e.g. 26.05 → 26.08
 ## The automated way
 
 When a stable Anki release is published, Anki's `sync-release.yml` workflow runs
-`scripts/update-anki.py` and opens a PR here named `Update to <version>`. The script does
-steps 1–4, 6 and 7 below. You can also run it locally (needs `uv`, `git` and the KDE SDK
-from the prerequisites):
+`scripts/update-anki.py` and uploads the result as a patch artifact. The script does
+steps 1–4, 6 and 7 below. The workflow has no write access to this repo. It comments on
+Anki's release PR (the one that merges the release branch into `main`) with a report and
+the commands that apply the patch here and open the PR.
+
+You can also run the script locally (needs `uv`, `git` and the KDE SDK from the
+prerequisites):
 
 ```shell
 uv run scripts/update-anki.py 26.08
 ```
 
 It exits with status 2 if something needs a manual fix (a patch that does not apply, a
-metainfo validation error). The workflow then opens the PR as a draft, and the PR body
-lists the problems. Use the steps below to fix them on the PR branch, then build and test
-(step 8) before you merge.
+metainfo validation error). The report's "Needs attention" section lists the problems. Use
+the steps below to fix them on the branch, then build and test (step 8) before you merge.
 
 The rest of this file describes each step, for when the script fails or you need to do a
 step by hand.
