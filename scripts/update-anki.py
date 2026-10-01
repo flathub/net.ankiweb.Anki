@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["markdown", "packaging", "pyyaml"]
+# dependencies = ["packaging", "pyyaml"]
 # ///
 """Move the package to a new Anki release. See updating-anki.md.
 
@@ -24,7 +24,6 @@ import tomllib
 import urllib.request
 from pathlib import Path
 
-import markdown
 import yaml
 from packaging.requirements import Requirement
 from packaging.utils import canonicalize_name
@@ -45,7 +44,6 @@ YARN_URL = (
 # PyQt comes from the BaseApp, not from pip.
 PYQT_PACKAGES = {"pyqt6", "pyqt6-qt6", "pyqt6-webengine", "pyqt6-webengine-qt6"}
 LINUX_MARKER_ENV = {"sys_platform": "linux", "platform_system": "Linux", "os_name": "posix"}
-APPSTREAM_TAGS = ("p", "ul", "ol", "li", "em", "code")
 
 
 def run(*cmd: str | Path, **kwargs) -> subprocess.CompletedProcess:
@@ -161,33 +159,11 @@ def check_patches(problems: list[str]) -> None:
                 problems.append(f"`{patch}` does not apply:\n\n```\n{result.stderr.strip()}\n```")
 
 
-def md_to_appstream(md_text: str) -> str:
-    md_text = md_text.replace("\r\n", "\n")
-    md_text = re.sub(r"^#+ What's Changed\s*$", "", md_text, flags=re.MULTILINE)
-    html = markdown.markdown(md_text)
-    html = re.sub(r"<(/?)(?:strong|b)>", r"<\1em>", html)
-    html = re.sub(r"<h[1-6][^>]*>(.*?)</h[1-6]>", r"<p>\1</p>", html, flags=re.DOTALL)
-    html = re.sub(r"<br\s*/?>", " ", html)
-    # <p> is not allowed inside <li> (loose Markdown lists produce it).
-    html = re.sub(
-        r"<li>(.*?)</li>",
-        lambda m: "<li>" + re.sub(r"</?p>", "", m[1]).strip() + "</li>",
-        html,
-        flags=re.DOTALL,
-    )
-    allowed = "|".join(APPSTREAM_TAGS)
-    html = re.sub(rf"</?(?!(?:{allowed})>)[a-zA-Z][^>]*>", "", html)
-    return html.strip()
-
-
 def update_metainfo(tag: str, release: dict) -> None:
     date = release["published_at"][:10]
-    body = "\n".join(
-        f"        {line}" if line else "" for line in md_to_appstream(release.get("body") or "").splitlines()
-    )
     entry = (
         f'  <releases>\n    <release version="{tag}" date="{date}">\n'
-        f"      <description>\n{body}\n      </description>\n    </release>\n  </releases>"
+        f'      <url type="details">{release["html_url"]}</url>\n    </release>\n  </releases>'
     )
     text = METAINFO.read_text(encoding="utf-8")
     new, count = re.subn(r"  <releases>.*?</releases>", lambda _: entry, text, flags=re.DOTALL)

@@ -33,36 +33,7 @@
   </branding>
   <releases>
     <release version="26.09.3" date="2026-09-23">
-      <description>
-        <p>What's Changed</p>
-        <p>⚠️ Please upgrade to 26.09+ as soon as possible as it includes important security fixes.</p>
-        <p>Fixes</p>
-        <ul>
-        <li>Fix system-wide app upgrades on Windows not properly replacing old versions and causing startup crashes by @abdnh in https://github.com/ankitects/anki/pull/5626</li>
-        <li>Fix "Card modified" error in the Cards Info screen when FSRS disabled or memory state is missing by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5648</li>
-        <li>Append app version to the extracted tarball directory name on Linux by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5662</li>
-        <li>Force software rendering in safe mode by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5637</li>
-        <li>Fix the "Please restart to save changes" message shown multiple times in the preferences screen in some cases by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5641</li>
-        </ul>
-        <p>Documentation</p>
-        <ul>
-        <li>Improve manual translation instructions by @wofiporia in https://github.com/ankitects/anki/pull/5519</li>
-        </ul>
-        <p>Development</p>
-        <ul>
-        <li>Update Python dependencies to match bundled dependencies in 26.05+ by @abdnh in https://github.com/ankitects/anki/pull/5625</li>
-        <li>Update Rust dependencies to fix CI failure by @abdnh in https://github.com/ankitects/anki/pull/5608</li>
-        <li>Add tests for config.py and stdmodels.py by @roostwp07 and @fernandolins in https://github.com/ankitects/anki/pull/5513</li>
-        <li>CI: Track releases in the SonarCloud project version by @fernandolins in https://github.com/ankitects/anki/pull/5634</li>
-        <li>CI: Fetch PR base branch so SonarCloud diffs only changed files by @fernandolins in https://github.com/ankitects/anki/pull/5659</li>
-        <li>Refactor: use col.fsrs_enabled in more places by @Luc-Mcgrady in https://github.com/ankitects/anki/pull/5651</li>
-        </ul>
-        <p>New Contributors</p>
-        <ul>
-        <li>@wofiporia made their first contribution in https://github.com/ankitects/anki/pull/5519</li>
-        </ul>
-        <p><em>Full Changelog</em>: https://github.com/ankitects/anki/compare/26.09.2...26.09.3</p>
-      </description>
+      <url type="details">https://github.com/ankitects/anki/releases/tag/26.09.3</url>
     </release>
   </releases>
   <provides>

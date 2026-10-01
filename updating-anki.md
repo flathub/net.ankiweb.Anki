@@ -229,23 +229,18 @@ If upstream fixes something a patch works around, delete the patch and drop it f
 ## Step 7 — update the metainfo
 
 `net.ankiweb.Anki.metainfo.xml` keeps a single `<release>` entry for the shipped version.
-Replace it with the new version, the upstream release date, and the release notes:
+Replace it with the new version, the upstream release date, and a link to the GitHub release:
 
 ```xml
   <releases>
     <release version="26.08" date="2026-08-01">
-      <description>
-        <p>...</p>
-      </description>
+      <url type="details">https://github.com/ankitects/anki/releases/tag/26.08</url>
     </release>
   </releases>
 ```
 
 Notes:
 
-- Only a limited subset of tags is allowed (`p`, `ul`, `ol`, `li`, `em`, `code`). Pasting
-  GitHub release Markdown wholesale will fail validation — convert headings to `<p>` and
-  escape entities (`_Tools&gt;Check For Updates_`).
 - Use `appstreamcli validate net.ankiweb.Anki.metainfo.xml` to validate the file (or let the Flathub build-bot run
   it on the PR).
 - Watch for a stray release entry with a PyPI-looking version such as `2026.6.1.19` — the
