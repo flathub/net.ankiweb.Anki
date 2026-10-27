@@ -163,8 +163,8 @@ modules:
         --prefix=${FLATPAK_DEST} "uv" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/d2/dc/4eeb6d05aa5e4507dfbe4784e1c5ecd96cb317dfe2e141f36231c3db1758/uv-0.11.22-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: daaa65c5246e70e934df970aee04454c120f11bab09ce2634c5184bf1f16fe61
+        url: https://files.pythonhosted.org/packages/4b/a1/de02c0913726728eca56ee258875cbba9c7b0572c63f494fd9f55c7852e3/uv-0.13.4-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 05e4332791b4d55b6dde8695b7fa6079b26991519f44760887c5dfbd5ca4fe53
         only-arches:
           - x86_64
         x-checker-data:
@@ -174,8 +174,8 @@ modules:
           url-query: .releases | .[$version][] | select(.filename=="uv-" + $version
             + "-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl") | .url
       - type: file
-        url: https://files.pythonhosted.org/packages/03/ec/6663d99bb2cd94bba816769dcb4e784b9742ef62ca377d3b15db27fc0408/uv-0.11.22-py3-none-manylinux_2_28_aarch64.whl
-        sha256: 5ec90d63a9f5f9894a8334612365daa2aba185f80ef530696afce23c1a18b711
+        url: https://files.pythonhosted.org/packages/a8/cd/f4a3c7377674366798c56aabd0f9a1f05687c3939f5ba857a3ea6093ff84/uv-0.13.4-py3-none-manylinux_2_28_aarch64.whl
+        sha256: 7b3cdf868e5415631fe797b648c0d6945d38d388f23367bdd0b6332e80a1fcb0
         only-arches:
           - aarch64
         x-checker-data:
