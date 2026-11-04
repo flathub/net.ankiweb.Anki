@@ -1,12 +1,11 @@
 #!/usr/bin/env -S uv run --script
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["packaging", "pyyaml"]
+# dependencies = ["pyyaml"]
 # ///
 """Move the package to a new Anki release. See updating-anki.md.
 
-Edits the manifest, the vendored sources, requirements.in and the metainfo
-in place. Exits with status 2 if something needs a manual look; the report
+Edits the manifest, the vendored sources and the metainfo in place. Exits with status 2 if something needs a manual look; the report
 (stdout, and --report if given) says what.
 """
 
@@ -20,13 +19,10 @@ import re
 import shutil
 import subprocess
 import sys
-import tomllib
 import urllib.request
 from pathlib import Path
 
 import yaml
-from packaging.requirements import Requirement
-from packaging.utils import canonicalize_name
 
 ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "net.ankiweb.Anki.yaml"
@@ -40,10 +36,6 @@ YARN_URL = (
     "https://raw.githubusercontent.com/yarnpkg/berry/refs/tags/"
     "%40yarnpkg/cli/{version}/packages/yarnpkg-cli/bin/yarn.js"
 )
-
-# PyQt comes from the BaseApp, not from pip.
-PYQT_PACKAGES = {"pyqt6", "pyqt6-qt6", "pyqt6-webengine", "pyqt6-webengine-qt6"}
-LINUX_MARKER_ENV = {"sys_platform": "linux", "platform_system": "Linux", "os_name": "posix"}
 
 
 def run(*cmd: str | Path, **kwargs) -> subprocess.CompletedProcess:
@@ -107,26 +99,6 @@ def update_yarn(manifest: str, notes: list[str]) -> str:
     sha256 = hashlib.sha256(fetch(url)).hexdigest()
     notes.append(f"Bumped yarn from {current[2]} to {version}.")
     return manifest[: current.start()] + f"url: {url}{current[3]}{sha256}" + manifest[current.end() :]
-
-
-def write_requirements_in() -> None:
-    lines: list[str] = []
-    seen: set[str] = set()
-    for label, path in (("anki (pylib)", "pylib"), ("aqt", "qt")):
-        project = tomllib.loads((ANKI / path / "pyproject.toml").read_text(encoding="utf-8"))["project"]
-        if lines:
-            lines.append("")
-        lines.append(f"# {label}")
-        for dep in project["dependencies"]:
-            req = Requirement(dep)
-            name = canonicalize_name(req.name)
-            if name in PYQT_PACKAGES or name in seen:
-                continue
-            if req.marker and not req.marker.evaluate(LINUX_MARKER_ENV):
-                continue
-            seen.add(name)
-            lines.append(dep)
-    (ROOT / "requirements.in").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
 def regenerate_sources(problems: list[str]) -> None:
@@ -193,7 +165,7 @@ def write_report(tag: str, notes: list[str], problems: list[str], path: str | No
         parts.append("## Notes\n\n" + "\n".join(f"- {n}" for n in notes))
     parts.append(
         "## Before merging\n\n"
-        "- [ ] Review the `requirements.in` diff against the upstream pyproject files.\n"
+        "- [ ] Check `python3-modules.json` covers any new upstream Python dependency (PyQt is excluded).\n"
         "- [ ] Check the Flathub test build, then install and try it (step 8 in `updating-anki.md`)."
     )
     report = f"Updates Anki to [{tag}]({ANKI_URL}/releases/tag/{tag}).\n\n" + "\n\n".join(parts) + "\n"
@@ -220,7 +192,6 @@ def main() -> int:
     manifest = update_yarn(manifest, notes)
     MANIFEST.write_text(manifest, encoding="utf-8", newline="\n")
 
-    write_requirements_in()
     regenerate_sources(problems)
     check_patches(problems)
     update_metainfo(args.tag, release)
