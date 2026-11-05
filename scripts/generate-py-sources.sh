@@ -13,4 +13,4 @@ if grep -nE ';.*(python_(full_)?version|platform_machine)' python-requirements.t
     "flatpak-pip-generator cannot evaluate; see updating-anki.md, step 4" >&2
   exit 1
 fi
-uv run ./flatpak-builder-tools/pip/flatpak-pip-generator.py --runtime="org.kde.Sdk//$runtime" --requirements-file=./python-requirements.txt --checker-data -o python3-modules.json --prefer-wheels=rpds-py,orjson,markupsafe
+uv run ./flatpak-builder-tools/pip/flatpak-pip-generator.py --runtime="org.kde.Sdk//$runtime" --requirements-file=./python-requirements.txt --checker-data -o python3-modules.json --prefer-wheels=rpds-py,orjson,markupsafe --ignore-installed=markupsafe

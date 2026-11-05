@@ -182,7 +182,14 @@ Things to know about that script:
 - The generator skips packages that the runtime already ships (`markdown` and
   `packaging` today). The KDE SDK and Platform inherit them from the Freedesktop runtime,
   so the app uses the runtime's versions instead of the ones in `uv.lock`, and those
-  versions change with runtime updates.
+  versions change with runtime updates. The skipped packages are a fixed list in
+  `flatpak-pip-generator.py`, not what the runtime actually ships.
+- `--ignore-installed=markupsafe` is needed because the runtime also ships MarkupSafe
+  (a Mako dependency), but that name is not on the generator's skip list. Without the
+  flag, pip tries to uninstall the runtime's copy from the read-only `/usr` whenever
+  `uv.lock` pins a different version, and the build fails with
+  `Read-only file system`. If another locked package fails like this, add it to this
+  list.
 - `--runtime=org.kde.Sdk//<version>` is read from `runtime-version` in the manifest, and
   that SDK must be installed.
 - `--prefer-wheels=rpds-py,orjson,markupsafe` forces prebuilt wheels for packages whose
