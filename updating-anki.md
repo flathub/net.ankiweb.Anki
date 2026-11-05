@@ -35,11 +35,7 @@ lockfile-shaped JSON **before** the build can see it:
 |-------------|-------------------|------------------------|-------------------------------------|
 | Rust        | `Cargo.lock`      | `cargo-sources.json`   | `scripts/generate-cargo-sources.py` |
 | Node / yarn | `yarn.lock`       | `yarn-sources.json`    | `flatpak-node-generator`            |
-| Python      | `requirements.in` | `python3-modules.json` | `scripts/generate-py-sources.sh`    |
-
-The Python side is different from the other two: it does **not** read an upstream lockfile.
-`requirements.in` is a mirror of Anki's runtime dependencies, taken from the pyproject
-files (see step 4).
+| Python      | `uv.lock`         | `python3-modules.json` | `scripts/generate-py-sources.sh`    |
 
 On top of that, the manifest pins several build tools by exact version and checksum
 (`yarn.cjs`, `protoc`, `uv`, `maturin`, the hatchling build-constraint wheels). A new Anki
@@ -145,19 +141,7 @@ it will just build with the wrong yarn.)
 
 ## Step 4 — regenerate the Python modules
 
-First reconcile `requirements.in` with upstream. The file is grouped by Anki component:
-
-```
-# anki (pylib)   -> anki/pylib/pyproject.toml   [project] dependencies
-# aqt            -> anki/qt/pyproject.toml      [project] dependencies
-```
-
-Diff those two dependency lists against `requirements.in` and add/remove/adjust bounds to
-match. PyQt itself is **not** listed — it comes from the PyQt BaseApp, not from pip.
-`update-anki.py` writes this file for you: it copies both lists, and drops PyQt, duplicates
-and dependencies whose markers exclude Linux.
-
-Then:
+With `anki/` checked out at the new tag (step 1), run:
 
 ```shell
 ./scripts/generate-py-sources.sh
@@ -165,15 +149,49 @@ Then:
 
 which does two things:
 
-1. `uv pip compile` resolves `requirements.in` into the pinned, hashed
-   `python-requirements.txt` (gitignored — it is an intermediate).
+1. `uv export --frozen` reads `anki/uv.lock` and writes the pinned, hashed runtime
+   dependencies of the `anki` and `aqt` packages to `python-requirements.txt` (gitignored).
 2. `flatpak-pip-generator.py` turns that into `python3-modules.json`.
 
-Two flags in that script matter:
+Things to know about that script:
 
+- PyQt (`pyqt6`, `pyqt6-qt6`, `pyqt6-sip`, `pyqt6-webengine`, `pyqt6-webengine-qt6`) is
+  left out of the export with `--no-emit-package`, because it comes from the PyQt BaseApp,
+  not from pip. If upstream adds another PyQt package, exclude it too: the generator
+  refuses PyQt packages by printing "Please use the baseapp" and exiting with status 0
+  **without writing `python3-modules.json`**. Since the exit status is 0, the script does
+  not fail. If the JSON did not change after a feature release, look for that message.
+- The export is universal: it covers every platform. The generator drops lines with a
+  `sys_platform` marker that excludes Linux (`pywin32`, `anki-mac-helper`). It does
+  **not** reliably evaluate Python version markers (`python_version`,
+  `python_full_version`) or `platform_machine`. The script therefore stops with an error
+  if the export contains any of them, and prints the offending lines. To handle one:
+  - If the marker excludes the runtime's Python (or both `x86_64` and `aarch64`), the
+    dependency is not needed. Add `--no-emit-package <name>` to the `uv export` call.
+  - If the marker includes the runtime's Python on both arches, the dependency is
+    needed. Delete the marker from its line in `python-requirements.txt`, then run the
+    script's last command (`flatpak-pip-generator.py ...`) by hand.
+  - If upstream locks different versions for different Pythons, keep the line that
+    matches the runtime's Python, delete the others and their markers, then run the
+    generator by hand as above.
+  - If it keeps coming up, consider making the script evaluate markers instead of
+    stopping.
+
+  The runtime's Python version is printed by
+  `flatpak run --command=python3 org.kde.Sdk//<version> --version`.
+- The generator skips packages that the runtime already ships (`markdown` and
+  `packaging` today). The KDE SDK and Platform inherit them from the Freedesktop runtime,
+  so the app uses the runtime's versions instead of the ones in `uv.lock`, and those
+  versions change with runtime updates. The skipped packages are a fixed list in
+  `flatpak-pip-generator.py`, not what the runtime actually ships.
+- `--ignore-installed=markupsafe` is needed because the runtime also ships MarkupSafe
+  (a Mako dependency), but that name is not on the generator's skip list. Without the
+  flag, pip tries to uninstall the runtime's copy from the read-only `/usr` whenever
+  `uv.lock` pins a different version, and the build fails with
+  `Read-only file system`. If another locked package fails like this, add it to this
+  list.
 - `--runtime=org.kde.Sdk//<version>` is read from `runtime-version` in the manifest, and
   that SDK must be installed.
-- `--python-version 3.13` must match the Python in the runtime.
 - `--prefer-wheels=rpds-py,orjson,markupsafe` forces prebuilt wheels for packages whose
   source builds need network or a Rust toolchain we do not want to run there. If a new
   dependency fails to build offline for the same reason, add it to this list.
